@@ -8,6 +8,7 @@ const Page = () => {
       <MediaHeader />
       <MediaFilter />
       <VendorMediaContainer />
+      
     </div>
   );
 };

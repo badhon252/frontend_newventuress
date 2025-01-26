@@ -31,7 +31,7 @@ const TableContainer = ({
   });
   return (
     <>
-      <DataTable table={table} columns={columns} title="Media List" />
+      <DataTable table={table} columns={columns} title="Media List" /> 
     </>
   );
 };

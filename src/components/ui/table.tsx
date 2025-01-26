@@ -6,10 +6,14 @@ const Table = React.forwardRef<
   HTMLTableElement,
   React.HTMLAttributes<HTMLTableElement>
 >(({ className, ...props }, ref) => (
-  <div className="relative w-full overflow-auto">
+  <div className="relative w-full overflow-auto px-[32px]">
     <table
       ref={ref}
       className={cn("w-full caption-bottom text-sm", className)}
+      style={{
+        borderCollapse: "separate",
+        borderSpacing: "0 30px", 
+      }}
       {...props}
     />
   </div>
@@ -20,7 +24,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+  <thead ref={ref} className={cn("[&_tr]:border-b h-[59px]", className)}  {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -30,7 +34,8 @@ const TableBody = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <tbody
     ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
+    className={cn("[&_tr:last-child]:border-0 h-[120px]", className)}
+    
     {...props}
   />
 ));
@@ -58,9 +63,14 @@ const TableRow = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-      "border-b p-[16px] transition-colors bg-white hover:bg-[#E6EEF6] data-[state=selected]:bg-muted",
+      "border-b p-[16px] transition-colors  hover:bg-[#E6EEF6] data-[state=selected]:bg-muted",
       className
     )}
+    style={{
+      boxShadow: "0px 0px 10px 3px #C1C9E4",
+      borderRadius: "12px",
+      overflow: "hidden",
+    }}
     {...props}
   />
 ));
@@ -73,9 +83,12 @@ const TableHead = React.forwardRef<
   <th
     ref={ref}
     className={cn(
-      "h-10 px-2 text-left align-middle font-medium text-muted-foreground bg-[#E6E6E6] [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px] ",
+      "h-10 px-2 text-left align-middle font-medium text-muted-foreground bg-[#E6EEF6] [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
       className
     )}
+    style={{
+      boxShadow: "none",
+    }}
     {...props}
   />
 ));

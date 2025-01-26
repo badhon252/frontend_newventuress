@@ -15,14 +15,16 @@ const initialState: {
   email: string;
   fullName: string;
   password: string;
+  confirmPassword: string;
   businesses: Business[];
 } = {
   email: "",
   fullName: "",
+  password: "",
+  confirmPassword: "",
   industry: "",
   profession: [],
 
-  password: "",
   businesses: [],
 };
 

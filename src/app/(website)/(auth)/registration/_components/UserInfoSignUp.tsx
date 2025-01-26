@@ -61,7 +61,7 @@ export default function UserInformationForm() {
       email: authState.email,
       fullName: authState.fullName,
       password: authState.password,
-      confirmPassword: authState.password,
+      confirmPassword: authState.confirmPassword,
       agreed: false,
     },
   });
@@ -224,7 +224,16 @@ export default function UserInformationForm() {
                         passwordVisibility.confirmPassword ? "text" : "password"
                       }
                       placeholder="Confirm your password"
-                      {...field}
+                      onChange={(e) => {
+                        dispatch(
+                          setRegistrationValue({
+                            confirmPassword: e.target.value,
+                          })
+                        );
+
+                        field.onChange(e.target.value);
+                      }}
+                      value={field.value}
                     />
                     <button
                       type="button"

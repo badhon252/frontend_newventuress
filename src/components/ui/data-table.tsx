@@ -29,7 +29,7 @@ export function DataTable<TData, TValue>({
   return (
     <div className="rounded-md border py-[32px] bg-white">
       <div className="bg-primary px-4 py-3 mx-[32px] rounded-t-lg">
-        <h2 className="text-lg font-semibold text-[#FFFFFF]">{title}</h2>
+        <h2 className="text-[28px] font-semibold text-[#FFFFFF]">{title}</h2>
       </div>
       <Table className="">
         <TableHeader>
@@ -61,6 +61,7 @@ export function DataTable<TData, TValue>({
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
+                
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}

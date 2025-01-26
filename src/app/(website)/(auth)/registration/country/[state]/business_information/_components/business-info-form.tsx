@@ -2,11 +2,9 @@
 
 // Packages
 import { Plus } from "lucide-react";
-import { useRouter } from "next-nprogress-bar";
 import Link from "next/link";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toast } from "sonner";
 
 // Local imports
 import { AdminApprovalModal } from "@/app/(website)/(auth)/_components/admin-aproval-modal";
@@ -30,11 +28,8 @@ export function BusinessInfoForm() {
     resellerLicense: "",
   };
 
-  const isRecreational = authState.type === "Recreational Cannabis";
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,17 +37,6 @@ export function BusinessInfoForm() {
 
   const submitForm = () => {
     console.log(authState);
-    if (isRecreational) {
-      setIsModalOpen(true);
-    } else {
-      // Code you business logic here...
-
-      toast.success("Your account is ready! ");
-
-      setTimeout(() => {
-        router.push("/login");
-      }, 500);
-    }
 
     dispatch(resetAuthSlice());
   };

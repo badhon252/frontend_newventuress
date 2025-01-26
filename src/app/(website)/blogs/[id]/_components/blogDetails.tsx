@@ -6,7 +6,7 @@ import React from 'react';
 function BlogDetails() {
     return (
         <div>
-            <article className="mb-8 bg-primary-light rounded-lg">
+            <article className="mb-8 bg-[#E6EEF6] rounded-lg">
                 <div className='overflow-hidden'>
                 <Image
                     src="/assets/blogs/blogs.png"
@@ -17,7 +17,7 @@ function BlogDetails() {
                 />
                 </div>
                 <div className='p-4'>
-                    <h2 className="text-[28px] leading-[33.6px] font-semibold text-[#2A6C2D] mb-4">Germany &#39;s Pioneering Cannabis Legislation: Setting a Precedent for the EU</h2>
+                    <h2 className="text-[28px] leading-[33.6px] font-semibold text-gradient mb-4">Germany &#39;s Pioneering Cannabis Legislation: Setting a Precedent for the EU</h2>
                     <div className="flex gap-5 flex-wrap text-[#444444] font-[16px] leading-[19.2px] mb-4">
                         <div className='flex items-center gap-1'>
                             <span><Calendar className='w-[20px] h-[20px]' /></span>

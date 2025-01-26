@@ -43,15 +43,15 @@ export function VendorCard({ vendor }: VendorCardProps) {
 
           <div className="space-y-3 text-sm">
             <div className="flex items-start gap-3  md:text-xl">
-              <MapPin className="w-5 h-5 text-[#2A6C2D] shrink-0 mt-0.5" />
+              <MapPin className="w-5 h-5 text-[#0057A8] shrink-0 mt-0.5" />
               <span className="text-gray-700">{vendor.address}</span>
             </div>
             <div className="flex items-center gap-3 md:text-xl ">
-              <Phone className="w-5 h-5 text-[#2A6C2D]" />
+              <Phone className="w-5 h-5 text-[#0057A8]" />
               <span className="text-gray-700">{vendor.phone}</span>
             </div>
             <div className="flex items-center gap-3 md:text-xl">
-              <Mail className="w-5 h-5 text-[#2A6C2D]" />
+              <Mail className="w-5 h-5 text-[#0057A8]" />
               <span className="text-gray-700">{vendor.email}</span>
             </div>
           </div>
@@ -59,7 +59,7 @@ export function VendorCard({ vendor }: VendorCardProps) {
       </CardContent>
 
       <CardFooter className="p-6 pt-0">
-        <Button className="text-sm bg-[#2A6C2D] hover:bg-[#235B26] text-white font-medium hover:gap-4 transition-all">
+        <Button className="text-sm bg-primary hover:bg-primary-hover text-white font-medium hover:gap-4 transition-all">
           Visit Store
           <MoveRight className="w-4 h-4 mr-2" />
         </Button>

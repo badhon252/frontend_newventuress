@@ -71,7 +71,11 @@ const PacificPagination: React.FC<PaginationProps> = ({
               } else handlePageClick(currentPage - 1);
             }}
             className={cn(
+<<<<<<< HEAD
               "border cursor-pointer  border-[#0057A8] hover:bg-primary hover:text-white ",
+=======
+              "border border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
+>>>>>>> 4235ba63ba00a89f402129f9014b9c0e7ce1a563
               currentPage === 1 &&
               
                 "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
@@ -88,10 +92,17 @@ const PacificPagination: React.FC<PaginationProps> = ({
             <PaginationLink
               onClick={() => handlePageClick(page)}
               className={cn(
+<<<<<<< HEAD
                 "border cursor-pointer border-[#0057A8] hover:bg-primary hover:text-white ",
                 page === currentPage
                   ? "bg-primary text-white"
                   : "hover:bg-primary hover:text-white text-gradient"
+=======
+                "border border-[#152764] cursor-pointer hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-white",
+                page === currentPage
+                  ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white"
+                  : "hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] text-gradient hover:text-[#4857BD]"
+>>>>>>> 4235ba63ba00a89f402129f9014b9c0e7ce1a563
               )}
             >
               {page === "..." ? "..." : page}
@@ -109,7 +120,11 @@ const PacificPagination: React.FC<PaginationProps> = ({
               }
             }}
             className={cn(
+<<<<<<< HEAD
               "border border-[#0057A8] hover:bg-primary hover:text-white hover:cursor-pointer",
+=======
+              "border border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA]  hover:text-[#4857BD]",
+>>>>>>> 4235ba63ba00a89f402129f9014b9c0e7ce1a563
               currentPage === totalPages &&
                 "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
             )}

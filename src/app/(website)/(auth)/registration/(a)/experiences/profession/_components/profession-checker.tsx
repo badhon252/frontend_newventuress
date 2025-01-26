@@ -36,11 +36,11 @@ export default function ProfessionChecker() {
   const authState = useAppSelector((state) => state.auth);
 
   // check if prev form value not found
-  const { type } = authState;
+  const { industry } = authState;
 
   // if prev state value not found then start from first
 
-  if (!type) {
+  if (!industry) {
     redirect("/registration");
   }
 

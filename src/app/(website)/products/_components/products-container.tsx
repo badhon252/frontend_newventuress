@@ -6,6 +6,7 @@ import { featureProducts } from "@/data/featured";
 import { RootState, useAppSelector } from "@/redux/store";
 import { useState } from "react";
 import SidebarFilters from "./SidebarFilters";
+import ProductsSort from "./products-sort";
 
 const ProductsContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,6 +31,15 @@ const ProductsContainer = () => {
   return (
     <div className="container section lg:mb-[150px]">
       <SectionHeading heading="Products" subheading="" />
+
+      {/* product sort  */}
+      <div className="container h-[50px] flex items-center justify-end bg-[#F9FAFD] shadow-[0px_4px_4px_0px_#00000026] p-[8px] rounded-[8px] mt-[40px]">
+        <div>
+          <ProductsSort />
+        </div>
+
+      </div>
+
       <div className="flex flex-wrap gap-4 items-start">
         {/* Sidebar Filters */}
         <div className="w-full md:w-1/4">

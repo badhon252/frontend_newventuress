@@ -71,7 +71,7 @@ const PacificPagination: React.FC<PaginationProps> = ({
               } else handlePageClick(currentPage - 1);
             }}
             className={cn(
-              "border border-primary-green-hover hover:bg-primary-green-hover hover:text-white",
+              "border border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
               currentPage === 1 &&
                 "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
             )}
@@ -87,10 +87,10 @@ const PacificPagination: React.FC<PaginationProps> = ({
             <PaginationLink
               onClick={() => handlePageClick(page)}
               className={cn(
-                "border cursor-pointer border-primary-green-hover hover:bg-[#2A6C2D] hover:text-white",
+                "border border-[#152764] cursor-pointer hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-white",
                 page === currentPage
-                  ? "bg-[#2A6C2D] text-white"
-                  : "hover:bg-primary-green-hover hover:text-white text-[#2A6C2D]"
+                  ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white"
+                  : "hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] text-gradient hover:text-[#4857BD]"
               )}
             >
               {page === "..." ? "..." : page}
@@ -108,7 +108,7 @@ const PacificPagination: React.FC<PaginationProps> = ({
               }
             }}
             className={cn(
-              "border border-primary-green-hover hover:bg-primary-green-hover hover:text-white",
+              "border border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA]  hover:text-[#4857BD]",
               currentPage === totalPages &&
                 "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
             )}

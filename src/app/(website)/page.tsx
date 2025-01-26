@@ -8,7 +8,7 @@ import AboutSection from "@/components/shared/sections/about-section";
 import PopularBlog from "@/components/shared/sections/popularBlogs/popularBlogs";
 import BestOffer from "./_components/best_offer";
 import DealOfTheDay from "./_components/deal_of_the_day";
-import FAQSection from "@/components/faq-accordion";
+import FAQSection from "@/components/FAQSection/FAQSection";
 
 const Page = async () => {
   const loggedin = true;

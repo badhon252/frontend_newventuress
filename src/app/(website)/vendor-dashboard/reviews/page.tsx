@@ -1,5 +1,14 @@
-const Page = () => {
-  return <div>Vendor Dashboard Reviews</div>;
-};
+import React from 'react'
+import ReviewContainer from './_components/ReviewContainer'
 
-export default Page;
+const page = () => {
+  return (
+    <div>
+
+<ReviewContainer/>
+
+    </div>
+  )
+}
+
+export default page

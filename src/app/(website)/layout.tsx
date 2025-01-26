@@ -39,7 +39,7 @@ export default async function RootLayout({
         <html lang="en">
           <body className={cn("antialiased", inter.className)}>
             <div>
-              <Navbar />
+              <Navbar loggedin={!!session} />
             </div>
             <LocomotiveWrapper>
               <AgeRestrictionGuard>{children}</AgeRestrictionGuard>

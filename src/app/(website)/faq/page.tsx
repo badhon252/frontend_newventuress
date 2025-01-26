@@ -1,8 +1,10 @@
-import FAQSection from "@/components/faq-accordion";
+import FAQSection from "@/components/FAQSection/FAQSection";
 import { PageHeader } from "@/components/shared/sections/page-header";
 
-const Page = () => {
-  return <div>
+
+function page() {
+  return (
+    <div>
     <PageHeader
       title="Frequently Asked Questions"
       items={[
@@ -17,7 +19,8 @@ const Page = () => {
       ]}
     />
     <FAQSection/>
-  </div>;
-};
+  </div>
+  )
+}
 
-export default Page;
+export default page

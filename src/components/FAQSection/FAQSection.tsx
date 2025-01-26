@@ -7,7 +7,7 @@ import {
 import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 
-export default function FAQSection() {
+function FAQSection() {
   return (
     <section className="container h-auto relative py-[80px]">
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-[28px]">
@@ -18,7 +18,7 @@ export default function FAQSection() {
             width={470}
             height={600}
             alt="Decorative background"
-            className="rounded-lg object-cover h-auto"
+            className="rounded-lg object-cover w-[470px] h-auto"
           />
         </div>
 
@@ -66,5 +66,7 @@ export default function FAQSection() {
         </div>
       </div>
     </section>
-  );
+  )
 }
+
+export default FAQSection

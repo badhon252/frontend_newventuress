@@ -11,8 +11,11 @@ const MobileTabletNavbar = dynamic(() => import("./MobileTabletNavbar"), {
   ssr: false,
 });
 
-function Navbar() {
-  const loggedin = false;
+interface Props {
+  loggedin: boolean;
+}
+
+function Navbar({ loggedin }: Props) {
   const pathName = usePathname();
 
   return (

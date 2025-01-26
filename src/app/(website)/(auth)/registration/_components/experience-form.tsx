@@ -29,7 +29,7 @@ export function ExperienceForm() {
 
   const handleExperiencChange = useCallback(
     (type: "CBD/HEMP" | "Recreational Cannabis" | "Both") => {
-      dispatch(setRegistrationValue({ type }));
+      dispatch(setRegistrationValue({ industry: type }));
     },
     [dispatch]
   );

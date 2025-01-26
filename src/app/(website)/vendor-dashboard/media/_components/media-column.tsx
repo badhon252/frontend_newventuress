@@ -65,14 +65,14 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
       };
 
       return (
-        <TableCell className="text-right">
+        <TableCell className="text-right ">
           <DropdownMenu>
-            <DropdownMenuTrigger className="h-8 w-8 p-0">
+            <DropdownMenuTrigger className=" w-8 p-0">
               <span className="sr-only">Open menu</span>
               <MoreHorizontal className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={handleEdit} className="text-blue-500">Edit</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleEdit} className="text-blue-500 hover:bg-[#E6EEF6]">Edit</DropdownMenuItem>
               <DropdownMenuItem onClick={handleDelete} className="text-red-500">Delete</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

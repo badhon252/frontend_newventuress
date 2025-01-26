@@ -13,7 +13,7 @@ const PagesModal: React.FC<PagesModalProps> = ({ isOpen, onClose }) => {
   // Links array as a variable
   const links = [
     { href: '/about', label: 'About Us' },
-    { href: '/faqs', label: 'FAQ' },
+    { href: '/faq', label: 'FAQ' },
     { href: '/membership-plans', label: 'Membership Plans' },
     { href: '/vendor-store', label: 'Vendor Store' },
     { href: '/404', label: '404 Page' },

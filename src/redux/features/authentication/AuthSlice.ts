@@ -9,7 +9,7 @@ interface Business {
 }
 
 const initialState: {
-  type: "CBD/HEMP" | "Recreational Cannabis" | "Both" | "";
+  industry: "CBD/HEMP" | "Recreational Cannabis" | "Both" | "";
 
   profession: string[];
   email: string;
@@ -17,10 +17,11 @@ const initialState: {
   password: string;
   businesses: Business[];
 } = {
-  type: "",
-  profession: [],
   email: "",
   fullName: "",
+  industry: "",
+  profession: [],
+
   password: "",
   businesses: [],
 };

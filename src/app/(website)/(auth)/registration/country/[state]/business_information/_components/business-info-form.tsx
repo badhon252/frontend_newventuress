@@ -30,7 +30,7 @@ export function BusinessInfoForm() {
     resellerLicense: "",
   };
 
-  const isRecreational = authState.type === "Recreational Cannabis";
+  const isRecreational = authState.industry === "Recreational Cannabis";
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();

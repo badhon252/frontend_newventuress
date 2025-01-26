@@ -47,7 +47,7 @@ export function ExperienceForm() {
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
                 id="CBD/HEMP"
-                checked={authState.type === "CBD/HEMP"}
+                checked={authState.industry === "CBD/HEMP"}
                 onCheckedChange={() => handleExperiencChange("CBD/HEMP")}
               />
               <label
@@ -60,7 +60,7 @@ export function ExperienceForm() {
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
                 id="recreational"
-                checked={authState.type === "Recreational Cannabis"}
+                checked={authState.industry === "Recreational Cannabis"}
                 onCheckedChange={() =>
                   handleExperiencChange("Recreational Cannabis")
                 }
@@ -75,7 +75,7 @@ export function ExperienceForm() {
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
                 id="recreational"
-                checked={authState.type === "Both"}
+                checked={authState.industry === "Both"}
                 onCheckedChange={() => handleExperiencChange("Both")}
               />
               <label
@@ -87,7 +87,7 @@ export function ExperienceForm() {
             </div>
           </div>
         </div>
-        <Button disabled={!authState.type} size="md" asChild>
+        <Button disabled={!authState.industry} size="md" asChild>
           <Link
             href="/registration/experiences/profession"
             className="flex items-center w-auto h-full"

@@ -7,7 +7,6 @@ import { Inter } from "next/font/google";
 
 // Local imports
 import { auth } from "@/auth";
-import LocomotiveWrapper from "@/components/animations/locomotive-wrapper";
 import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
@@ -41,14 +40,12 @@ export default async function RootLayout({
             <div>
               <Navbar loggedin={!!session} />
             </div>
-            <LocomotiveWrapper>
               <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
               <div>
                 <NewsletterPage />
                 <Footer />
               </div>
-            </LocomotiveWrapper>
             <NProgress />
             <Toaster />
           </body>

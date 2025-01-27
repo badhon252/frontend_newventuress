@@ -40,27 +40,22 @@ export function DataTable<TData, TValue>({
         {title}
       </div>
       <Table>
-        <TableHeader >
+        <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              key={headerGroup.id}
-              style={{
-                boxShadow: "none",
-              }}
-            >
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id} className="text-base font-medium leading-[19px] text-[#444444] text-center px-[20px]" >
-                  <TableHead key={header.id} className="text-center">
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
+            <TableRow key={headerGroup.id} style={{ boxShadow: "none" }}>
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  className="text-base font-medium leading-[19px] text-[#444444] text-center px-[20px]"
+                >
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
                         header.column.columnDef.header,
                         header.getContext()
                       )}
-                  </TableHead>
-                );
-              })}
+                </TableHead>
+              ))}
             </TableRow>
           ))}
         </TableHeader>
@@ -71,8 +66,6 @@ export function DataTable<TData, TValue>({
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
               >
-
-
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -92,3 +85,4 @@ export function DataTable<TData, TValue>({
     </div>
   );
 }
+

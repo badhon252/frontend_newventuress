@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { ChevronDown } from "lucide-react"
+
 
 export default function CuponFilter() {
   return (
@@ -26,7 +26,7 @@ export default function CuponFilter() {
         <Select>
           <SelectTrigger className="w-[140px] bg-primary text-white border-0  [&>svg]:text-white">
             <SelectValue placeholder="Chose stores" />
-            <ChevronDown className="h-4 w-4 opacity-50" />
+           
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="store1">Store 1</SelectItem>
@@ -39,7 +39,7 @@ export default function CuponFilter() {
       <Select>
         <SelectTrigger className="w-[180px] bg-primary text-white border-0  [&>svg]:text-white">
           <SelectValue placeholder="Chose Date Range" />
-          <ChevronDown className="h-4 w-4 opacity-50" />
+     
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="today">Today</SelectItem>

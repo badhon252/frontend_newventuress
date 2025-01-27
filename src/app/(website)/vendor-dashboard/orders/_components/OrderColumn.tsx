@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import { DemoTableItemsType } from "./data";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,8 +10,15 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import { ColumnDef } from "@tanstack/react-table";
 import { MoreHorizontal } from "lucide-react";
+import { DemoTableItemsType } from "./data";
 
-export const OrderColumn: ColumnDef<DemoTableItemsType>[] = [
+export const OrderColumn = ({
+  setIsOpen,
+  setSelectedRow,
+}: {
+  setIsOpen: (value: boolean) => void;
+  setSelectedRow: (row: DemoTableItemsType | null) => void;
+}): ColumnDef<DemoTableItemsType>[] => [
   {
     id: "select",
     header: ({ table }) => (
@@ -38,72 +44,63 @@ export const OrderColumn: ColumnDef<DemoTableItemsType>[] = [
   },
   {
     header: "Order ID",
-    cell: ({ row }) => {
-      return (
-        <div>
-          <span className="text-[16px] text-[#444444] font-normal">
-            ${row.original.OrderID}
-          </span>
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div>
+        <span className="text-[16px] text-[#444444] font-normal">
+          ${row.original.OrderID}
+        </span>
+      </div>
+    ),
   },
   {
     header: "Date",
-    cell: ({ row }) => {
-      return (
-        <div className="">
-          <div>
-            <div>
-              <span className="text-[16px] text-[#444444] font-normal">
-                ${row.original.Data}
-              </span>
-            </div>
-            <div>
-              <span className="text-[16px] text-[#444444] font-normal">
-                ${row.original.Time}
-              </span>
-            </div>
-          </div>
+    cell: ({ row }) => (
+      <div className="">
+        <div>
+          <span className="text-[16px] text-[#444444] font-normal">
+            ${row.original.Data}
+          </span>
         </div>
-      );
-    },
+        <div>
+          <span className="text-[16px] text-[#444444] font-normal">
+            ${row.original.Time}
+          </span>
+        </div>
+      </div>
+    ),
   },
   {
     header: "Name",
-    cell: ({ row }) => {
-      return (
-        <div>
-          <span className="text-[16px] text-[#444444] font-normal">
-            {row.original.name}
-          </span>
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div>
+        <span className="text-[16px] text-[#444444] font-normal">
+          {row.original.name}
+        </span>
+      </div>
+    ),
   },
   {
     header: "Total",
-    cell: ({ row }) => {
-      return (
-        <div>
-          <span className="text-[16px] text-[#444444] font-normal">
-            {row.original.TotalProducts}
-          </span>
-        </div>
-      );
-    },
+    cell: ({ row }) => (
+      <div>
+        <span className="text-[16px] text-[#444444] font-normal">
+          {row.original.TotalProducts}
+        </span>
+      </div>
+    ),
   },
   {
     header: "Status",
     cell: ({ row }) => {
-      // Define allowed statuses
       type StatusType = "processing" | "pending" | "completed";
-      
-      // Styles object with keys matching StatusType
+
       const styles: Record<StatusType, string> = {
-        processing: "bg-[#FF4D00] text-white w-[110px] h-[35px] text-[14px] rounded-sm", 
-        pending: "bg-[#00417E] text-white  w-[110px] h-[35px] text-[14px] rounded-sm",
-        completed: "bg-[#2A6C2D] text-white  w-[110px] h-[35px] text-[14px] rounded-sm",
+        processing:
+          "bg-[#FF4D00] text-white w-[110px] h-[35px] text-[14px] rounded-sm",
+        pending:
+          "bg-[#00417E] text-white  w-[110px] h-[35px] text-[14px] rounded-sm",
+        completed:
+          "bg-[#2A6C2D] text-white  w-[110px] h-[35px] text-[14px] rounded-sm",
       };
 
       const status = (row.original.Status || "").toLowerCase() as StatusType;
@@ -142,7 +139,13 @@ export const OrderColumn: ColumnDef<DemoTableItemsType>[] = [
                   Accept
                 </DropdownMenuItem>
               )}
-              <DropdownMenuItem className="p-[8px] hover:bg-[#E6EEF6] rounded-t-[8px] focus:outline-none">
+              <DropdownMenuItem
+                className="p-[8px] hover:bg-[#E6EEF6] rounded-t-[8px] focus:outline-none"
+                onClick={() => {
+                  setSelectedRow(row.original); // Set the selected row
+                  setIsOpen(true); // Open the modal
+                }}
+              >
                 Details
               </DropdownMenuItem>
               <DropdownMenuItem className="p-[8px] text-red-600 hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none">
@@ -155,3 +158,6 @@ export const OrderColumn: ColumnDef<DemoTableItemsType>[] = [
     },
   },
 ];
+
+
+

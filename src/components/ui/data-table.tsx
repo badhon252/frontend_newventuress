@@ -34,7 +34,7 @@ export function DataTable<TData, TValue>({
       <div
         className={cn(
           titleClass,
-          "bg-primary px-4 py-3 mx-[32px] rounded-t-lg text-white"
+          "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] py-[22px] pl-[32px] text-[28px] font-semibold leading-[33px] rounded-t-[24px] text-white mx-[32px]"
         )}
       >
         {title}
@@ -42,24 +42,20 @@ export function DataTable<TData, TValue>({
       <Table>
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow
-              key={headerGroup.id}
-              style={{
-                boxShadow: "none",
-              }}
-            >
-              {headerGroup.headers.map((header) => {
-                return (
-                  <TableHead key={header.id} className="text-center">
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                );
-              })}
+            <TableRow key={headerGroup.id} style={{ boxShadow: "none" }}>
+              {headerGroup.headers.map((header) => (
+                <TableHead
+                  key={header.id}
+                  className="text-base font-medium leading-[19px] text-[#444444] text-center px-[20px]"
+                >
+                  {header.isPlaceholder
+                    ? null
+                    : flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                </TableHead>
+              ))}
             </TableRow>
           ))}
         </TableHeader>
@@ -89,3 +85,4 @@ export function DataTable<TData, TValue>({
     </div>
   );
 }
+

@@ -1,5 +1,16 @@
-const Page = () => {
-  return <div>Vendor Cupons page</div>;
-};
+import React from 'react'
+import CuponContainer from './_components/CuponContainer'
+import CuponFilter from './_components/CuponFilter'
+import AddButon from './_components/AddButon'
 
-export default Page;
+const page = () => {
+  return (
+    <div>
+      <AddButon/>
+<CuponFilter/>
+      <CuponContainer/>
+    </div>
+  )
+}
+
+export default page

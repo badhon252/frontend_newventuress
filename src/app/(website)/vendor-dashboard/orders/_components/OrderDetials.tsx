@@ -42,7 +42,7 @@ export default function OrderDetails({ isOpen, onClose, rowData }: OrderDetailsP
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()} >
       <DialogContent 
         className="max-w-[1250px] max-h-[1043px] p-0"
-        style={{ boxShadow: "0px 0px 22px 8px #C1C9E4" }} // Inline style for custom shadow
+        style={{ boxShadow: "0px 0px 22px 8px #C1C9E4" }}
       >
         <DialogHeader className=" bg-[#1a237e] text-white p-4 rounded-t-lg">
           <div className="flex items-center justify-between">

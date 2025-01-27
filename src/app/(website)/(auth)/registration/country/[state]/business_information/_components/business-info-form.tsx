@@ -15,6 +15,7 @@ import {
   updateBusiness,
 } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
+import { toast } from "sonner";
 import FormHeader from "../../../../_components/form-header";
 
 export function BusinessInfoForm() {
@@ -37,6 +38,8 @@ export function BusinessInfoForm() {
 
   const submitForm = () => {
     console.log(authState);
+
+    toast.success("Account is now ready!");
 
     dispatch(resetAuthSlice());
   };

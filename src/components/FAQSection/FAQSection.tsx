@@ -1,11 +1,5 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
+import FaqContainer from "./FaqContainer";
 
 function FAQSection() {
   return (
@@ -35,38 +29,11 @@ function FAQSection() {
           </div>
 
           {/* Accordion Section */}
-          <Accordion type="single" collapsible className="space-y-4">
-            {[1, 2, 3, 4, 5].map((item) => (
-              <AccordionItem
-                key={item}
-                value={`item-${item}`}
-                className="border border-[#0057A8] rounded-lg overflow-hidden"
-              >
-                <AccordionTrigger className="flex justify-between items-center text-start lg:text-center py-4 px-6 text-gradient  bg-white hover:no-underline focus:outline-none max-w-[700px]">
-                  <span className="text-lg font-semibold ">
-                    How do I know if a seller is trustworthy?
-                  </span>
-                  <div className="shrink-0 bg-[#ECECEC] w-[32px] h-[32px] flex items-center justify-center rounded-2xl">
-                    <Plus className="h-5 w-5 group-data-[state=closed]:block group-data-[state=open]:hidden text-black " />
-                    <Minus className="h-5 w-5 group-data-[state=closed]:hidden group-data-[state=open]:block text-black" />
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 py-4 bg-[#EAF0EA] border-t border-[#2A6C2D]">
-                  <p className="text-[#4A4A4A]  text-wrap">
-                    We vet all vendors before they join the platform and display
-                    customer reviews and ratings on their product pages for
-                    transparency. We use secure encryption to protect your
-                    personal and payment information. Additionally, all
-                    transactions are discreetly processed.
-                  </p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <FaqContainer />
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default FAQSection
+export default FAQSection;

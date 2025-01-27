@@ -10,6 +10,7 @@ import { z } from "zod";
 
 // Local Imports
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Form,
   FormControl,
@@ -21,6 +22,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import FormHeader from "./form-header";
 
@@ -33,6 +35,9 @@ const formSchema = z
     confirmPassword: z
       .string()
       .min(6, "Confirm Password must be at least 6 characters"),
+    agreed: z.boolean().refine((val) => val, {
+      message: "Please agree to the terms and privacy policy",
+    }),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"], // Error will appear on the `confirmPassword` field
@@ -56,23 +61,25 @@ export default function UserInformationForm() {
       email: authState.email,
       fullName: authState.fullName,
       password: authState.password,
-      confirmPassword: authState.password,
+      confirmPassword: authState.confirmPassword,
+      agreed: false,
     },
   });
 
   const { watch } = form;
+
   const isDisable =
     !watch("email") ||
     !watch("fullName") ||
     !watch("password") ||
-    !watch("confirmPassword");
+    !watch("confirmPassword") ||
+    !watch("agreed");
 
   const togglePasswordVisibility = (field: "password" | "confirmPassword") => {
     setPasswordVisibility((prev) => ({ ...prev, [field]: !prev[field] }));
   };
 
-  const onSubmit = (data: UserInformationFormType) => {
-    console.log(data);
+  const onSubmit = () => {
     router.push(`/registration/experiences`);
   };
 
@@ -217,7 +224,16 @@ export default function UserInformationForm() {
                         passwordVisibility.confirmPassword ? "text" : "password"
                       }
                       placeholder="Confirm your password"
-                      {...field}
+                      onChange={(e) => {
+                        dispatch(
+                          setRegistrationValue({
+                            confirmPassword: e.target.value,
+                          })
+                        );
+
+                        field.onChange(e.target.value);
+                      }}
+                      value={field.value}
                     />
                     <button
                       type="button"
@@ -234,6 +250,36 @@ export default function UserInformationForm() {
                     </button>
                   </div>
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            name="agreed"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <div className="flex items-center space-x-2 text-[#9E9E9E]">
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    className=" border-2 border-[#9E9E9E] data-[state=checked]:bg-[#00417E] data-[state=checked]:text-white"
+                  />
+                  <label
+                    htmlFor="remember"
+                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  >
+                    I agree with the{" "}
+                    <Link href="#" className="text-gradient">
+                      term of service
+                    </Link>{" "}
+                    and{" "}
+                    <Link href="#" className="text-gradient">
+                      privacy policy
+                    </Link>
+                  </label>
+                </div>
                 <FormMessage />
               </FormItem>
             )}

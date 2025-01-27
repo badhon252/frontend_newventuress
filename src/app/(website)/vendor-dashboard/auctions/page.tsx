@@ -5,6 +5,7 @@ import AuctionListingContainer from "./_components/auctions_listing_container";
 const Page = () => {
   return (
     <div className="space-y-[30px]">
+      
       <AuctionsHeader />
       <AuctionsFilter />
       <AuctionListingContainer />

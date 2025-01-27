@@ -4,6 +4,7 @@ import VendorAuctionContainer from "./_components/VendorAuctionContainer";
 
 const Page = () => {
   return <div className="space-y-[30px]">
+    
   <AuctionHeader/>
   <AuctionFilter/>
   <VendorAuctionContainer/>

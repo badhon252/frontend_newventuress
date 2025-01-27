@@ -7,7 +7,6 @@ import { Inter } from "next/font/google";
 
 // Local imports
 import { auth } from "@/auth";
-import LocomotiveWrapper from "@/components/animations/locomotive-wrapper";
 import AgeRestrictionGuard from "@/components/providers/AgeRestrictionGuard";
 import AppProvider from "@/components/providers/AppProvider";
 import NProgress from "@/components/providers/NProgress";
@@ -38,17 +37,15 @@ export default async function RootLayout({
       <AppProvider>
         <html lang="en">
           <body className={cn("antialiased", inter.className)}>
-            <LocomotiveWrapper>
-              <div>
-                <Navbar loggedin={!!session} />
-              </div>
+            <div>
+              <Navbar loggedin={!!session} />
+            </div>
               <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
               <div>
                 <NewsletterPage />
                 <Footer />
               </div>
-            </LocomotiveWrapper>
             <NProgress />
             <Toaster />
           </body>

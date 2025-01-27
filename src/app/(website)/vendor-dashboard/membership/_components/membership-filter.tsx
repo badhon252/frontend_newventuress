@@ -17,7 +17,7 @@ const membershipdataList = [
   { id: 3, name: "Rentals", value: "rentals" },
 ];
 
-const MediaFilter = () => {
+const MembershipFilter = () => {
   const [show, setShow] = useState<string>("all"); // Default to "all"
   // Default to "auctions"
   const [stores, setStores] = useState<string>("all"); // Default to "auctions"
@@ -55,6 +55,6 @@ const MediaFilter = () => {
   );
 };
 
-export default MediaFilter;
+export default MembershipFilter;
 
 // Generic Dropdown Component

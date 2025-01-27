@@ -3,7 +3,7 @@
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { MediaColumns } from "./membership-column";
 
-const VendorMediaContainer = () => {
+const MembershipContainer = () => {
   const [currentPage, setCurrentPage] = useState(1); // Missing import for useState
 
   return (
@@ -25,7 +25,7 @@ const VendorMediaContainer = () => {
   );
 };
 
-export default VendorMediaContainer;
+export default MembershipContainer;
 
 import { DataTable } from "@/components/ui/data-table";
 import { ColumnDef } from "@tanstack/react-table";

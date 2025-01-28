@@ -52,10 +52,6 @@ export async function SignInWithEmailAndPassword(data: LoginFormValues) {
       } as ServerResType;
     }
 
-    // Handle other unexpected errors
-    return {
-      success: false,
-      message: "An unexpected error occurred. Please try again later.",
-    } as ServerResType;
+    throw Error(error);
   }
 }

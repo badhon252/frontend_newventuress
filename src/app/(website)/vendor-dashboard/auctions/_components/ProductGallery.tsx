@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Trash2, Plus, ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function ProductGallery() {
   const [files, setFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
@@ -33,6 +34,10 @@ export default function ProductGallery() {
     setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const handlePlusClick = () => {
+    fileInputRef.current?.click();
+  };
+
   return (
     <div className="w-full max-w-2xl p-6 bg-white rounded-lg shadow-sm">
       <h2 className="text-lg font-medium mb-4">Product Gallery</h2>
@@ -53,6 +58,7 @@ export default function ProductGallery() {
             className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             onChange={handleFileSelect}
             multiple
+            ref={fileInputRef}
           />
         </div>
       </div>
@@ -94,6 +100,7 @@ export default function ProductGallery() {
           type="button"
           size="icon"
           className="bg-[#1a237e] hover:bg-[#1a237e]/90 text-white rounded-lg"
+          onClick={handlePlusClick}
         >
           <Plus className="h-5 w-5" />
         </Button>
@@ -103,7 +110,7 @@ export default function ProductGallery() {
         <Button type="button" variant="outline" className="px-8">
           Update
         </Button>
-        <Button className="px-8 bg-[#1a237e] hover:bg-[#1a237e]/90 text-white">
+        <Button type="button" className="px-8 bg-[#1a237e] hover:bg-[#1a237e]/90 text-white">
           Confirm
         </Button>
       </div>

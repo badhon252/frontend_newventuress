@@ -10,7 +10,10 @@ import { z } from "zod";
 
 // Local imports
 
-import { SignInWithEmailAndPassword } from "@/actions/authentications/authentication";
+import {
+  ServerResType,
+  SignInWithEmailAndPassword,
+} from "@/actions/authentications/authentication";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -49,15 +52,23 @@ export default function LoginForm() {
   const onSubmit = async (data: LoginFormValues) => {
     startTransition(() => {
       SignInWithEmailAndPassword(data)
-        .then((res: any) => {
+        .then((res: ServerResType) => {
           if (res.success) {
             toast.success("Login successfull 🎉", {
               position: "bottom-right",
               richColors: true,
             });
+
+            window.location.reload();
+          } else {
+            toast.error(res.message, {
+              position: "top-center",
+              richColors: true,
+            });
           }
         })
         .catch((err) => {
+          console.log(err);
           toast.error(err.message, {
             position: "bottom-right",
             richColors: true,

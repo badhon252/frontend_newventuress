@@ -1,29 +1,47 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { UserInfo } from "./types/auth";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       authorize: async (credentials) => {
         if (!credentials) return null;
-        const user = {
-          email: "raj021159@gmail.com",
-          password: "12345678",
-        };
 
-        console.log("credentials from auth.ts", credentials);
+        try {
+          const response = await fetch(
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                email: credentials.email,
+                password: credentials.password,
+              }),
+            }
+          );
 
-        // validating login via api here
+          const resData = await response.json();
 
-        if (
-          credentials.email === user.email &&
-          credentials.password === user.password
-        ) {
-          // No user found, so this is their first attempt to login
-          // Optionally, this is also the place you could do a user registration
-          return user;
+          if (response.ok && resData.status) {
+            return {
+              email: resData.userData.email,
+              fullName: resData.userData.fullName,
+              industry: resData.userData.industry,
+              profession: resData.userData.profession,
+              token: resData.token,
+            } as UserInfo;
+          } else {
+            const message = resData.message || "Invalid email or password.";
+            throw new Error(message);
+          }
+        } catch (error: any) {
+          throw new Error(
+            error.message || "An unexpected login error occurred."
+          );
         }
-        throw new Error("Invalid credentials.");
       },
     }),
   ],
@@ -37,14 +55,17 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return false;
     },
     async session({ session, token }) {
-      if (token) {
-        return session;
+      if (token.user) {
+        session.user = {
+          ...session.user,
+          ...token.user,
+        };
       }
       return session;
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
+        token.user = user;
       }
       return token;
     },

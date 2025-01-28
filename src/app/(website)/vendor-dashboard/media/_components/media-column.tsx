@@ -11,27 +11,37 @@ import { Checkbox } from "@/components/ui/checkbox";
 // You can use a Zod schema here if you want.
 
 export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
-  
   {
     id: "select",
-    header: () => null,
+    header: ({ table }) => (
+      <Checkbox
+        checked={
+          table.getIsAllPageRowsSelected() ||
+          (table.getIsSomePageRowsSelected() && "indeterminate")
+        }
+        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+        aria-label="Select all"
+      />
+    ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
+        onCheckedChange={(value) => row.toggleSelected(!!value)}
+        aria-label="Select row"
       />
     ),
     enableSorting: false,
-    enableResizing: false,
-    size: 50,
+    enableHiding: false,
   },
+ 
   {
     header: "Image",
     cell: ({ row }) => {
       return (
         <Image
           src={row.original.image}
-          height={50}
-          width={74}
+          height={70}
+          width={94}
           alt="img"
           className="rounded-[8px]"
         />

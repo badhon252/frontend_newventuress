@@ -32,6 +32,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+
   return (
     <SessionProvider session={session}>
       <AppProvider>
@@ -40,12 +41,12 @@ export default async function RootLayout({
             <div>
               <Navbar loggedin={!!session} />
             </div>
-              <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
+            <AgeRestrictionGuard>{children}</AgeRestrictionGuard>
 
-              <div>
-                <NewsletterPage />
-                <Footer />
-              </div>
+            <div>
+              <NewsletterPage />
+              <Footer />
+            </div>
             <NProgress />
             <Toaster />
           </body>

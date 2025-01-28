@@ -69,18 +69,7 @@ const AuctionsButton = ({ row }: any) => {
       </DropdownMenu>
 
       {isOpen && (
-        // <Modal><EditeCupon/></Modal>
 
-    //     <section className="fixed   inset-0 w-full h-auto flex justify-center items-center bg-black bg-opacity-30 backdrop-blur-sm z-50 ">
-    //     <div className="relative w-[343px] h-fit md:w-[1250px] bg-white rounded-[16px] px-[25px] pb-[25px] border border-black">
-    //       <div className="absolute inset-0 z-0 bg-[url('/assets/img/modalbg.png')] bg-no-repeat bg-cover rounded-[16px] opacity-50" />
-    //       <div className="relative   z-10">
-    //         <EditeCupon setIsOpen={setIsOpen}/>
-          
-
-    //         </div>
-    //     </div>
-    //   </section>
 
     <section
     
@@ -102,8 +91,6 @@ const AuctionsButton = ({ row }: any) => {
     </div>
   </section>
       )}
-
-
 
     </div>
   );

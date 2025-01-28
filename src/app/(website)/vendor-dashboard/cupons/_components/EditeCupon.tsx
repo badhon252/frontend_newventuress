@@ -60,8 +60,10 @@ function onBack ()  {
     setIsOpen(false)
 }
   return (
- <div>
-     <div className="min-h-screen  bg-gray-50 p-4">
+
+ <div className="">
+     <div className="min-h-screen  bg-gray-50 ">
+
       <div className="mx-auto max-w-[1250px] rounded-lg bg-white shadow-sm">
         <div className="relative mb-6 rounded-t-lg bg-gradient-to-r from-[#1e2875] to-[#3c3c8f] p-4">
           <h1 className="text-2xl font-semibold text-white">Add Coupons</h1>
@@ -76,9 +78,10 @@ function onBack ()  {
           </Button>
         </div>
 
-        <div className="p-6">
+        <div className="">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-4">
+
               <FormField
                 control={form.control}
                 name="title"

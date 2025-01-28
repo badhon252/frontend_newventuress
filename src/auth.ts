@@ -32,15 +32,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
               industry: resData.userData.industry,
               profession: resData.userData.profession,
               token: resData.token,
+              id: resData.userData.id,
             } as UserInfo;
           } else {
             const message = resData.message || "Invalid email or password.";
             throw new Error(message);
           }
         } catch (error: any) {
-          throw new Error(
-            error.message || "An unexpected login error occurred."
-          );
+          throw new Error(error);
         }
       },
     }),

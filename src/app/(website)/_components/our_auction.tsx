@@ -17,7 +17,7 @@ const OurAuction = () => {
     <div className="section container">
       <SectionHeading heading="Our Auctions" subheading="Auctions" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[17px] lg:gap-[27px] pt-[40px] h-auto">
+      <div className="grid h-auto grid-cols-1 gap-[17px] pt-[40px] md:grid-cols-2 lg:gap-[27px]">
         <FeaturedCards />
 
         <div className="space-y-4">
@@ -33,7 +33,7 @@ export default OurAuction;
 
 const FeaturedCards = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
       {featureProducts.slice(0, 4).map((product) => (
         <FeaturedProductCard key={product.id} product={product} />
       ))}
@@ -43,13 +43,13 @@ const FeaturedCards = () => {
 
 const JoinAsSeller = () => {
   return (
-    <div className="p-6 rounded-xl h-fit bg-white  space-y-7">
+    <div className="h-fit space-y-7 rounded-xl bg-white p-6">
       <div>
-        <h2 className="text-[22px]  font-semibold text-gradient mb-2 text-center">
+        <h2 className="text-gradient mb-2 text-center text-[22px] font-semibold">
           Partner with Us. Grow Your Business on
         </h2>
         <p
-          className="text-[20px] font-medium text-center text-gradient"
+          className="text-gradient text-center text-[20px] font-medium"
           // style={{
           //   background: "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
           //   WebkitBackgroundClip: "text",
@@ -70,7 +70,7 @@ const JoinAsSeller = () => {
           alt="Picture of the author"
         />
       </div>
-      <Button className="w-full mb-4 s py-2">Join As a Sellers</Button>
+      <Button className="s mb-4 w-full py-2">Join As a Sellers</Button>
     </div>
   );
 };

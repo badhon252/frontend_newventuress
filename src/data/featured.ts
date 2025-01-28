@@ -1,11 +1,29 @@
 export type FeatureCardType = {
-  id: string; // Added the id property
-  image: string;
+  _id: string; // Added the id property
+  images: string[];
   price: string;
   originalPrice: string;
   category: string;
   flowerType: string;
   stoke: string;
+  storeId: string; // Unique identifier for the store.
+  title: string; // Product title.
+  shortDescription: string; // A short description of the product.
+  description: string; // Detailed description of the product.
+  productType: string; // Type/category of the product, e.g., "cbd".
+  stockStatus: string; // Stock status, e.g., "in stock".
+  cateogry: string; // Category ID of the product.
+  subCateogry: string; // Subcategory ID of the product.
+  purchasedPrice: number; // Purchased price of the product.
+  selllingPrice: number; // Selling price of the product.
+  discountPrice: number; // Discount price of the product.
+  size: string; // Size/quantity descriptor, e.g., "30ml".
+  quantity: string; // Number of items available.
+  sku: string; // Stock Keeping Unit identifier.
+  coa: boolean; // Certificate of Analysis availability.
+  tags: string[]; // Array of tags associated with the product.
+  review: string[]; // Array of review IDs.
+  __v: number; // Internal version number or metadata.
 };
 
 export const featureProducts: FeatureCardType[] = [
@@ -17,7 +35,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,025.00",
     category: "Flower",
     flowerType: "Indica",
-    stoke: "In Stock"
+    stoke: "In Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -27,7 +45,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "7,500.00",
     category: "Topical",
     flowerType: "Sativa",
-     stoke: "In Stock"
+    stoke: "In Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -37,7 +55,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "6,000.00",
     category: "Edibels",
     flowerType: "Hybrid",
-     stoke: " Out Of Stock"
+    stoke: " Out Of Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -47,7 +65,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "5,000.00",
     category: "Apprel",
     flowerType: "Indica",
-     stoke: " Out Of Stocke"
+    stoke: " Out Of Stocke",
   },
   {
     id: crypto.randomUUID(),
@@ -57,7 +75,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,000.00",
     category: "Vape Products",
     flowerType: "Sativa",
-     stoke: "In Stock"
+    stoke: "In Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -67,7 +85,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "3,500.00",
     category: "Concentrations",
     flowerType: "Hybrid",
-     stoke: " Out Of Stocke"
+    stoke: " Out Of Stocke",
   },
   {
     id: crypto.randomUUID(),
@@ -77,7 +95,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "10,000.00",
     category: "Flower",
     flowerType: "Sativa",
-     stoke: "In Stock"
+    stoke: "In Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -87,7 +105,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,200.00",
     category: "Edibels",
     flowerType: "Indica",
-     stoke: "In Stock"
+    stoke: "In Stock",
   },
   {
     id: crypto.randomUUID(),
@@ -97,7 +115,7 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "9,025.00",
     category: "Flower",
     flowerType: "Indica",
-     stoke: " Out Of Stocke"
+    stoke: " Out Of Stocke",
   },
   {
     id: crypto.randomUUID(),
@@ -107,8 +125,6 @@ export const featureProducts: FeatureCardType[] = [
     originalPrice: "7,500.00",
     category: "Topical",
     flowerType: "Sativa",
-     stoke: "In Stock"
+    stoke: "In Stock",
   },
- 
 ];
-

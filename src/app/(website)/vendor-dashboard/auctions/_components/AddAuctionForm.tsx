@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   FormControl,
@@ -16,9 +16,10 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { InputWithTags } from "@/components/ui/input-with-tags";
 import { Textarea } from "@/components/ui/textarea";
-import { SmartDatetimeInput } from "@/components/ui/extension/smart-datetime-input";
 import { Checkbox } from "@/components/ui/checkbox";
 import ProductGallery from "./ProductGallery";
+
+import { DateTimePicker } from '@/components/ui/datetime-picker';
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -59,6 +60,8 @@ const AddAuctionForm: React.FC = () => {
     console.log(data);
   };
 
+  // const [date12, setDate12] = useState<Date | undefined>(undefined);
+  const [date24, setDate24] = useState<Date | undefined>(undefined);
   return (
     <div className="bg-white rounded-[24px] p-[32px]">
       <div
@@ -114,7 +117,7 @@ const AddAuctionForm: React.FC = () => {
                 )}
               />
 
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="productType"
                 render={({ field }) => (
@@ -155,8 +158,43 @@ const AddAuctionForm: React.FC = () => {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
 
+<FormField
+  control={form.control}
+  name="productType"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>
+        Product Type<span className="text-red-500">*</span>
+      </FormLabel>
+      <FormControl>
+        <div className="space-y-2">
+          {["CBD", "Recreational"].map((type) => (
+            <div key={type} className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                value={type}
+                checked={field.value?.includes(type)}
+                onChange={(e) => {
+                  const valueArray = field.value || [];
+                  if (e.target.checked) {
+                    field.onChange([...valueArray, type]);
+                  } else {
+                    field.onChange(valueArray.filter((val) => val !== type));
+                  }
+                }}
+                className="h-4 w-4 border-[#9C9C9C]"
+              />
+              <label className="text-sm text-gray-700">{type}</label>
+            </div>
+          ))}
+        </div>
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
               <FormField
                 control={form.control}
                 name="category"
@@ -210,16 +248,11 @@ const AddAuctionForm: React.FC = () => {
                   <FormField
                     control={form.control}
                     name="startingTime"
-                    render={({ field }) => (
+                    render={({  }) => (
                       <FormItem>
                         <FormLabel>Starting Time</FormLabel>
                         <FormControl>
-                          <SmartDatetimeInput
-                            value={field.value}
-                            onValueChange={field.onChange}
-                            placeholder="e.g. Tomorrow morning 9am"
-                            className="border-[#9C9C9C]"
-                          />
+                        <DateTimePicker hourCycle={24} value={date24} onChange={setDate24} />
                         </FormControl>
 
                         <FormMessage />
@@ -232,16 +265,11 @@ const AddAuctionForm: React.FC = () => {
                   <FormField
                     control={form.control}
                     name="endingTime"
-                    render={({ field }) => (
+                    render={({  }) => (
                       <FormItem>
                         <FormLabel>Ending Time</FormLabel>
                         <FormControl>
-                          <SmartDatetimeInput
-                            value={field.value}
-                            onValueChange={field.onChange}
-                            placeholder="e.g. Tomorrow morning 9am"
-                            className="border-[#9C9C9C]"
-                          />
+                        <DateTimePicker hourCycle={24} value={date24} onChange={setDate24} />
                         </FormControl>
 
                         <FormMessage />

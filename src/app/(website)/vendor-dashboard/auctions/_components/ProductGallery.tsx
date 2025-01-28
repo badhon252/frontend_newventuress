@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Trash2, Plus, ImageIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function ProductGallery() {
   const [files, setFiles] = useState<File[]>([]);
@@ -62,9 +63,11 @@ export default function ProductGallery() {
           const imageUrl = URL.createObjectURL(file);
           return (
             <div key={index} className="relative group">
-              <img
+              <Image
                 src={imageUrl}
                 alt={file.name}
+                width={200}
+                height={200}
                 className="w-full h-32 object-cover rounded-lg"
               />
               <button

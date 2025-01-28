@@ -25,21 +25,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           const resData = await response.json();
 
-          if (response.ok && resData.status) {
-            return {
-              email: resData.userData.email,
-              fullName: resData.userData.fullName,
-              industry: resData.userData.industry,
-              profession: resData.userData.profession,
-              token: resData.token,
-              id: resData.userData.id,
-            } as UserInfo;
-          } else {
-            const message = resData.message || "Invalid email or password.";
-            throw new Error(message);
+          if (!response.ok || !resData.status) {
+            throw new Error(resData.message || "Login failed");
           }
+
+          return {
+            email: resData.userData.email,
+            fullName: resData.userData.fullName,
+            industry: resData.userData.industry,
+            profession: resData.userData.profession,
+            token: resData.token,
+            id: resData.userData.id,
+          } as UserInfo;
         } catch (error: any) {
-          throw new Error(error);
+          console.log("auth.ts:", error);
+          return null;
         }
       },
     }),

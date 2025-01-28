@@ -30,14 +30,14 @@ export async function SignInWithEmailAndPassword(data: LoginFormValues) {
     // If successful, return a success message
     return { success: true, message: "Login successful." } as ServerResType;
   } catch (error: any) {
-    console.log("SERVER_ACTION_ERROR:", error.message + "END HERE");
+    console.log("SERVER_ACTION_ERROR:", error + "END HERE");
     // Handle specific NextAuth errors
     if (error instanceof AuthError) {
       switch (error.type) {
         case "CredentialsSignin":
           return {
             success: false,
-            message: error.message || "Invalid credentials.",
+            message: "Invalid credentials.",
           } as ServerResType;
 
         case "CallbackRouteError":

@@ -22,6 +22,8 @@ export default {
           }
         );
 
+        console.log("RES:", response);
+
         const resData = await response.json();
 
         if (!response.ok || !resData.status) {

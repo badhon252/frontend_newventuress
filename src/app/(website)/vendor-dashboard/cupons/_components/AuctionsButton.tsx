@@ -71,16 +71,36 @@ const AuctionsButton = ({ row }: any) => {
       {isOpen && (
         // <Modal><EditeCupon/></Modal>
 
-        <section className="fixed  inset-0 w-full h-auto flex justify-center items-center bg-black bg-opacity-30 backdrop-blur-sm z-50 ">
-        <div className="relative w-[343px] md:w-[1250px] bg-white rounded-[16px] px-[25px] pb-[25px] border border-black">
-          <div className="absolute inset-0 z-0 bg-[url('/assets/img/modalbg.png')] bg-no-repeat bg-cover rounded-[16px] opacity-50" />
-          <div className="relative   z-10">
-            <EditeCupon setIsOpen={setIsOpen}/>
+    //     <section className="fixed   inset-0 w-full h-auto flex justify-center items-center bg-black bg-opacity-30 backdrop-blur-sm z-50 ">
+    //     <div className="relative w-[343px] h-fit md:w-[1250px] bg-white rounded-[16px] px-[25px] pb-[25px] border border-black">
+    //       <div className="absolute inset-0 z-0 bg-[url('/assets/img/modalbg.png')] bg-no-repeat bg-cover rounded-[16px] opacity-50" />
+    //       <div className="relative   z-10">
+    //         <EditeCupon setIsOpen={setIsOpen}/>
           
 
-            </div>
-        </div>
-      </section>
+    //         </div>
+    //     </div>
+    //   </section>
+
+    <section
+    
+    className="fixed inset-0 flex items-center  justify-center bg-black bg-opacity-30 backdrop-blur-sm z-50 overflow-auto"
+    onClick={() => setIsOpen(false)} // Close modal when clicking outside
+  >
+    <div
+    style={{ boxShadow: "0px 0px 22px 8px #C1C9E4" }}
+      className="relative w-[343px] md:w-[1250px] bg-white rounded-[16px]  border  overflow-auto max-h-[90vh]"
+      onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+    >
+      {/* Background overlay inside modal */}
+      <div className="absolute inset-0 z-0 bg-[url('/assets/img/modalbg.png')] bg-no-repeat bg-cover rounded-[16px] opacity-50" />
+      
+      {/* Modal content */}
+      <div className="relative z-10">
+        <EditeCupon setIsOpen={setIsOpen} />
+      </div>
+    </div>
+  </section>
       )}
 
 

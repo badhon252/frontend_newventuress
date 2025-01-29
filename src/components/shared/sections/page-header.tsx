@@ -31,8 +31,8 @@ export function PageHeader({ title, items }: PageHeaderProps) {
         left: 0,
       }}
     >
-      <div className={cn("relative z-10 flex flex-col items-center gap-2")}>
-        <h1 className="text-4xl font-semibold tracking-tight text-white text-center">
+      <div className={cn("relative z-10 flex flex-col items-center")}>
+        <h1 className="text-[25px] lg:text-4xl font-semibold tracking-tight text-white text-center">
           {title}
         </h1>
         <Breadcrumb>

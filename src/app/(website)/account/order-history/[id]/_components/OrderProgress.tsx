@@ -41,13 +41,13 @@ export default function OrderProgress({className}: {className: string}) {
   return (
     <div className={cn("relative w-full max-w-[800px] pt-6 mx-auto", className )}>
       {/* Progress Line */}
-      <Progress value={progressValue} className="absolute left-0 top-[38px] h-[5px] w-full bg-gray-200 [&>div]:bg-[#2A6C2D]" />
+      <Progress value={progressValue} className="absolute left-0 top-[42px] h-[5px] w-full bg-gray-200 [&>div]:bg-primary" />
       {/* Status Points */}
       <div className="relative flex justify-between">
         {/* Ordered */}
         <div className="flex flex-col items-start">
           <div
-            className={`flex h-8 w-8 items-center justify-center rounded-full ${
+            className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${
               orderStatus.ordered.isComplete
                 ? "bg-primary"
                 : "bg-white"
@@ -64,16 +64,16 @@ export default function OrderProgress({className}: {className: string}) {
         {/* Processing */}
         <div className="flex flex-col items-center -translate-x-10">
           <div
-            className={`flex h-8 w-8 items-center justify-center rounded-full ${
+            className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${
               orderStatus.processing.isComplete
                 ? "bg-primary"
-                : "bg-white border border-[#2A6C2D] border-dashed"
+                : "bg-white border border-[#0f283f] border-dashed"
             }`}
           >
             {orderStatus.processing.isComplete ? (
               <Check className="h-5 w-5 text-white" />
             ) : (
-              <span className="text-[#2A6C2D]">2</span>
+              <span className="text-gardient">2</span>
             )}
           </div>
           <p className={`mt-2 text-sm font-medium sm:text-base ${orderStatus.processing.isComplete ? "text-gradient" : "text-black"} `}>
@@ -84,10 +84,10 @@ export default function OrderProgress({className}: {className: string}) {
         {/* Shipping */}
         <div className="flex flex-col items-center -translate-x-6">
           <div
-            className={`flex h-8 w-8 items-center justify-center rounded-full ${
+            className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${
               orderStatus.shipping.isComplete
                 ? "bg-primary"
-                : "bg-white border border-[#2A6C2D] border-dashed"
+                : "bg-white border border-[#0f283f] border-dashed"
             }`}
           >
             {orderStatus.shipping.isComplete ? (
@@ -104,10 +104,10 @@ export default function OrderProgress({className}: {className: string}) {
         {/* Delivered */}
         <div className="flex flex-col items-end">
           <div
-            className={`flex h-8 w-8 items-center justify-center rounded-full ${
+            className={`flex h-[40px] w-[40px] items-center justify-center rounded-full ${
               orderStatus.delivered.isComplete
-                ? "bg-[#2A6C2D]"
-                : "bg-white border border-[#0057A8] border-dashed"
+                ? "bg-primary"
+                : "bg-white border border-[#0f283f] border-dashed"
             }`}
           >
             {orderStatus.delivered.isComplete ? (

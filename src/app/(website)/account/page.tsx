@@ -7,7 +7,7 @@ const Page = () => {
     <div className="max-w-[870px] flex  items-center flex-col  md:flex-row">
       <div className="mb-[80px]">
         {/* user infro dtails       */}
-        <div className="max-w-[870px] flex items-start justify-between   mb-[10px] flex-col   md:flex-row   ">
+        <div className="max-w-[870px] flex lg:items-start justify-between   mb-[10px] flex-col   md:flex-row   ">
           <UserInfo />
           <UserDetailsInfo />
         </div>

@@ -19,12 +19,12 @@ export default auth((req) => {
   if (isApiAuthRoute || isPublicRoutes) {
     return NextResponse.next();
   }
+  return NextResponse.next();
 
   if (isAuthRoute) {
     if (isLoggedin) {
       return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl));
     }
-    return NextResponse.next();
   }
 
   if (!isLoggedin && !isPublicRoutes) {

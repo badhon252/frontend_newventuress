@@ -52,7 +52,7 @@ export default function AnalyticsChart() {
   return (
     <Card className="w-full col-span-2">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-7">
-        <CardTitle className="text-gradient text-[28px] font-semibold">Analytics</CardTitle>
+        <CardTitle className="text-[#494949] text-[28px] font-semibold">Analytics</CardTitle>
         <Select defaultValue={month} onValueChange={(value) => setMonth(value as MonthKey)}>
           <SelectTrigger className="w-[90px] bg-primary text-white focus:ring-0">
             <SelectValue />

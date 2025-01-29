@@ -108,7 +108,7 @@ export default function GeoChart() {
   return (
     <Card className="w-full max-w-5xl mx-auto col-span-4">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-2xl font-bold">Top User Countries</CardTitle>
+        <CardTitle className="text-2xl text-[#494949] font-bold">Top User Countries</CardTitle>
         <Select value={year} onValueChange={setYear}>
           <SelectTrigger className="w-[90px] bg-primary text-white focus:ring-0">
             <SelectValue>{year}</SelectValue>

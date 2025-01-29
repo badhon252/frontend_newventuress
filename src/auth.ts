@@ -1,8 +1,44 @@
 import NextAuth from "next-auth";
-import authConfig from "./auth.config";
+import Credentials from "next-auth/providers/credentials";
+import { LoginResponse, SessionUser } from "./types/auth";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  ...authConfig,
+  providers: [
+    Credentials({
+      async authorize(credentials) {
+        if (!credentials) return null;
+
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
+          {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password,
+            }),
+          }
+        );
+
+        const data: LoginResponse = await response.json();
+
+        if (!response.ok || !data.status) {
+          throw new Error(data.message || "Network issue");
+        }
+
+        return {
+          id: data.userData.id,
+          email: data.userData.email,
+          fullName: data.userData.fullName,
+          industry: data.userData.industry,
+          profession: data.userData.profession,
+          token: data.token,
+        } as SessionUser;
+      },
+    }),
+  ],
   pages: {
     signIn: "/login",
     signOut: "/",
@@ -27,9 +63,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }
       return token;
     },
-  },
-  session: {
-    strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
 });

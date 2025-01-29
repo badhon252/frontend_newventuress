@@ -39,11 +39,7 @@
     "@tanstack/react-query": "^5.64.2",
     "@tanstack/react-query-devtools": "^5.64.2",
     "@tanstack/react-table": "^8.20.6",
-<<<<<<< HEAD
-    "axios": "^1.7.9",
-=======
     "chrono-node": "^2.7.8",
->>>>>>> 3eb55db2721db9df2d5f7904ff1401e93780bba4
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",

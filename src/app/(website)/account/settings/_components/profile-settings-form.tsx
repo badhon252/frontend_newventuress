@@ -87,6 +87,9 @@ export default function ProfileSettingsForm() {
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file) {
+      if (image) {
+        URL.revokeObjectURL(image);
+      }
       const imageUrl = URL.createObjectURL(file)
       setImage(imageUrl)
       form.setValue("image", file)
@@ -243,19 +246,23 @@ export default function ProfileSettingsForm() {
           <FormField
             control={form.control}
             name="image"
-            render={({ field: { value, onChange, ...field } }) => (
+            render={({ field: { onChange, value, ref, ...field } }) => (
               <FormItem>
                 <FormControl>
-                  <input
+                  <Input
                     type="file"
                     accept="image/*"
                     className="hidden"
                     id="fileInput"
-                    value={value as unknown as string} // Ensuring compatibility
+                    value={value ? "" : undefined} // Reset value to allow re-selection of the same file
                     onChange={(e) => {
-                      handleImageChange(e)
-                      onChange(e.target.files?.[0])
+                      const file = e.target.files?.[0]
+                      if (file) {
+                        handleImageChange(e) // Update preview
+                        onChange(file) // Update form state
+                      }
                     }}
+                    ref={ref}
                     {...field}
                   />
                 </FormControl>

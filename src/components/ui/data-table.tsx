@@ -30,11 +30,11 @@ export function DataTable<TData, TValue>({
   titleClass,
 }: DataTableProps<TData, TValue>) {
   return (
-    <div className="rounded-[24px] border py-[32px] bg-white">
+    <div className="rounded-[24px] border bg-white py-[32px]">
       <div
         className={cn(
           titleClass,
-          "bg-primary px-4 py-3 mx-[32px] rounded-t-lg text-white h-[78px] text-[32px] flex items-center"
+          "mx-[32px] flex h-[78px] items-center rounded-t-lg bg-primary px-4 py-3 text-[32px] text-white",
         )}
       >
         {title}
@@ -50,12 +50,15 @@ export function DataTable<TData, TValue>({
             >
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id} className="text-center">
+                  <TableHead
+                    key={header.id}
+                    className="text-center text-[#444444]"
+                  >
                     {header.isPlaceholder
                       ? null
                       : flexRender(
                           header.column.columnDef.header,
-                          header.getContext()
+                          header.getContext(),
                         )}
                   </TableHead>
                 );
@@ -71,7 +74,6 @@ export function DataTable<TData, TValue>({
                 data-state={row.getIsSelected() && "selected"}
                 className="text-center"
               >
-                
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}

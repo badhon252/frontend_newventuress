@@ -27,7 +27,7 @@ export function CartItemCard({
     <div className="flex flex-col  gap-[16px] rounded-lg p-[12px] border border-gray-200">
       <div className="sm:flex gap-4 ">
         
-        <div className="relative h-[127px] w-full md:w-[194px] rounded-[8px]">
+        <div className="relative h-[181px] lg:h-[127px] w-full md:w-[194px] rounded-[8px]">
           <Image
             src={item?.image}
             alt={item?.name}
@@ -77,23 +77,23 @@ export function CartItemCard({
             </div>
           </div>
           {/* shadow-[-4px_-4px_8px_0px_#0000000D] */}
-          <div className="flex items-center justify-between gap-4 mt-[8px]">
+          <div className=" flex items-center justify-between gap-4 mt-[8px]">
             {/* quantity buttons */}
-            <div className="flex items-center gap-3 bg-white border border-white rounded-[24px] shadow-[0px_28px_20px_0px_#0000000D] ">
+            <div className="w-[163px] h-[32px] flex justify-between items-center px-[24px] bg-white border border-white rounded-[24px] shadow-[0px_28px_20px_0px_#0000000D] ">
               <button
                 onClick={() =>
                   onUpdateQuantity(item.id, Math.max(0, item.quantity - 1))
                 }
                 className="w-8 h-8 text-2xl flex items-center justify-center"
               >
-                <Minus className="w-[14px] h-[14px] text-[#6D6D6D]"/>
+                <Minus className="w-[20px] h-[20px]  text-[#6D6D6D]"/>
               </button>
-              <span className=" w-4 text-center">{item.quantity}</span>
+              <span className="text-xl text-[#444444] text-center">{item.quantity}</span>
               <button
                 onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
                 className="w-8 h-8 text-2xl flex items-center justify-center"
               >
-               <Plus className="w-[14px] h-[14px] text-[#272323]"/>
+               <Plus className="w-[20px] h-[20px] text-[#272323]"/>
               </button>
             </div>
             {/* cart item remove button */}

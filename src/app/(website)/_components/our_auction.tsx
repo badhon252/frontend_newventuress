@@ -3,16 +3,68 @@ import dynamic from "next/dynamic";
 
 // Local imports
 
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import FeaturedProductCard from "@/components/shared/cards/featured_card";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import { Button } from "@/components/ui/button";
-import { featureProducts } from "@/data/featured";
-import Image from "next/image";
+import { useQuery } from "@tanstack/react-query";
+import ErrorContainer from "@/components/ui/error-container";
+
+const FeaturedCards = () => {
+  //? // Fetch products
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+  const products = data?.data;
+  console.log(products);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <ErrorContainer message={error.message} />;
+  }
+
+  return (
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+      {products.slice(0, 4).map((items: any) => (
+        <FeaturedProductCard key={items._id} product={items} />
+      ))}
+    </div>
+  );
+};
+
 const BiddingCard = dynamic(() => import("./bid-card"), {
   ssr: false,
 });
 
-const OurAuction = () => {
+const fetchProducts = async () => {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product`,
+  );
+  if (!response.ok) {
+    throw new Error("Network error");
+  }
+  return response.json();
+};
+
+export default function OurAuction() {
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+  const products = data?.data;
+  // console.log(products);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <ErrorContainer message={error.message} />;
+  }
   return (
     <div className="section container">
       <SectionHeading heading="Our Auctions" subheading="Auctions" />
@@ -21,25 +73,13 @@ const OurAuction = () => {
         <FeaturedCards />
 
         <div className="space-y-4">
-          <BiddingCard />
+          <BiddingCard product={products[0]} />
           <JoinAsSeller />
         </div>
       </div>
     </div>
   );
-};
-
-export default OurAuction;
-
-const FeaturedCards = () => {
-  return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-      {featureProducts.slice(0, 4).map((product) => (
-        <FeaturedProductCard key={product.id} product={product} />
-      ))}
-    </div>
-  );
-};
+}
 
 const JoinAsSeller = () => {
   return (

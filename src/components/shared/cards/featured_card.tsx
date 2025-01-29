@@ -11,6 +11,7 @@ import { FeatureCardType } from "@/data/featured";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
+import { Rating } from "@/components/ui/Rating";
 
 export default function FeaturedProductCard({
   product,
@@ -82,30 +83,12 @@ export default function FeaturedProductCard({
                       : "text-red-500",
                   )}
                 >
-                  {product.stoke}
+                  {product.stockStatus}
                 </div>
               </div>
             </div>
             <div className="my-auto flex items-start gap-1 self-stretch">
-              {[1, 2, 3, 4].map((star) => (
-                <Image
-                  key={star}
-                  loading="lazy"
-                  src="/assets/svg/star-fill.svg"
-                  alt="star fill"
-                  height={12}
-                  width={12}
-                  className="aspect-square w-3 shrink-0 fill-amber-500 object-contain"
-                />
-              ))}
-              <Image
-                loading="lazy"
-                src="/assets/svg/star-outline.svg"
-                alt="star outline"
-                height={12}
-                width={12}
-                className="aspect-square w-3 shrink-0 fill-stone-300 object-contain"
-              />
+              <Rating productId={product._id} />
             </div>
           </div>
           <div className="text-gradient mt-2 text-left text-[16px] font-medium leading-[19.2px]">

@@ -6,8 +6,11 @@ import { useState } from "react";
 import SidebarFilters from "./SidebarFilters";
 import ProductsSort from "./products-sort";
 import { useQuery } from "@tanstack/react-query";
+
 const fetchProducts = async () => {
-  const response = await fetch("http://localhost:8001/api/product");
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/product`,
+  );
   if (!response.ok) {
     throw new Error("Network error");
   }
@@ -18,6 +21,7 @@ const ProductsContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   // const [products, setProducts] = useState([]);
 
+  //? // Fetch products
   const { data, error, isLoading } = useQuery({
     queryKey: ["products"],
     queryFn: fetchProducts,
@@ -31,8 +35,6 @@ const ProductsContainer = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
-  // console.log("all data: ", data);
 
   //? // Get filters from Redux store
   // const { priceRange, flowers, categories } = useAppSelector(

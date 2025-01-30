@@ -48,14 +48,14 @@ export default function CartPage() {
   const { subtotal, shipping, tax, total } = calculateTotals();
 
   return (
-    <div className="container section border-b-[1px] border-primary-green-hover/50 pb-[50px] ">
-      <h1 className="text-2xl font-semibold text-[#2A6C2D] text-center mb-8">
+    <div className="container section border-b-[1px] border-[#C0CFE6]/50 pb-[40px] ">
+      <h1 className="text-2xl font-semibold text-gradient text-center mb-8">
         Your Shopping Cart
       </h1>
 
       <div className="max-w-7xl mx-auto lg:grid md:grid-cols-[1fr_500px] gap-8">
-        <div className="space-y-6 lg:border-r-[.5px] border-[#A8C3A9]/70 md:pr-8">
-          <h2 className="text-xl font-semibold text-[#2A6C2D] mb-6">
+        <div className="space-y-6 lg:border-r-[.5px] border-[#C0CFE6]/70 md:pr-8">
+          <h2 className="text-xl font-semibold text-gradient mb-6">
             Cart Items
           </h2>
           <div className="space-y-4">

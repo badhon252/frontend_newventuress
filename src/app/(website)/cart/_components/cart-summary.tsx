@@ -20,7 +20,7 @@ export function CartSummary({
 }: CartSummaryProps) {
   return (
     <div className="rounded-lg p-4">
-      <h5 className="text-xl font-semibold text-[#2A6C2D] mb-6 border-b border-[#A8C3A9]">
+      <h5 className="text-xl font-semibold pb-2 mb-6 text-gradient border-b border-[#C0CFE6]">
         Cart Total
       </h5>
       <div className="space-y-4">
@@ -42,8 +42,8 @@ export function CartSummary({
             <span>${(subtotal + shipping).toLocaleString()}</span>
           </div>
         </div>
-        <div className="border-t border-[#A8C3A9] pt-4">
-          <div className="flex justify-between text-xl font-semibold">
+        <div className="border-t border-[#C0CFE6] pt-4">
+          <div className="flex justify-between text-[16px] font-normal">
             <span className="text-[#9C9C9C]">Order Total</span>
             <span>${total.toLocaleString()}</span>
           </div>

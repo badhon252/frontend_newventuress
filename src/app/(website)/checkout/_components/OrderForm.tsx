@@ -495,7 +495,7 @@ const OrderForm: React.FC = () => {
                   name="coupon"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-[#0057a8] text-[16px]">
+                      <FormLabel className="text-gradient text-[16px]">
                         Add Coupon{" "}
                       </FormLabel>
                       <span className="text-[#9C9C9C] text-[10px]">

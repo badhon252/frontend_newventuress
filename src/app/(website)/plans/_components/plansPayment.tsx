@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { MembershipPlanType } from "@/types/membership";
+import { MembershipPlan } from "@/types/membership";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
@@ -37,7 +37,7 @@ const formSchema = z.object({
 interface PaymentModalProps {
   isOpen: boolean;
   onClose: () => void;
-  data: MembershipPlanType;
+  data: MembershipPlan;
 }
 
 function PlansPayment({ isOpen, onClose, data }: PaymentModalProps) {

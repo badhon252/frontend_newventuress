@@ -28,6 +28,7 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
+        
       />
     ),
     enableSorting: false,
@@ -35,19 +36,23 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
   },
  
   {
-    header: "Image",
+    id: "image",
+    header: () => <div className="ml-[-202px] ">Image</div>,
     cell: ({ row }) => {
       return (
-        <Image
-          src={row.original.image}
-          height={70}
-          width={94}
-          alt="img"
-          className="rounded-[8px]"
-        />
+        <div className="">
+          <Image
+            src={row.original.image}
+            height={100}
+            width={160}
+            alt="img"
+            className="rounded-[8px]"
+          />
+        </div>
       );
     },
   },
+  
   {
     accessorKey: "Associate",
     header: "Associate",

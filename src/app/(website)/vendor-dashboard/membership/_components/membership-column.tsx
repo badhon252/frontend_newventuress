@@ -91,7 +91,7 @@ export const Column: ColumnDef<MemberTableDataType>[] = [
     header: "Actions",
     cell: () => {
       return (
-        <div className="h-[154px] flex items-center justify-center">
+        <div className="py-[41px] flex items-center justify-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button

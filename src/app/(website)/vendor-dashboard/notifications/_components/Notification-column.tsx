@@ -87,7 +87,7 @@ export const MediaColumns: ColumnDef<NotificationDataType>[] = [
       };
 
       return (
-        <div className="text-right h-[154px] flex justify-center ">
+        <div className="text-right py-[49px] flex justify-center ">
           <DropdownMenu>
             <DropdownMenuTrigger className=" w-8 p-0 ">
               <span className="sr-only">Open menu</span>

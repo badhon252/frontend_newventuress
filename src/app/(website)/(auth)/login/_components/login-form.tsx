@@ -64,6 +64,8 @@ export default function LoginForm() {
             });
 
             router.push("/");
+
+            router.refresh();
           } else {
             toast.error(res.message, {
               position: "top-center",

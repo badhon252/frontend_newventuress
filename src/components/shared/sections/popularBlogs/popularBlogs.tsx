@@ -9,23 +9,27 @@ import { useInView } from "react-intersection-observer";
 import { fadeIn } from "@/components/animations/variant";
 import ErrorContainer from "@/components/ui/error-container";
 import SkeletonWrapper from "@/components/ui/skeleton-wrapper";
-import { Blog } from "@/types/blog";
+import { BlogResponse } from "@/types/blog";
 import { ButtonArrow } from "../../button/ButtonArrow";
 import PopularBlogsCards from "../../cards/BlogsCards";
 import SectionHeading from "../../SectionHeading/SectionHeading";
 
 function PopularBlog() {
   // Fetch blogs data with React Query
-  const { data, isLoading, isError, error } = useQuery<Blog[]>({
+  const {
+    data: resData,
+    isLoading,
+    isError,
+    error,
+  } = useQuery<BlogResponse>({
     queryKey: ["blogs"],
     queryFn: () =>
-      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/get-blog`).then(
-        async (res) => {
-          const resData = await res.json();
-          return resData.blogs; // Ensure the response contains a `blogs` array
-        }
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/get-blog`).then((res) =>
+        res.json()
       ),
   });
+
+  const blogs = resData?.data;
 
   // Track if the component is in view for animations
   const [ref, inView] = useInView({
@@ -63,7 +67,7 @@ function PopularBlog() {
     );
   } else if (isError) {
     content = <ErrorContainer message={error.message} />; // Display error message
-  } else if (data && data.length > 0) {
+  } else if (blogs && blogs.length > 0) {
     content = (
       <>
         <motion.div
@@ -72,13 +76,10 @@ function PopularBlog() {
           animate={inView ? "show" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[29px] mb-12"
         >
-          {data.slice(0, 3).map((blog) => (
+          {blogs.slice(0, 3).map((blog) => (
             <PopularBlogsCards key={blog._id} data={blog} /> // Render blog cards
           ))}
         </motion.div>
-        <div className="text-center">
-          <ButtonArrow href="/blogs" text="Explore More" />
-        </div>
       </>
     );
   }
@@ -88,6 +89,9 @@ function PopularBlog() {
       <div className="container mx-auto pt-[56px]">
         <SectionHeading heading="Shop By Popular Blogs" subheading="Blog" />
         {content} {/* Render content based on the state */}
+        <div className="text-center">
+          <ButtonArrow href="/blogs" text="Explore More" />
+        </div>
       </div>
     </motion.div>
   );

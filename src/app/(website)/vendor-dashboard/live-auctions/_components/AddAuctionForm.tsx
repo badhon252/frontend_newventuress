@@ -17,9 +17,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { InputWithTags } from "@/components/ui/input-with-tags";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import ProductGallery from "./ProductGallery";
+import ProductGallery from "@/components/shared/imageUpload/ProductGallery";
 
-import { DateTimePicker } from '@/components/ui/datetime-picker';
+import { DateTimePicker } from "@/components/ui/datetime-picker";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const formSchema = z.object({
   title: z.string().min(1, "Title is required"),
@@ -30,8 +31,8 @@ const formSchema = z.object({
   endingTime: z.coerce.date().optional(),
   sku: z.string().optional(),
   stockQuantity: z.string().optional(),
-  tags: z.array(z.string()).min(1, "At least one tag is required"),
-  productType: z.array(z.string()).optional(),
+  tags: z.array(z.string()).optional(),
+  productType: z.enum(["CBD", "Recreational"]),
 });
 
 const AddAuctionForm: React.FC = () => {
@@ -47,7 +48,7 @@ const AddAuctionForm: React.FC = () => {
       sku: "",
       stockQuantity: "",
       tags: [],
-      productType: []
+      productType: "CBD",
     },
   });
 
@@ -66,7 +67,7 @@ const AddAuctionForm: React.FC = () => {
     <div className="bg-white rounded-[24px] p-[32px]">
       <div
         className={
-          "bg-primary px-4 py-3 mb- rounded-t-lg text-white text-[32px] leading-[38px] font-semibold"
+          "bg-primary px-4 py-3 mb- rounded-t-lg text-white text-[32px] leading-[38px] font-semibold h-[78px] flex items-center"
         }
       >
         Add Auction
@@ -161,40 +162,37 @@ const AddAuctionForm: React.FC = () => {
               /> */}
 
 <FormField
-  control={form.control}
-  name="productType"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel>
-        Product Type<span className="text-red-500">*</span>
-      </FormLabel>
-      <FormControl>
-        <div className="space-y-2">
-          {["CBD", "Recreational"].map((type) => (
-            <div key={type} className="flex items-center space-x-2">
-              <input
-                type="checkbox"
-                value={type}
-                checked={field.value?.includes(type)}
-                onChange={(e) => {
-                  const valueArray = field.value || [];
-                  if (e.target.checked) {
-                    field.onChange([...valueArray, type]);
-                  } else {
-                    field.onChange(valueArray.filter((val) => val !== type));
-                  }
-                }}
-                className="h-4 w-4 border-[#9C9C9C]"
-              />
-              <label className="text-sm text-gray-700">{type}</label>
-            </div>
-          ))}
-        </div>
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
+                  control={form.control}
+                  name="productType"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Product Type *</FormLabel>
+                      <FormControl>
+                        <RadioGroup
+                          onValueChange={field.onChange}
+                          defaultValue={field.value}
+                          className="flex flex-col space-y-1"
+                        >
+                          <FormItem className="flex items-center space-x-3 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="CBD" />
+                            </FormControl>
+                            <FormLabel className="font-normal">CBD</FormLabel>
+                          </FormItem>
+                          <FormItem className="flex items-center space-x-3 space-y-0">
+                            <FormControl>
+                              <RadioGroupItem value="Recreational" />
+                            </FormControl>
+                            <FormLabel className="font-normal">
+                              Recreational
+                            </FormLabel>
+                          </FormItem>
+                        </RadioGroup>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               <FormField
                 control={form.control}
                 name="category"
@@ -226,7 +224,7 @@ const AddAuctionForm: React.FC = () => {
                       Starting Price
                     </FormLabel>
                     <div className="flex justify-between mt-2 w-full whitespace-nowrap rounded-md border border-solid border-neutral-400 h-[51px]">
-                      <div className="gap-3 self-stretch px-4 text-sm font-semibold leading-tight text-[#0057A8] bg-gray-200 rounded-lg h-[49px] w-[42px] flex items-center justify-center">
+                      <div className="gap-3 self-stretch px-4 text-sm font-semibold leading-tight text-[#0057A8] bg-gray-200 rounded-l-lg h-[49px] w-[42px] flex items-center justify-center">
                         $
                       </div>
                       <FormControl>
@@ -248,11 +246,16 @@ const AddAuctionForm: React.FC = () => {
                   <FormField
                     control={form.control}
                     name="startingTime"
-                    render={({  }) => (
+                    render={({}) => (
                       <FormItem>
                         <FormLabel>Starting Time</FormLabel>
                         <FormControl>
-                        <DateTimePicker hourCycle={24} value={date24} onChange={setDate24} />
+                          <DateTimePicker
+                            hourCycle={24}
+                            value={date24}
+                            onChange={setDate24}
+                            className="h-[51px] border-[#9C9C9C]"
+                          />
                         </FormControl>
 
                         <FormMessage />
@@ -265,11 +268,17 @@ const AddAuctionForm: React.FC = () => {
                   <FormField
                     control={form.control}
                     name="endingTime"
-                    render={({  }) => (
+                    render={({}) => (
                       <FormItem>
                         <FormLabel>Ending Time</FormLabel>
                         <FormControl>
-                        <DateTimePicker hourCycle={24} value={date24} onChange={setDate24} />
+                          <DateTimePicker
+                            hourCycle={24}
+                            value={date24}
+                            onChange={setDate24}
+                            className="h-[51px] border-[#9C9C9C]"
+
+                          />
                         </FormControl>
 
                         <FormMessage />

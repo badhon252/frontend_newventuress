@@ -36,7 +36,7 @@ const ContactInfo: React.FC = () => {
   return (
     <div className="flex flex-col grow p-[20px] gap-[10px] max-w-[470px] bg-[#E6EEF6] rounded-2xl min-h-[648px] max-md:mt-8 max-md:max-w-full">
       <div className="flex flex-col w-full max-md:max-w-full">
-        <h1 className="text-[25px] lg:text-[32px] font-semibold leading-[38.4px] text-gradiend max-md:max-w-full">
+        <h1 className="text-[25px] lg:text-[32px] font-semibold leading-[38.4px] text-gradient max-md:max-w-full">
           Customer Service
         </h1>
         <div className="flex flex-col mt-6 w-full max-md:max-w-full">

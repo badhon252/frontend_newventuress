@@ -81,7 +81,7 @@ function Categories() {
                     onClick={() => setCategory(item.name)}
                   >
                     <Link
-                      className="w-full text-[20px] p-4 hover:bg-primary-light"
+                      className="w-full text-[20px] p-4 hover:bg-[#E6EEF6]"
                       href={item.link}
                     >
                       {item.name}

@@ -12,13 +12,13 @@ const OverViewCard = ({ title, amount, icon }: MetricCardProps) => {
   return (
   <div className='w-full'>
       <Card className="  p-0   ">
-    <CardContent className="flex justify-between   items-center gap-2 p-4 ">
+    <CardContent className="flex items-center gap-5 p-4 ">
         
         <Image
                 className=""
                 src={icon}
-                width={80}
-                height={80}
+                width={100}
+                height={100}
                 alt="Picture of the author"
               />
       

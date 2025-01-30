@@ -12,8 +12,8 @@ const Page = () => {
 
       {/* Dashboard Overview Section */}
       <section>
-        <h1 className="text-[#0057A8] text-[22px] font-semibold mb-[20px]">
-          Dashboard Overview
+        <h1 className=" text-gradient text-[22px] font-bold mb-[20px]">
+           Overview
         </h1>
         <DashboardOverview />
       </section>

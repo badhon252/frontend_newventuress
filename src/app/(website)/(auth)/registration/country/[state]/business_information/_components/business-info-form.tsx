@@ -181,7 +181,7 @@ export function BusinessInfoForm() {
             </div>
           ))}
         </div>
-        <div className="space-y-2">
+        {authState["industry"] !== "Recreational Cannabis" && <div className="space-y-2">
           <label className="text-sm font-medium">
             Provide your Business license 
           </label>
@@ -203,7 +203,7 @@ export function BusinessInfoForm() {
             {Number(lastBusinessLicenceIndex) === i &&  <Button className="h-9" size="sm" variant="outline" onClick={() => dispatch(addBusinessField())}><PlusIcon /></Button>}
             </div>
           ))}
-        </div>
+        </div>}
         <div className="flex items-center justify-between pt-[40px]">
           <Button
             disabled={isNextDisabled}

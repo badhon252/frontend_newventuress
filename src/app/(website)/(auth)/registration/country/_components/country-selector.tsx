@@ -87,8 +87,11 @@ function CountrySelector() {
         {
           country: countryName,
           state: "",
-          license: "",
-          resellerBusinessLicense: "",
+          license: {
+            metrcLicense: [""],
+            cannabisLicense: [""],
+            businessLicense: [""]
+          }
         },
       ])
     );

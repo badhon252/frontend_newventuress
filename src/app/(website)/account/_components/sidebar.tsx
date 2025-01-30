@@ -9,7 +9,6 @@ import {
   Settings,
   ShoppingCart,
 } from "lucide-react";
-import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -55,14 +54,6 @@ const AccountSidebar = () => {
 
   const handleLogout = () => {
     setShowModal(true); // Show the modal when "Log out" is clicked
-  };
-
-  const confirmLogout = () => {
-    signOut({ redirectTo: "/" });
-  };
-
-  const cancelLogout = () => {
-    setShowModal(false); // Close the modal
   };
 
   return (
@@ -122,12 +113,7 @@ const AccountSidebar = () => {
           </Button>
         </div>
       </section>
-      {showModal && (
-        <LogOutModal
-          cancelLogout={cancelLogout}
-          confirmLogout={confirmLogout}
-        />
-      )}
+      {showModal && <LogOutModal onModalClose={() => setShowModal(false)} />}
     </>
   );
 };

@@ -120,7 +120,7 @@ export const OrderColumn = ({
       const status = (row.original.Status || "").toLowerCase() as StatusType;
 
       return (
-        <div>
+        <div className="!py-[24px]" >
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button

@@ -2,10 +2,17 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { ColumnDef } from "@tanstack/react-table";
-import { Check } from "lucide-react";
+import { Check, MoreHorizontal } from "lucide-react";
 import Image from "next/image";
-import AuctionListingAuction from "./auction_listing_action";
+
 import { AuctionsListingDataType } from "./data";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
   {
@@ -31,10 +38,11 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
     enableHiding: false,
   },
   {
-    header: "Name",
+    id: "name",
+    header: () => <div className="ml-[-250px] ">Name</div>,
     cell: ({ row }) => (
       <div>
-        <div className="flex  items-center gap-x-[8px] w-fit max-w-[360px]">
+        <div className="flex  items-center gap-x-[8px] w-[360px]  ">
           <div className="h-[110px] w-[110px] relative rounded-[12px]">
             <Image
               src={row.original.image}
@@ -69,7 +77,7 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
   {
     header: "Store",
     cell: ({ row }) => (
-      <h4 className="max-w-[137px] text-gradient font-semibold text-[18px] leading-[21.6px] ">
+      <h4 className="max-w-[137px] text-gradient font-semibold text-[18px] leading-[21.6px]  flex justify-center ml-10 ">
         {row.original.store}
       </h4>
     ),
@@ -83,11 +91,63 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
     ),
   },
   {
+    header: "Price",
+    cell: ({ row }) => (
+      <h4 className="text-base text-[#444444] font-normal leading-[19.2px] ">
+        ${row.original.price}
+      </h4>
+    ),
+  },
+
+  {
     header: "Date",
     accessorKey: "date",
   },
   {
-    header: "Actions",
-    cell: () => <AuctionListingAuction />,
+    id: "actions", // Unique ID for the actions column
+    header: "Actions", // Column header
+    cell: ({ row }) => {
+      const handleEdit = () => {
+        console.log("Edit clicked for row:", row.original);
+        // Add logic to open a form or modal for editing
+      };
+
+      const handleDelete = () => {
+        console.log("Delete clicked for row:", row.original);
+        // Add logic to confirm and delete the row
+      };
+
+      return (
+        <div className="py-[41px] flex items-center justify-center">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant="ghost"
+                className="h-8 w-8 p-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 "
+              >
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="end"
+              className="bg-white h-auto w-[110px] rounded-lg shadow-[4px_4px_8px_0px_#0000000D,-4px_-4px_8px_0px_#0000000D] cursor-pointer z-20"
+            >
+              <DropdownMenuItem
+                onClick={handleEdit}
+                className="p-[8px] text-primary hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+              >
+                Edit
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={handleDelete}
+                className="p-[8px] text-red-600 hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+              >
+                Delete
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+      );
+    },
   },
 ];

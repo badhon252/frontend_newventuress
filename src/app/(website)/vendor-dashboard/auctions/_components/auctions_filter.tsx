@@ -10,7 +10,17 @@ const showList = [
   { id: 3, name: "Expired", value: "expired" },
 ];
 
-const productTypeLists = [
+const StoreLists = [
+  { id: 1, name: "Chose stores", value: "all" },
+  { id: 2, name: "CBD", value: "cbd" },
+  { id: 3, name: "Recreational", value: "recreational" },
+];
+const FilterByCtegoryList = [
+  { id: 1, name: "Filter By Ctegory", value: "all" },
+  { id: 2, name: "CBD", value: "cbd" },
+  { id: 3, name: "Recreational", value: "recreational" },
+];
+const AllProductTypesList = [
   { id: 1, name: "All Product Types", value: "all" },
   { id: 2, name: "CBD", value: "cbd" },
   { id: 3, name: "Recreational", value: "recreational" },
@@ -37,7 +47,23 @@ const AuctionsFilter = () => {
         {/* Dropdown for "product type" */}
         <div className="h-full flex items-center">
           <PacificDropdownSelector
-            list={productTypeLists}
+            list={StoreLists}
+            selectedValue={productsType}
+            onValueChange={setProductType}
+            placeholderText="All Product Types"
+          />
+        </div>
+        <div className="h-full flex items-center">
+          <PacificDropdownSelector
+            list={FilterByCtegoryList}
+            selectedValue={productsType}
+            onValueChange={setProductType}
+            placeholderText="All Product Types"
+          />
+        </div>
+        <div className="h-full flex items-center">
+          <PacificDropdownSelector
+            list={AllProductTypesList}
             selectedValue={productsType}
             onValueChange={setProductType}
             placeholderText="All Product Types"

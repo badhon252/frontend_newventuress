@@ -67,7 +67,7 @@ export const StoreListColumn: ColumnDef<DemoTableItemsType>[] = [
               className="rounded-[8px]"
             />
           </div>
-          <div className=" w-[250px] ">
+          <div className=" w-[250px] text-left  ">
             <h4 className="text-[18px] text-gradient font-semibold">
               {row.original.name}
             </h4>

@@ -1,3 +1,4 @@
+"use client";
 import { PageHeader } from "@/components/shared/sections/page-header";
 import ProductsContainer from "./_components/products-container";
 
@@ -13,8 +14,7 @@ const Page = () => {
       />
       {/* Render the product grid or list */}
       <div className="">
-        
-      <ProductsContainer />
+        <ProductsContainer />
       </div>
     </div>
   );

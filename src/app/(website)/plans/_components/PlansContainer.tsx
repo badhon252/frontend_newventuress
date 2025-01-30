@@ -2,21 +2,38 @@
 
 // Packages
 import { useQuery } from "@tanstack/react-query";
+import { redirect, usePathname } from "next/navigation";
 
 // Local imports
 import ErrorContainer from "@/components/ui/error-container";
 import SkeletonWrapper from "@/components/ui/skeleton-wrapper";
-import { MembershipPlanType } from "@/types/membership";
+import { MembershipPlanResponse } from "@/types/membership";
 import PlansCard from "./plansCard";
 
-const PlansContainer = () => {
-  const { data, isLoading, isError, error } = useQuery<MembershipPlanType[]>({
+interface Props {
+  token: string | undefined;
+}
+
+const PlansContainer = ({token}: Props) => {
+
+  const pathName = usePathname();
+
+
+  if(!token) redirect(`/login?callback=${pathName}`)
+  
+  const { data: resData, isLoading, isError, error } = useQuery<MembershipPlanResponse>({
     queryKey: ["MembershipList"],
     queryFn: () =>
-      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/memberships`).then(
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/memberships`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      }).then(
         (res) => res.json()
       ),
   });
+
+  const data = resData?.data
 
   let content;
 

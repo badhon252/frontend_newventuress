@@ -1,4 +1,4 @@
-export type MembershipPlanType = {
+export type MembershipPlan = {
   _id: string;
   planType: string;
   description: string;
@@ -9,3 +9,9 @@ export type MembershipPlanType = {
   updatedAt: Date; // or Date if you plan to convert it to a Date object
   __v: number;
 };
+
+export type MembershipPlanResponse = {
+  status: boolean,
+  message: string,
+  data: MembershipPlan[]
+}

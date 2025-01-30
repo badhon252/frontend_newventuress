@@ -1,13 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { MembershipPlanType } from "@/types/membership";
+import { MembershipPlan } from "@/types/membership";
 import { useState } from "react";
 import { IoCheckmarkCircle } from "react-icons/io5";
 import PlansPayment from "./plansPayment";
 
 interface Props {
-  data: MembershipPlanType;
+  data: MembershipPlan;
 }
 
 function PlansCard({ data }: Props) {

@@ -25,7 +25,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 
 export const loginSchema = z.object({
@@ -42,6 +42,7 @@ export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
 
   const router = useRouter();
+  const callback = useSearchParams().get("callback") || "/"
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -63,7 +64,7 @@ export default function LoginForm() {
               richColors: true,
             });
 
-            router.push("/");
+            router.push(callback);
 
             router.refresh();
           } else {

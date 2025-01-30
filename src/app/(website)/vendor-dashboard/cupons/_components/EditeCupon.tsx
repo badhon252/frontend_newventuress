@@ -87,7 +87,7 @@ function onBack ()  {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>
+                    <FormLabel className="flex justify-start text-[#444444]">
                       Title <span className="text-red-500">*</span>
                     </FormLabel>
                     <FormControl>
@@ -103,7 +103,7 @@ function onBack ()  {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Description</FormLabel>
+                    <FormLabel className="flex justify-start text-[#444444]">Description</FormLabel>
                     <FormControl>
                       <Textarea placeholder="Type Description here" {...field} />
                     </FormControl>
@@ -117,7 +117,7 @@ function onBack ()  {
                   name="discountType"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Discount Type</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Discount Type</FormLabel>
                       <FormControl>
                         <Input placeholder="Percentage discount" {...field} />
                       </FormControl>
@@ -130,7 +130,7 @@ function onBack ()  {
                   name="amount"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Amount</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Amount</FormLabel>
                       <FormControl>
                         <Input placeholder="Percentage discount" {...field} />
                       </FormControl>
@@ -143,7 +143,7 @@ function onBack ()  {
                   name="startDate"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Start Date</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Start Date</FormLabel>
                       <FormControl>
                         <Input type="date" {...field} />
                       </FormControl>
@@ -156,9 +156,9 @@ function onBack ()  {
                   name="expireDate"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Expire Date</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Expire Date</FormLabel>
                       <FormControl>
-                        <Input type="date" {...field} />
+                        <Input   type="date" {...field} />
                       </FormControl>
                     </FormItem>
                   )}
@@ -170,7 +170,7 @@ function onBack ()  {
                 name="emailRestrictions"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Email Restrictions</FormLabel>
+                    <FormLabel className="flex justify-start text-[#444444]">Email Restrictions</FormLabel>
                     <FormControl>
                       <Input placeholder="Percentage discount" {...field} />
                     </FormControl>
@@ -184,7 +184,7 @@ function onBack ()  {
                   name="usageLimit"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Usage Limit</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Usage Limit</FormLabel>
                       <FormControl>
                         <Input placeholder="Percentage discount" {...field} />
                       </FormControl>
@@ -197,7 +197,7 @@ function onBack ()  {
                   name="usageLimitPerUser"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Usage limit per user</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Usage limit per user</FormLabel>
                       <FormControl>
                         <Input placeholder="Percentage discount" {...field} />
                       </FormControl>
@@ -211,7 +211,7 @@ function onBack ()  {
                 name="product"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Product</FormLabel>
+                    <FormLabel className="flex justify-start text-[#444444]">Product</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger>
@@ -233,7 +233,7 @@ function onBack ()  {
                   name="category"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Category</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Category</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -254,7 +254,7 @@ function onBack ()  {
                   name="subCategory"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Sub-Category</FormLabel>
+                      <FormLabel className="flex justify-start text-[#444444]">Sub-Category</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                           <SelectTrigger>
@@ -280,7 +280,7 @@ function onBack ()  {
                       <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel>Save this information for faster Adding Products</FormLabel>
+                      <FormLabel className="text-[#444444]">Save this information for faster Adding Products</FormLabel>
                     </div>
                   </FormItem>
                 )}

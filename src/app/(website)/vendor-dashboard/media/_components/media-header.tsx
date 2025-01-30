@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Box } from "lucide-react";
-import Link from "next/link";
+
 
 const MediaHeader = () => {
   return (
@@ -12,13 +10,7 @@ const MediaHeader = () => {
         <span className="text-gradient"> Pending (30) | </span>
         <span className="text-gradient"> Archived (30) </span>
       </div>
-      <div>
-        <Button asChild>
-          <Link href="/">
-            Add New <Box />
-          </Link>
-        </Button>
-      </div>
+     
     </div>
   );
 };

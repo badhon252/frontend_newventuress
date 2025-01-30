@@ -5,7 +5,7 @@ import { featureProducts } from "@/data/featured";
 
 const ProductsYouMayLike = () => {
   return (
-    <div className="section container border-t-[1px] border-primary-green-hover/50 pt-[50px]">
+    <div className="section container border-t-[1px] border-[#C0CFE6]/50 pt-[50px]">
       <SectionHeading heading="Products you might like" subheading="Products" />
 
       <div className="my-[50px] grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">

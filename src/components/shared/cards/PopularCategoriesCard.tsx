@@ -108,9 +108,7 @@ export default PopularCategoriesCard;
 const CardButtons = () => {
   return (
     <>
-      <Button className="w-full  text-[14px] md:text-[16px] px-[16px] md:px-[20px] py-[8px] md:py-[10px]">
-        Flowers
-      </Button>
+      <Button className="w-full ">Flowers</Button>
     </>
   );
 };

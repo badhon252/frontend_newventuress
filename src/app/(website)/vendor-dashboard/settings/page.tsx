@@ -1,13 +1,10 @@
-import StoreContainer from "./_components/StoreContainer";
-import StoreFilter from "./_components/StoreFilter";
-import StoreListHeader from "./_components/StoreListHeader";
+import TableAndFormToggler from "./_components/TableAndFormToggler";
+
 
 const Page = () => {
   return (
-    <div className="space-y-[30px]">
-      <StoreListHeader />
-      <StoreFilter />
-      <StoreContainer />
+    <div className="space-y-[30px]"> 
+      <TableAndFormToggler/>
     </div>
   );
 };

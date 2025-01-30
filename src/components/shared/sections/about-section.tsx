@@ -12,10 +12,10 @@ export default function AboutSection({ image }: { image: string }) {
           <div className="flex-1">
             <div>
               <div className="my-4">
-                <h1 className=" text-[25px] lg:text-[32px] font-semibold text-primary-green-hover leading-[30px] lg:leading-[38.4px]">
+                <h1 className=" text-[25px] lg:text-[32px] font-semibold text-gradient leading-[30px] lg:leading-[38.4px]">
                   About Pacific Rim Fusion
                 </h1>
-                <h4 className="text-[16px] leading-[19.2px] lg:text-[20px] font-medium lg:leading-[24px] bg-clip-text text-transparent bg-gradient-to-r from-[#1D4C1F] to-[#44B249]">
+                <h4 className="text-[16px] leading-[19.2px] lg:text-[20px] font-medium lg:leading-[24px] text-gradient">
                   Cannabis B2B Marketplace
                 </h4>
               </div>

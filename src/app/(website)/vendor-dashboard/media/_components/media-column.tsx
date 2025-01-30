@@ -37,7 +37,7 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
  
   {
     id: "image",
-    header: () => <div className="ml-[-202px] ">Image</div>,
+    header: () => <div className="ml-[-205px] ">Image</div>,
     cell: ({ row }) => {
       return (
         <div className="">

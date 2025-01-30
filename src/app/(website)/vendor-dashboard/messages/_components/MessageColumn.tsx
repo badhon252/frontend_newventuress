@@ -50,7 +50,7 @@ export const MessageColumn: ColumnDef<VendorMessageDataType>[] = [
               className="rounded-full"
             />
           </div>
-          <div>
+          <div className="text-left" >
           <h4 className="text-lg font-semibold leading-[21px] text-gradient">{row.original.name}</h4>
             <h4 className="text-base font-normal leading-[19px] text-[#444444] py-[8px]">{row?.original?.email}</h4>
             <p className="w-52 text-base font-normal leading-[19px] text-[#444444]">{row.original.location}</p>

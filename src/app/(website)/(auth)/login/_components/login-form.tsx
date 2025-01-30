@@ -25,6 +25,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 export const loginSchema = z.object({
@@ -39,6 +40,8 @@ export type LoginFormValues = z.infer<typeof loginSchema>;
 
 export default function LoginForm() {
   const [isPending, startTransition] = useTransition();
+
+  const router = useRouter();
 
   const form = useForm<LoginFormValues>({
     resolver: zodResolver(loginSchema),
@@ -60,7 +63,7 @@ export default function LoginForm() {
               richColors: true,
             });
 
-            window.location.reload();
+            router.push("/");
           } else {
             toast.error(res.message, {
               position: "top-center",

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 // Local imports
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
 import FormHeader from "./form-header";
@@ -16,6 +17,7 @@ export function ExperienceForm() {
   const dispatch = useDispatch();
 
   const authState = useAppSelector((state) => state.auth);
+
 
 
 
@@ -28,26 +30,57 @@ export function ExperienceForm() {
     redirect("/registration");
   }
 
-  const handleExperiencChange = (type: "CBD/HEMP" | "Recreational Cannabis" | "Select All") => {
+  const handleExperiencChange = (
+    type: "CBD/HEMP" | "Recreational Cannabis" | "Select All"
+  ) => {
     const currentIndustries = Array.isArray(authState.industry) ? authState.industry : [];
-
     let updatedIndustries: ("CBD/HEMP" | "Recreational Cannabis" | "Select All")[];
-
-    if(type === "Select All") {
-      updatedIndustries = currentIndustries.includes("Select All") ? [] : ["CBD/HEMP", "Recreational Cannabis", "Select All"]
+  
+    if (type === "Select All") {
+      // If "Select All" is clicked, toggle between selecting all or clearing the selection
+      updatedIndustries =
+        currentIndustries.includes("Select All") // If "Select All" is already selected
+          ? [] // Clear all selections
+          : ["CBD/HEMP", "Recreational Cannabis", "Select All"]; // Select all industries
     } else {
-      if(currentIndustries.includes(type)) {
-        updatedIndustries = currentIndustries.filter((industry) => industry !== type)
+      // Handle individual industry selection
+      if (currentIndustries.includes(type)) {
+        // If the industry is already selected, remove it
+        updatedIndustries = currentIndustries.filter((industry) => industry !== type);
+  
+        // If "Select All" is currently selected, remove it when deselecting an individual industry
+        if (updatedIndustries.includes("Select All")) {
+          updatedIndustries = updatedIndustries.filter((industry) => industry !== "Select All");
+        }
       } else {
-        updatedIndustries = [...currentIndustries, type]
+        // If the industry is not selected, add it
+        updatedIndustries = [...currentIndustries, type];
+  
+        // If both "CBD/HEMP" and "Recreational Cannabis" are now selected, automatically add "Select All"
+        if (
+          updatedIndustries.includes("CBD/HEMP") &&
+          updatedIndustries.includes("Recreational Cannabis")
+        ) {
+          updatedIndustries = ["CBD/HEMP", "Recreational Cannabis", "Select All"];
+        }
       }
     }
+  
+    // Dispatch the updated industries to the Redux store
     dispatch(setRegistrationValue({ industry: updatedIndustries }));
-  }
+  };
 
-  const isChecked = (type: "CBD/HEMP" | "Recreational Cannabis" | "Select All") => {
-    return authState["industry"].includes(type)
-  }
+ // Check if a specific checkbox is checked
+ const isChecked = (type: "CBD/HEMP" | "Recreational Cannabis" | "Select All") => {
+  return Array.isArray(authState.industry) && authState.industry.includes(type);
+};
+
+// Ensure the button is disabled if no industries are selected
+const isButtonDisabled = !Array.isArray(authState.industry) || authState.industry.length === 0;
+
+console.log(isButtonDisabled)
+
+
 
   return (
     <div className="py-[20px] md:py-0">
@@ -102,7 +135,7 @@ export function ExperienceForm() {
             </div>
           </div>
         </div>
-        <Button disabled={!authState.industry} size="md" asChild>
+        <Button className={cn(isButtonDisabled && "opacity-50 pointer-events-none")} disabled={isButtonDisabled} size="md" asChild>
           <Link
             href="/registration/experiences/profession"
             className="flex items-center w-auto h-full"

@@ -95,7 +95,7 @@ export function BusinessInfoForm() {
   };
 
   useEffect(() => {
-    return () => {
+    if(authState["businessInfo"].length === 0) {
       router.push("/registration")
     }
   }, [router])

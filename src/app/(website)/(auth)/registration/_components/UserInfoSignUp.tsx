@@ -29,6 +29,7 @@ import FormHeader from "./form-header";
 // Zod Schema for validation
 const formSchema = z
   .object({
+    businessName: z.string().nonempty("Business name is required"),
     email: z.string().email("Invalid email address"),
     fullName: z.string().min(2, "Full name must be at least 2 characters"),
     password: z.string().min(6, "Password must be at least 6 characters"),
@@ -62,7 +63,7 @@ export default function UserInformationForm() {
     };
   }, []);
 
-  const form = useForm({
+  const form = useForm<UserInformationFormType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       email: authState.email,
@@ -70,6 +71,7 @@ export default function UserInformationForm() {
       password: authState.password,
       confirmPassword: authState.confirmPassword,
       agreed: false,
+      businessName: authState["businessName"]
     },
   });
 
@@ -114,7 +116,7 @@ export default function UserInformationForm() {
       <FormHeader
         label="Sign Up"
         paragraph="Continue to register as a customer or vendor, Please provide the information."
-        title="Enter your Personal Information"
+        title="Enter your Business Information"
       />
 
       <Form {...form}>
@@ -122,6 +124,32 @@ export default function UserInformationForm() {
           className="flex flex-col gap-[20px] text-[20px]"
           onSubmit={form.handleSubmit(onSubmit)}
         >
+          {/* business name Field */}
+           <FormField
+            name="businessName"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Business Name</FormLabel>
+                <FormControl>
+                  <Input
+                    className="p-5 text-[20px] focus:outline-none focus:ring-2 focus:ring-[#9E9E9E]"
+                    placeholder="Write your business name"
+                    onChange={(e) => {
+                      dispatch(
+                        setRegistrationValue({
+                          businessName: e.target.value,
+                        })
+                      );
+                      field.onChange(e.target.value);
+                    }}
+                    value={field.value}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           {/* Email Field */}
           <FormField
             name="email"

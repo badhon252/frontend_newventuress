@@ -13,7 +13,7 @@ interface Business {
 }
 
 export interface authSliceType {
-  industry: "CBD/HEMP" | "Recreational Cannabis" | "Both" | "";
+  industry: ("CBD/HEMP" | "Recreational Cannabis" | "Select All" )[];
 
   profession: string[];
   email: string;
@@ -21,6 +21,7 @@ export interface authSliceType {
   password: string;
   confirmPassword: string;
   businessInfo: Business[];
+  businessName: string;
 }
 
 const initialState: authSliceType = {
@@ -28,10 +29,11 @@ const initialState: authSliceType = {
   fullName: "",
   password: "",
   confirmPassword: "",
-  industry: "",
+  industry: [],
   profession: [],
 
   businessInfo: [],
+  businessName: ""
 };
 
 // Create the slice

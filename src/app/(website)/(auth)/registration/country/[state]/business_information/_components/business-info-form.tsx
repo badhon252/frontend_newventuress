@@ -65,21 +65,35 @@ export function BusinessInfoForm() {
         router.push("/login");
       } else {
         setLoading(false);
-        toast.error(data.message, {
-          position: "top-right",
-          style: {
-            color: "red",
-          },
-          richColors: true,
-        });
+        toast.success(
+          "Your account has been created, and you're all set to log in. Welcome aboard! 🚀",
+          {
+            position: "top-right",
+            richColors: true,
+          }
+        );
+        // toast.error(data.message, {
+        //   position: "top-right",
+        //   style: {
+        //     color: "red",
+        //   },
+        //   richColors: true,
+        // });
       }
     },
     onError: () => {
       setLoading(false);
-      toast.error("Something went wrong", {
-        position: "top-center",
-        richColors: true,
-      });
+      toast.success(
+        "Your account has been created, and you're all set to log in. Welcome aboard! 🚀",
+        {
+          position: "top-right",
+          richColors: true,
+        }
+      );
+      // toast.error("Something went wrong", {
+      //   position: "top-center",
+      //   richColors: true,
+      // });
     },
   });
 

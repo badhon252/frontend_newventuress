@@ -2,7 +2,7 @@
 // Packages
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { useCallback } from "react";
+import { redirect } from "next/navigation";
 import { useDispatch } from "react-redux";
 
 // Local imports
@@ -10,13 +10,14 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { setRegistrationValue } from "@/redux/features/authentication/AuthSlice";
 import { useAppSelector } from "@/redux/store";
-import { redirect } from "next/navigation";
 import FormHeader from "./form-header";
 
 export function ExperienceForm() {
   const dispatch = useDispatch();
 
   const authState = useAppSelector((state) => state.auth);
+
+
 
   // check if prev form value not found
   const { email, fullName, password } = authState;
@@ -27,12 +28,26 @@ export function ExperienceForm() {
     redirect("/registration");
   }
 
-  const handleExperiencChange = useCallback(
-    (type: "CBD/HEMP" | "Recreational Cannabis" | "Both") => {
-      dispatch(setRegistrationValue({ industry: type }));
-    },
-    [dispatch]
-  );
+  const handleExperiencChange = (type: "CBD/HEMP" | "Recreational Cannabis" | "Select All") => {
+    const currentIndustries = Array.isArray(authState.industry) ? authState.industry : [];
+
+    let updatedIndustries: ("CBD/HEMP" | "Recreational Cannabis" | "Select All")[];
+
+    if(type === "Select All") {
+      updatedIndustries = currentIndustries.includes("Select All") ? [] : ["CBD/HEMP", "Recreational Cannabis", "Select All"]
+    } else {
+      if(currentIndustries.includes(type)) {
+        updatedIndustries = currentIndustries.filter((industry) => industry !== type)
+      } else {
+        updatedIndustries = [...currentIndustries, type]
+      }
+    }
+    dispatch(setRegistrationValue({ industry: updatedIndustries }));
+  }
+
+  const isChecked = (type: "CBD/HEMP" | "Recreational Cannabis" | "Select All") => {
+    return authState["industry"].includes(type)
+  }
 
   return (
     <div className="py-[20px] md:py-0">
@@ -47,7 +62,7 @@ export function ExperienceForm() {
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
                 id="CBD/HEMP"
-                checked={authState.industry === "CBD/HEMP"}
+                checked={isChecked("CBD/HEMP")}
                 onCheckedChange={() => handleExperiencChange("CBD/HEMP")}
               />
               <label
@@ -60,7 +75,7 @@ export function ExperienceForm() {
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
                 id="recreational"
-                checked={authState.industry === "Recreational Cannabis"}
+                checked={isChecked("Recreational Cannabis")}
                 onCheckedChange={() =>
                   handleExperiencChange("Recreational Cannabis")
                 }
@@ -74,15 +89,15 @@ export function ExperienceForm() {
             </div>
             <div className="flex items-center space-x-2 cursor-pointer">
               <Checkbox
-                id="recreational"
-                checked={authState.industry === "Both"}
-                onCheckedChange={() => handleExperiencChange("Both")}
+                id="both"
+                checked={isChecked("Select All")}
+                onCheckedChange={() => handleExperiencChange("Select All")}
               />
               <label
-                htmlFor="recreational"
+                htmlFor="both"
                 className="text-[20px] font-medium leading-[24px] peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
               >
-                Both
+                Select All
               </label>
             </div>
           </div>

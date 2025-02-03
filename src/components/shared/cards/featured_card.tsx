@@ -7,11 +7,11 @@ import Image from "next/image";
 // local import
 
 import { Button } from "@/components/ui/button";
+import { Rating } from "@/components/ui/Rating";
 import { FeatureCardType } from "@/data/featured";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useState } from "react";
-import { Rating } from "@/components/ui/Rating";
 
 export default function FeaturedProductCard({
   product,
@@ -26,7 +26,7 @@ export default function FeaturedProductCard({
 
   return (
     <Link
-      href={`/products/534543`}
+      href={`/products/${product._id}`}
       className="relative mx-auto my-auto flex w-full shrink grow cursor-pointer flex-col self-stretch overflow-hidden rounded-[8px] border border-solid border-gray-200 bg-white p-3 transition-shadow duration-300 hover:shadow-feature_card md:w-[260px]"
     >
       <div className="overflow-hidden rounded-[8px]">

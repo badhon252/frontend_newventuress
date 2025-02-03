@@ -3,7 +3,6 @@
 // Packages
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useSession } from "next-auth/react";
 import { useInView } from "react-intersection-observer";
 
 
@@ -17,18 +16,18 @@ import ErrorContainer from "@/components/ui/error-container";
 import SkeletonWrapper from "@/components/ui/skeleton-wrapper";
 import { ProductResponse } from "@/types/product";
 
+interface Props {
+  token: string | null
+}
 
-
-const OurFeatureSection = () => {
-  const session = useSession();
-  const token = session?.data?.user?.token;
+const OurFeatureSection = ({token} : Props) => {
   const [ref, inView] = useInView({
     threshold: 0.2,
     triggerOnce: true,
   });
 
-  //? // Fetch products
-  const { data, isError, error, isLoading } = useQuery<ProductResponse>({
+   //? // Fetch products
+   const { data, isError, error, isLoading } = useQuery<ProductResponse>({
     queryKey: ["products"],
     queryFn: async () => {
       const response = await fetch(
@@ -43,6 +42,10 @@ const OurFeatureSection = () => {
       return response.json();
     },
   });
+  if(!token) return;
+  
+
+ 
   
   const products = data?.data;
 

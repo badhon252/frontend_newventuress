@@ -6,11 +6,11 @@ import Image from "next/image";
 // Local imports
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useCountdown } from "@/hooks/useCountDown";
-import { FeatureCardType } from "@/data/featured";
 import { Rating } from "@/components/ui/Rating";
+import { useCountdown } from "@/hooks/useCountDown";
+import { Product } from "@/types/product";
 
-export default function BiddingCard({ product }: { product: FeatureCardType }) {
+export default function BiddingCard({ product }: { product: Product }) {
   const endDate = new Date("2025-01-31T23:59:59");
   const timeLeft = useCountdown(endDate);
 

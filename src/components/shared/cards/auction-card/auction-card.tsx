@@ -35,7 +35,7 @@ export default function AuctionCard({ isExpired, index }: Props) {
   };
 
   return (
-    <div className="flex relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:w-[260px] hover:shadow-feature_card transition-shadow duration-300 h-[389px]">
+  <div className="flex relative flex-col grow shrink self-stretch p-3 my-auto mx-auto bg-white rounded-[8px] border border-gray-200 border-solid w-full md:h-auto hover:shadow-feature_card transition-shadow duration-300 h-[389px]">
       <motion.div
         className={cn(
           "rounded-[8px] overflow-hidden relative w-full ",

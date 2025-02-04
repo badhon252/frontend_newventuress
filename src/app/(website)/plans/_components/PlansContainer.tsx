@@ -65,7 +65,7 @@ const PlansContainer = ({token}: Props) => {
     content = <ErrorContainer message={error?.message} />;
   } else if ((data ?? []).length > 0) {
     content = (
-      <div className="grid lg:grid-cols-3 gap-[30px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px]">
         {data?.map((item) => (
           <div className="w-full mx-auto" key={item._id}>
             <PlansCard data={item} />

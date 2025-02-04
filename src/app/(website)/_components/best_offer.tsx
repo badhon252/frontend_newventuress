@@ -36,7 +36,7 @@ const bestOfferData: BestOfferData[] = [
 
 const BestOffer: React.FC = () => {
   return (
-    <div className="container pb-[40px] md:pb-[60px] lg:pb-[80px]">
+    <div className="container pb-[40px] md:pb-[60px] lg:pb-[80px] mt-[-70px]">
       <h3 className="heading">
         Best Offer
       </h3>
@@ -44,7 +44,7 @@ const BestOffer: React.FC = () => {
         &quot;Unlock unbeatable savings on select products - Shop now before
         it&apos;s gone!&quot;
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-[30px] pt-[25px] md:pt-[33px] lg:pt-[41px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[30px] pt-[25px] md:pt-[33px] lg:pt-[41px]">
         {bestOfferData.map((offer) => (
           <div
             key={offer?.id}

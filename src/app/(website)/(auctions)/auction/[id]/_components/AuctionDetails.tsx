@@ -141,7 +141,7 @@ const AuctionDetails = () => {
       <SectionHeading heading={"Our products"} subheading={""} />
       <section className=" flex justify-center items-center pt-10 px-4">
         <div className="flex flex-col w-full max-w-[1200px]">
-          <div className="flex flex-wrap gap-8 w-full ">
+          <div className="flex flex-wrap gap-8 w-full">
             <ProductImageGallery
               thumbnails={productData.images}
               mainImage={productData.mainImage}

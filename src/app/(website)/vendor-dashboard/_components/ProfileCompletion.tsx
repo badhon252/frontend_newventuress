@@ -36,13 +36,13 @@ export default function ProfileCompletion() {
         Welcome to the {profileData.domain}
       </h1>
       
-      <div className="flex items-center ">
+      <div className="flex items-center">
        
         <Progress 
           value={profileData.completionPercentage} 
           className="h-2 w-[270px] bg-[#C5C5C5] [&>div]:bg-[#0057A8]"
         /> 
-         <div className="flex justify-between text-sm ml-5">
+         <div className="flex justify-between text-[12px] ml-5">
         <span>Profile complete {profileData.completionPercentage}%</span>
       </div>
       </div>

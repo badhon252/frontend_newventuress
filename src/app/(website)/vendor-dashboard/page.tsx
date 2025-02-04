@@ -3,6 +3,8 @@ import DashboardOverview from "./_components/dashBoardOverview";
 import MostSoldItems from "./_components/MostSoldItems";
 import ProfileCompletion from "./_components/ProfileCompletion";
 import GeoChart from "./_components/TopUserCountries";
+import RecentCustomerContainer from "../../../components/RecentCustomerInfo/RecentCustomer-container";
+import OngoinContainer from "@/components/OngoinOderStatus/OngoinContainer";
 
 const Page = () => {
   return (
@@ -28,7 +30,16 @@ const Page = () => {
           <MostSoldItems />
           <AnalyticsChart />
         </div>
+       
       </div>
+      <div className=" flex  justify-between pb-[30px]">
+          <div className="w-[39%]">
+            <RecentCustomerContainer/>
+          </div>
+          <div className="w-[59%]">
+            <OngoinContainer/>
+          </div>
+        </div>
     </div>
   );
 };

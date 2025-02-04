@@ -11,29 +11,29 @@ import { NotificationDataType } from "@/data/notifications";
 // You can use a Zod schema here if you want.
 
 export const MediaColumns: ColumnDef<NotificationDataType>[] = [
-  
+
 
   {
     header: "Message",
     cell: ({ row }) => {
       return (
-       <div className="text-center ">
-        <div className="flex items-center gap-1 justify-center">
-        <p className="text-base text-[#444444] font-normal leading-[19.2px]">Store :</p>
-        <div className="flex items-center">
-        <Image
-            src={row.original.Image}
-            alt="Pacific Rim Fusion"
-            width={17}
-            height={18}
-            className="rounded-full"
-            priority
-          />
-         <p className="text-base text-gradient font-bold leading-[19.2px]"	>{row.original.Name}</p>
+        <div className="text-center ">
+          <div className="flex items-center gap-1 justify-center">
+            <p className="text-base text-[#444444] font-normal leading-[19.2px]">Store :</p>
+            <div className="flex items-center">
+              <Image
+                src={row.original.Image}
+                alt="Pacific Rim Fusion"
+                width={17}
+                height={18}
+                className="rounded-full"
+                priority
+              />
+              <p className="text-base text-gradient font-bold leading-[19.2px]"	>{row.original.Name}</p>
+            </div>
+          </div>
+          <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">has changed membership plan to <span className="text-gradient">{row.original.Plan}</span>.</p>
         </div>
-        </div>
-        <p className="text-base text-[#444444] font-normal leading-[19.2px] mt-3">has changed membership plan to <span className="text-gradient">{row.original.Plan}</span>.</p>
-       </div>
       );
     },
   },
@@ -56,7 +56,7 @@ export const MediaColumns: ColumnDef<NotificationDataType>[] = [
     cell: ({ row }) => {
       return (
         <div className=" flex justify-center">
-            <p className="text-base text-[#444444] font-normal leading-[19.2px]">{row.original.Form}</p>
+          <p className="text-base text-[#444444] font-normal leading-[19.2px]">{row.original.Form}</p>
         </div>
       )
     }
@@ -67,7 +67,7 @@ export const MediaColumns: ColumnDef<NotificationDataType>[] = [
     cell: ({ row }) => {
       return (
         <div className=" flex justify-center ">
-            <p className="text-base text-[#444444] font-normal leading-[19.2px]">{row.original.Date}</p>
+          <p className="text-base text-[#444444] font-normal leading-[19.2px]">{row.original.Date}</p>
         </div>
       )
     }
@@ -92,7 +92,7 @@ export const MediaColumns: ColumnDef<NotificationDataType>[] = [
             <DropdownMenuTrigger className=" w-8 p-0 ">
               <span className="sr-only">Open menu</span>
               <div className="">
-              <MoreHorizontal className="h-4 w-4 " />
+                <MoreHorizontal className="h-4 w-4 " />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">

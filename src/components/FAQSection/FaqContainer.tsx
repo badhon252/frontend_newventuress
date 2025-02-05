@@ -41,7 +41,7 @@ const FaqContainer = () => {
           <SkeletonWrapper isLoading={isLoading} key={item}>
             <AccordionItem
               value={`item-${item}`}
-              className="border border-[#0057A8] rounded-lg overflow-hidden"
+              className="border border-[#0057A8] rounded-lg overflow-hidden w-full"
             >
               <AccordionTrigger className="flex justify-between items-center text-start lg:text-center py-4 px-6 text-gradient bg-white hover:no-underline focus:outline-none max-w-[700px]">
                 <span className="text-lg font-semibold">

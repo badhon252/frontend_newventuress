@@ -31,6 +31,7 @@ const BlogsContainer = () => {
   });
 
   const blogs = resData?.data ?? []; // Fallback to an empty array if undefined
+  console.log(blogs);
 
   const [ref, inView] = useInView({
     threshold: 0.2,

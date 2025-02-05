@@ -8,7 +8,7 @@ export default function AboutSection({ image }: { image: string }) {
   {
     return (
       <div className="container section">
-        <section className=" h-auto   flex md:flex-row flex-col justify-between gap-8 items-center w-full  ">
+        <section className=" h-auto flex md:flex-row flex-col justify-between gap-8 items-center w-full  ">
           <div className="flex-1">
             <div>
               <div className="my-4">
@@ -79,7 +79,7 @@ export default function AboutSection({ image }: { image: string }) {
               </div>
             </div>
           </div>
-          <div className="hidden relative w-[500px] h-[600px] overflow-hidden rounded-[16px]  md:block">
+          <div className="hidden relative md:w-[400px] lg:w-[500px] h-[600px] overflow-hidden rounded-[16px]  md:block">
             <Image
               src={image}
               alt="Picture of the author"

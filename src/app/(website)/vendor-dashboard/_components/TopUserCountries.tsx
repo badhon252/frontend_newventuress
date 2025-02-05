@@ -52,6 +52,7 @@ declare global {
 export default function GeoChart() {
   const [year, setYear] = useState("2024")
   const [zoom, setZoom] = useState(1)
+  const [activeButton, setActiveButton] = useState<"plus" | "minus" | null>(null);
 
   useEffect(() => {
     const loadGoogleCharts = () => {
@@ -108,7 +109,7 @@ export default function GeoChart() {
   return (
     <Card className="w-full max-w-5xl mx-auto col-span-4">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-2xl text-[#494949] font-bold">Top User Countries</CardTitle>
+        <CardTitle className="text-2xl font-bold">Top User Countries</CardTitle>
         <Select value={year} onValueChange={setYear}>
           <SelectTrigger className="w-[90px] bg-primary text-white focus:ring-0">
             <SelectValue>{year}</SelectValue>
@@ -123,21 +124,33 @@ export default function GeoChart() {
 
       <CardContent>
         <div className="relative">
-          <div id="geo-chart" className="w-full h-[400px]" />
-          <div className="absolute bottom-4 left-4 flex   gap-2">
-            <Button variant="secondary" size="icon" onClick={() => setZoom((prev) => Math.min(prev + 0.5, 4))}>
+          <div id="geo-chart" className="w-full h-[576px]" />
+          <div className="absolute bottom-4">
+            <Button variant="secondary" size="icon" 
+              onClick={() => {
+                setZoom((prev) => Math.min(prev + 0.5, 4));
+                setActiveButton("plus");
+              }}
+              className={activeButton === "plus" ? "bg-primary text-white" : ""}
+              >
               <Plus className="h-4 w-4" />
             </Button>
-            <Button variant="secondary" size="icon" onClick={() => setZoom((prev) => Math.max(prev - 0.5, 1))}>
+            <Button variant="secondary" size="icon" 
+              onClick={() => {
+                setZoom((prev) => Math.max(prev - 0.5, 1));
+                setActiveButton("minus");
+              }}
+              className={`ml-4 ${activeButton === "minus" ? "bg-primary text-white" : ""}`} 
+              >
               <Minus className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className=" space-y-4 mt-[190px] border-t border-t-[#E7E7E7] pt-5 ">
+        <div className="mt-3 space-y-4">
           {countryDataByYear[year].map(({ country, percentage, flag }) => (
-            <div key={country} className="flex items-center gap-2  ">
-              <Image src={flag} alt={`${country} flag`} width={24} height={18} className="w-8 h-auto rounded-sm " />
+            <div key={country} className="flex items-center gap-2">
+              <Image src={flag} alt={`${country} flag`} width={24} height={18} className="w-8 h-auto rounded-sm" />
               <span className="w-32">{country}</span>
               <div className="flex-1 h-[18px] bg-gray-100 rounded-full overflow-hidden">
                 <div

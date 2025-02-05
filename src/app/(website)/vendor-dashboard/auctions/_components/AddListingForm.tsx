@@ -65,7 +65,8 @@ export function AddListingForm() {
   }
 
   return (
-    <div className="bg-white rounded-[24px] p-[32px]">
+  <section className="pb-[60px]">
+      <div className="bg-white rounded-[24px] p-[32px]  ">
       <div
         className={
           "bg-primary px-4 py-3 mb- rounded-t-lg text-white text-[32px] leading-[38px] font-semibold h-[78px] flex items-center"
@@ -430,55 +431,7 @@ export function AddListingForm() {
                 )}
               />
 
-              {/* <FormField
-                control={form.control}
-                name="tags"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Tags</FormLabel>
-                    <FormControl>
-                      <div className="flex flex-wrap gap-2">
-                        {field.value.map((tag, index) => (
-                          <div
-                            key={index}
-                            className="flex items-center gap-1 rounded-md bg-secondary px-2 py-1"
-                          >
-                            <span>{tag}</span>
-                            <Button
-                              type="button"
-                              variant="ghost"
-                              size="sm"
-                              className="h-auto p-0"
-                              onClick={() => {
-                                const newTags = [...field.value];
-                                newTags.splice(index, 1);
-                                field.onChange(newTags);
-                              }}
-                            >
-                              <X className="h-3 w-3" />
-                            </Button>
-                          </div>
-                        ))}
-                        <Input
-                          placeholder="Add tag..."
-                          onKeyDown={(e) => {
-                            if (e.key === "Enter") {
-                              e.preventDefault();
-                              const value = e.currentTarget.value.trim();
-                              if (value && !field.value.includes(value)) {
-                                field.onChange([...field.value, value]);
-                                e.currentTarget.value = "";
-                              }
-                            }
-                          }}
-                          className="w-20 flex-1"
-                        />
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              /> */}
+              
               <div className="mt-3">
                 <InputWithTags
                   placeholder="Add Tags"
@@ -488,65 +441,12 @@ export function AddListingForm() {
                 />
               </div>
             </div>
-            {/* <FormField
-              control={form.control}
-              name="images"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Product Gallery</FormLabel>
-                  <FormControl>
-                    <div className="flex items-center justify-center w-full">
-                      <label className="flex flex-col items-center justify-center w-full h-64 border-2 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
-                        <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                          <svg
-                            className="w-8 h-8 mb-4 text-gray-500"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 20 16"
-                          >
-                            <path
-                              stroke="currentColor"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth="2"
-                              d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                            />
-                          </svg>
-                          <p className="mb-2 text-sm text-gray-500">
-                            <span className="font-semibold">
-                              Drop your images here, or browse
-                            </span>
-                          </p>
-                          <p className="text-xs text-gray-500">
-                            jpeg, png are allowed
-                          </p>
-                        </div>
-                        <input
-                          type="file"
-                          className="hidden"
-                          accept="image/jpeg,image/png"
-                          multiple
-                          onChange={(e) => {
-                            const files = Array.from(e.target.files || []);
-                            const urls = files.map((file) =>
-                              URL.createObjectURL(file)
-                            );
-                            field.onChange(urls);
-                          }}
-                        />
-                      </label>
-                    </div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
+            
             <div className="w-[600px] h-full mt-[16px] border border-[#9C9C9C] rounded-lg  ">
               <ProductGallery />
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-end ">
             <Button type="submit" className="py-[12px] px-[24px]">
               Submit
             </Button>
@@ -554,5 +454,6 @@ export function AddListingForm() {
         </form>
       </Form>
     </div>
+  </section>
   );
 }

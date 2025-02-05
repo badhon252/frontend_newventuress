@@ -27,7 +27,7 @@ export function CartItemCard({
     <div className="flex flex-col  gap-[16px] rounded-lg p-[12px] border border-gray-200">
       <div className="sm:flex gap-4 ">
         
-        <div className="relative h-[181px] lg:h-[127px] w-full md:w-[194px] rounded-[8px]">
+        <div className="relative h-[181px] lg:h-[127px] w-full md:w-[294px] lg:w-[194px] rounded-[8px]">
           <Image
             src={item?.image}
             alt={item?.name}

@@ -42,7 +42,7 @@ function BlogSidebar() {
   } else if (blogs && blogs.length > 0) {
     // Display the list of blogs if data is available
     content = (
-      <div className="grid grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1  gap-6">
         {blogs.slice(0, 4).map((blog) => (
           <BlogsCards key={blog._id} data={blog} /> // Blog card for each blog
         ))}

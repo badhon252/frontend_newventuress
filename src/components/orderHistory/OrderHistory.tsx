@@ -61,9 +61,9 @@ const products: Product[] = [
 const OrderHistory = () => {
   return (
     <div>
-      <div className=" w-[370px] lg:w-[870px] mx-auto   ">
+      <div className="  ">
         {/* Table for medium and larger screens */}
-        <div className="hidden md:block overflow-hidden rounded-lg  border-[#C5C5C5] border-[1px]">
+        <div className="w-full hidden lg:block overflow-hidden rounded-lg  border-[#C5C5C5] border-[1px]">
           <div className="flex justify-between items-center p-3">
             <h1 className="text-[32px] font-semibold my-5 text-gradient">
               Recet Order History
@@ -114,7 +114,7 @@ const OrderHistory = () => {
         </div>
 
         {/* Card layout for small screens */}
-        <div className="md:hidden border border-[#C5C5C5] rounded-lg">
+        <div className="lg:hidden border border-[#C5C5C5] rounded-lg">
           <h1 className="text-[20px] leading-[24px] text-center font-semibold py-3 text-gradient border-b">
             Recet Order History
           </h1>

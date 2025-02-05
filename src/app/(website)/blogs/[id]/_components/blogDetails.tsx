@@ -13,7 +13,7 @@ function BlogDetails() {
                     alt="Cannabis buds"
                     width={770}
                     height={440}
-                    className="w-full h-[320px] lg:w-[770px] lg:h-[440px] rounded-t-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150 duration-300"
+                    className="w-full h-[320px] lg:w-[770px] md:h-[440px] lg:h-[440px] rounded-t-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-150 duration-300"
                 />
                 </div>
                 <div className='p-4'>

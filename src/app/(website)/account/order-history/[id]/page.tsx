@@ -7,7 +7,7 @@ import OrderProgressVertical from "./_components/OrderProgressVertical";
 
 const page = () => {
   return (
-    <div className="">
+    <div className="w-full md:pr-2">
       <div className="flex justify-between mb-10">
         <div className="text-gradient font-bold text-[32px]">
           Order Details

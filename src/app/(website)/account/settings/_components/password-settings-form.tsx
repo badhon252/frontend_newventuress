@@ -69,7 +69,7 @@ export default function PasswordSettingsForm() {
           )}
         />
 
-        <div className="grid grid-cols-2 gap-[30px]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 lg:gap-[30px]">
           <FormField
             control={form.control}
             name="newPassword"

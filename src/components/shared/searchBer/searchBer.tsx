@@ -14,8 +14,8 @@ function SearchBer() {
   }
   return (
     <>
-      <div className="hidden lg:block">
-        <form className="flex flex-1 gap-2 w-full lg:w-[772px] border-1 border-primary-green outline-0 mb-1 lg:mb-0">
+      <div className="hidden md:block">
+        <form className="flex flex-1 gap-2 w-full md:w-[542px] lg:w-[772px] border-1 border-primary-green outline-0 mb-1 lg:mb-0">
           <div className="flex-1 relative h-[34px] lg:h-full">
             <div className="flex items-center h-[44px]">
               <Search className="absolute left-2.5 top-2.4 h-4 w-4 text-muted-foreground" />
@@ -32,8 +32,8 @@ function SearchBer() {
         </form>
       </div>
 
-      <div className="lg:hidden">
-        <div className="relative flex items-center w-[150px]">
+      <div className="md:hidden">
+        <div className="relative flex items-center w-[130px]">
           <Button
             variant="ghost"
             size="icon"

@@ -20,12 +20,12 @@ const WishlistContainer = () => {
   };
   return (
     <section>
-      <div className="flex flex-wrap justify-center -mx-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {items.slice(0, 6).map((item, index) => (
           <div
             key={item.id}
-            className={`w-full md:w-1/2 xl:w-1/2 pb-[16px] mx-[16px] md:mx-0 ${
-              index % 2 === 0 ? "md:pr-[15px]" : "md:pl-[15px]"
+            className={`w-full pb-[16px] ${
+              index % 2 === 0 ? "" : ""
             }`}
           >
             <CartItemCard

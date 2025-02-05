@@ -101,7 +101,9 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
           </Link>
         </div>
         <div className="flex items-center gap-4">
+          <div className="md:hidden">
           <SearchBer />
+          </div>
           <HeaderIconMenu icons={mobileNavicons} />
           <button
             type="button"

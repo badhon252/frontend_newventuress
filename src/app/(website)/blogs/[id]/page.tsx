@@ -27,12 +27,12 @@ const Page = ({}: { params: { id: string } }) => {
             subheading={"Blog"}
           />
         </div>
-        <div className="flex flex-col md:flex-row gap-[30px]">
-          <div className="md:w-2/3">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div className="col-span-1 lg:col-span-2">
             <BlogDetails />
             <BlogCommets />
           </div>
-          <div className="md:w-1/3">
+          <div className="col-span-1 lg:col-span-1">
             <BlogSidebar />
           </div>
         </div>

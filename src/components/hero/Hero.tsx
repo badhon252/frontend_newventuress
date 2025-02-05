@@ -35,7 +35,7 @@ const Hero = () => {
             {["hero1.png", "hero2.png", "hero3.png"].map((img, index) => (
               <div
                 key={index}
-                className="h-[150px] w-[143px] md:w-[200px] md:h-[220px] lg:h-[300px] lg:w-[370px] rounded-[16px] relative"
+                className="h-[150px] w-[143px] md:w-[245px] md:h-[250px] lg:h-[300px] lg:w-[370px] rounded-[16px] relative"
               >
                 <Image
                   src={`/assets/img/${img}`}

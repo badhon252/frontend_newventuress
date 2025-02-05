@@ -27,7 +27,7 @@ export default function FeaturedProductCard({
   return (
     <Link
       href={`/products/${product._id}`}
-      className="relative mx-auto my-auto flex w-full shrink grow cursor-pointer flex-col self-stretch overflow-hidden rounded-[8px] border border-solid border-gray-200 bg-white p-3 transition-shadow duration-300 hover:shadow-feature_card md:w-[260px]"
+      className="relative mx-auto my-auto flex w-full shrink grow cursor-pointer flex-col self-stretch overflow-hidden rounded-[8px] border border-solid border-gray-200 bg-white p-3 transition-shadow duration-300 hover:shadow-feature_card lg:w-[260px]"
     >
       <div className="overflow-hidden rounded-[8px]">
         <Image

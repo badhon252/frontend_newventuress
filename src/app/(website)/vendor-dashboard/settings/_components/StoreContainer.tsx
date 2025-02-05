@@ -11,6 +11,7 @@ const StoreContainer = () => {
       <div className="w-full shadow-[0px_0px_22px_8px_#C1C9E4] h-auto  rounded-[24px] bg-white">
         <TableContainer data={StoreListData} columns={StoreListColumn} />
       </div>
+      
       <div className="my-[40px] w-full  flex justify-between">
         <p className="font-normal text-[16px] leading-[19.2px] text-[#444444]">
           Showing 1 to 25 in first entries

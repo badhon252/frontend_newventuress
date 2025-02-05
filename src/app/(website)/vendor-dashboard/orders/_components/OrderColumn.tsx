@@ -140,7 +140,7 @@ export const OrderColumn = ({
                 </DropdownMenuItem>
               )}
               <DropdownMenuItem
-                className="p-[8px] hover:bg-[#E6EEF6] rounded-t-[8px] focus:outline-none"
+                className="p-[8px] hover:bg-[#E6EEF6] rounded-t-[8px] focus:outline-none cursor-pointer"
                 onClick={() => {
                   setSelectedRow(row.original); // Set the selected row
                   setIsOpen(true); // Open the modal
@@ -148,7 +148,7 @@ export const OrderColumn = ({
               >
                 Details
               </DropdownMenuItem>
-              <DropdownMenuItem className="p-[8px] text-red-600 hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none">
+              <DropdownMenuItem className="p-[8px] text-red-600 hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none cursor-pointer">
                 Delete
               </DropdownMenuItem>
             </DropdownMenuContent>

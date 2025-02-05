@@ -4,7 +4,7 @@ import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { Upload, X } from "lucide-react"
+import { ImagePlus, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -221,7 +221,7 @@ export default function StoreEditInfo() {
                             </div>
                           ) : (
                             <label className="flex flex-col items-center justify-center py-8 cursor-pointer">
-                              <Upload className="h-8 w-8 mb-2 text-muted-foreground" />
+                             <ImagePlus className="w-8 h-8 text-gray-400" />
                               <span className="text-sm text-muted-foreground">
                                 Drop your logo here or click to upload
                               </span>
@@ -279,7 +279,7 @@ export default function StoreEditInfo() {
                             </div>
                           ) : (
                             <label className="flex flex-col items-center justify-center py-8 cursor-pointer">
-                              <Upload className="h-8 w-8 mb-2 text-muted-foreground" />
+                              <ImagePlus className="w-8 h-8 text-gray-400" />
                               <span className="text-sm text-muted-foreground">
                                 Drop your banner here or click to upload
                               </span>

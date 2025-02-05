@@ -7,7 +7,9 @@ import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ImagePlus } from "lucide-react"
+import { ImagePlus, Trash2 } from "lucide-react"
+import { useState } from "react"
+import Image from "next/image"
 
 const formSchema = z.object({
   policyTabLabel: z.string(),
@@ -38,7 +40,7 @@ export default function PolicySupportForm() {
   function onSubmit(data: FormValues) {
     console.log(data)
   }
-
+  const [instagramPreview, setInstagramPreview] = useState<string | null>(null);
   return (
     <div className="bg-white rounded-[24px] p-[32px]">
       <div
@@ -110,22 +112,38 @@ export default function PolicySupportForm() {
           <FormField
             control={form.control}
             name="media1"
-            render={({ field }) => (
+            render={() => (
               <FormItem>
                 <FormLabel>Add Media</FormLabel>
                 <FormControl>
-                  <div className="border-2 border-dashed rounded-lg p-6 text-center">
-                    <div className="mx-auto w-12 h-12 flex items-center justify-center">
-                      <ImagePlus className="w-8 h-8 text-gray-400" />
-                    </div>
-                    <p className="mt-2 text-sm text-gray-500">Drop your imager here, or browse</p>
-                    <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
-                    <input
-                      type="file"
-                      className="hidden"
-                      accept="image/jpeg,image/png"
-                      onChange={(e) => field.onChange(e.target.files?.[0])}
-                    />
+                <div className="border-2 border-dashed rounded-lg p-6 text-center relative">
+                    {instagramPreview ? (
+                      <div className="relative">
+                        <Image src={instagramPreview} alt="Instagram Preview" className="mx-auto w-32 h-32 object-cover rounded-md"/>
+                        <button type="button" onClick={() => setInstagramPreview(null)} className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mx-auto w-12 h-12 flex items-center justify-center">
+                          <ImagePlus className="w-8 h-8 text-gray-400" />
+                        </div>
+                        <p className="mt-2 text-sm text-gray-500">Drop your image here, or browse</p>
+                        <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
+                        <input
+                          type="file"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          accept="image/jpeg,image/png"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              setInstagramPreview(URL.createObjectURL(file));
+                            }
+                          }}
+                        />
+                      </>
+                    )}
                   </div>
                 </FormControl>
               </FormItem>
@@ -135,22 +153,38 @@ export default function PolicySupportForm() {
           <FormField
             control={form.control}
             name="media2"
-            render={({ field }) => (
+            render={() => (
               <FormItem>
                 <FormLabel>Add Media</FormLabel>
                 <FormControl>
-                  <div className="border-2 border-dashed rounded-lg p-6 text-center">
-                    <div className="mx-auto w-12 h-12 flex items-center justify-center">
-                      <ImagePlus className="w-8 h-8 text-gray-400" />
-                    </div>
-                    <p className="mt-2 text-sm text-gray-500">Drop your imager here, or browse</p>
-                    <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
-                    <input
-                      type="file"
-                      className="hidden"
-                      accept="image/jpeg,image/png"
-                      onChange={(e) => field.onChange(e.target.files?.[0])}
-                    />
+                <div className="border-2 border-dashed rounded-lg p-6 text-center relative">
+                    {instagramPreview ? (
+                      <div className="relative">
+                        <Image src={instagramPreview} alt="Instagram Preview" className="mx-auto w-32 h-32 object-cover rounded-md"/>
+                        <button type="button" onClick={() => setInstagramPreview(null)} className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="mx-auto w-12 h-12 flex items-center justify-center">
+                          <ImagePlus className="w-8 h-8 text-gray-400" />
+                        </div>
+                        <p className="mt-2 text-sm text-gray-500">Drop your image here, or browse</p>
+                        <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
+                        <input
+                          type="file"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                          accept="image/jpeg,image/png"
+                          onChange={(e) => {
+                            const file = e.target.files?.[0];
+                            if (file) {
+                              setInstagramPreview(URL.createObjectURL(file));
+                            }
+                          }}
+                        />
+                      </>
+                    )}
                   </div>
                 </FormControl>
               </FormItem>

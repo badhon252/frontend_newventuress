@@ -33,6 +33,11 @@ const nextConfig = {
         protocol: "https",
         hostname: "media-cldnry.s-nbcnews.com",
       },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co.com",
+      },
+
     ],
   },
 };

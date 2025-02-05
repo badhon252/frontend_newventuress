@@ -49,7 +49,7 @@ const AuctionsButton = ({ row }: any) => {
                 }
               }}
            
-            className="p-[8px] hover:bg-[#E6EEF6] cursor-pointer  focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="p-[8px] hover:bg-[#E6EEF6] cursor-pointer  focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0  "
           > 
             Edit
 
@@ -61,7 +61,7 @@ const AuctionsButton = ({ row }: any) => {
 
           <DropdownMenuItem
             //   onClick={handleDelete}s
-            className="p-[8px] text-red-600 cursor-pointer hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="p-[8px] text-red-600 cursor-pointer hover:bg-[#E6EEF6] rounded-b-[8px] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 c"
           >
             Delete
           </DropdownMenuItem>

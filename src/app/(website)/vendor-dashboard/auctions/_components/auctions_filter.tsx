@@ -31,8 +31,8 @@ const AuctionsFilter = () => {
   const [productsType, setProductType] = useState("all");
 
   return (
-    <div className="h-[68px] p-[17px] bg-white w-full flex items-center justify-between">
-      <div className="flex items-center h-full  gap-x-[12px]">
+    <div className=" p-[17px] bg-white w-full flex items-center justify-between rounded-[12px] py-[23px]">
+      <div className="flex items-center h-full  gap-x-[12px] pl-4">
         {/* Dropdown for "Show" */}
         <div className="h-full flex items-center gap-x-[9px] w-fit">
           <span className="text-[16px] font-medium leading-[19.2px] text-[#444444]">

@@ -34,8 +34,8 @@ const MediaFilter = () => {
 
 
   return (
-    <div className="h-[60px] p-[8px] bg-white w-full flex justify-between items-center">
-      <div className="flex gap-x-[12px]">
+    <div className=" bg-white w-full flex justify-between items-center rounded-[12px] py-[23px] ">
+      <div className="flex gap-x-[12px] pl-4 ">
         {/* Dropdown for "Show" */}
         <div className="h-full flex items-center gap-x-[9px] w-fit">
           <span className="text-[16px] font-medium leading-[19.2px] text-[#444444]">
@@ -75,7 +75,10 @@ const MediaFilter = () => {
           />
         </div>
       </div>
-      <Button className="w-[135px] h-[43px] px-[24px] py-[12px] text-[16px] font-medium leading-[19.2px]">Bulk Delete</Button>
+      <div className="pr-4">
+
+      <Button className="w-[135px] h-[43px] px-[24px] py-[12px] text-[16px] font-medium leading-[19.2px] ">Bulk Delete</Button>
+      </div>
     </div>
   );
 };

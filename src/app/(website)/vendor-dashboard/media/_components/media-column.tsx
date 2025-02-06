@@ -3,12 +3,12 @@
 import { DemoTableItemsType } from "@/data/demo";
 import { ColumnDef } from "@tanstack/react-table";
 import Image from "next/image";
-import { MoreHorizontal } from "lucide-react"; // Make sure to import the MoreHorizontal icon from lucide-react
+import { ImagePlus, MoreHorizontal } from "lucide-react"; // Make sure to import the MoreHorizontal icon from lucide-react
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"; // Import your dropdown components
 
 import { Checkbox } from "@/components/ui/checkbox";
 // This type is used to define the shape of our data.
-// You can use a Zod schema here if you want.
+
 
 export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
   {
@@ -28,16 +28,19 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
         aria-label="Select row"
-        
+
       />
     ),
     enableSorting: false,
     enableHiding: false,
   },
- 
+
   {
     id: "image",
-    header: () => <div className="ml-[-205px] ">Image</div>,
+    header: () => <div className="ml-[-205px] flex items-center justify-center gap-2 ">
+      <ImagePlus className="w-[16px] h-[16px]" />
+      <span>Image</span>
+    </div>,
     cell: ({ row }) => {
       return (
         <div className="">
@@ -52,7 +55,7 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
       );
     },
   },
-  
+
   {
     accessorKey: "Associate",
     header: "Associate",

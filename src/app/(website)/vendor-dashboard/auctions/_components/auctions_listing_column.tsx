@@ -2,7 +2,7 @@
 
 import { Checkbox } from "@/components/ui/checkbox";
 import { ColumnDef } from "@tanstack/react-table";
-import { Check, MoreHorizontal } from "lucide-react";
+import { Check, ImagePlus, MoreHorizontal } from "lucide-react";
 import Image from "next/image";
 
 import { AuctionsListingDataType } from "./data";
@@ -39,7 +39,10 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
   },
   {
     id: "name",
-    header: () => <div className="ml-[-250px] ">Name</div>,
+    header: () => <div className="ml-[-250px] flex items-center justify-center gap-2 ">
+         <ImagePlus className="w-[16px] h-[16px]" />
+     <span> Name</span>
+      </div>,
     cell: ({ row }) => (
       <div>
         <div className="flex  items-center gap-x-[8px] w-[360px]  ">

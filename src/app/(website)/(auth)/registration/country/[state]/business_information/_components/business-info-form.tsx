@@ -134,8 +134,6 @@ export function BusinessInfoForm() {
   };
 
   const submitForm = () => {
-    // console.log(authState);
-    // mutate(authState);
     router.push("/login")
   };
 

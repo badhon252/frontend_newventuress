@@ -3,10 +3,10 @@ import FaqContainer from "./FaqContainer";
 
 function FAQSection() {
   return (
-    <section className="container h-auto relative py-[80px]">
+    <section className="container h-auto relative my-[80px]">
       <div className="flex flex-col lg:flex-row gap-[28px]">
         {/* Left Image Section */}
-        <div className="lg:flex items-center justify-center hidden">
+        <div className="lg:flex items-center justify-center hidden mt-3">
           <div>
             <Image
               src="/assets/img/faq-Image.png"
@@ -21,7 +21,7 @@ function FAQSection() {
         {/* Right Content Section */}
         <div className="md:w-full lg:w-3/5">
           <div className="text-center lg:text-left">
-            <h1 className="text-[25px] md:text-[32px] lg:text-[32px] font-semibold text-gradient py-2">
+            <h1 className="text-[25px] md:text-[32px] lg:text-[32px] font-semibold text-gradient pb-2">
               What do you want to know?
             </h1>
             <p className="text-[16px] md:text-[18px] lg:text-[20px] text-[#444444] leading-6 mb-10">

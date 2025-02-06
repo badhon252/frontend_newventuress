@@ -11,16 +11,17 @@ interface Icon {
 
 interface HeaderIconMenuProps {
   icons: Icon[];
+  onClick?: () => void;  // Accept onClick prop
 }
 
-function HeaderIconMenu({ icons }: HeaderIconMenuProps) {
+function HeaderIconMenu({ icons, onClick }: HeaderIconMenuProps) {
   return (
     <div className="flex gap-2">
       {icons.map((icon, index) => (
         <Link
           key={index}
           href={icon.href}
-          type="button"
+          onClick={onClick} // Close the mobile menu when clicked
           className="relative rounded-full p-1"
         >
           <span className="absolute -inset-1.5" />

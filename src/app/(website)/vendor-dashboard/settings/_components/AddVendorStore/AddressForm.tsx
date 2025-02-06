@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "@/components/ui/form"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
@@ -26,12 +25,11 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>
 
-// Sample data for dropdowns
-const countries = ["United States", "Canada", "United Kingdom", "Australia", "Germany", "France"]
 
-const provinces = ["California", "New York", "Texas", "Florida", "Ontario", "British Columbia"]
 
-export default function BillingShippingForm() {
+
+
+export default function AddressForm() {
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -63,173 +61,129 @@ export default function BillingShippingForm() {
       >
         Address
       </div>
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        {/* Billing Section */}
-        <div className="space-y-6">
-          <h2 className="text-xl font-medium">Billing</h2>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          {/* Billing Section */}
+          <div className="space-y-6">
+            <h2 className="text-[22px] text-gradient font-medium">Billing</h2>
 
-          <FormField
-            control={form.control}
-            name="billing.name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="billing.address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Address</FormLabel>
-                <FormControl>
-                  <Textarea {...field} className="min-h-[100px] resize-none" />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="billing.country"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Country</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormField
+              control={form.control}
+              name="billing.name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Name</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a country" />
-                    </SelectTrigger>
+                    <Input {...field} className="h-[51px]" />
                   </FormControl>
-                  <SelectContent>
-                    {countries.map((country) => (
-                      <SelectItem key={country} value={country.toLowerCase()}>
-                        {country}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
-          />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name="billing.province"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Province</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormField
+              control={form.control}
+              name="billing.address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Address</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a province" />
-                    </SelectTrigger>
+                    <Textarea {...field} className="h-[51px]" />
                   </FormControl>
-                  <SelectContent>
-                    {provinces.map((province) => (
-                      <SelectItem key={province} value={province.toLowerCase()}>
-                        {province}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
-          />
-        </div>
+                </FormItem>
+              )}
+            />
 
-        {/* Shipping Section */}
-        <div className="space-y-6">
-          <h2 className="text-xl font-medium">Shipping</h2>
-
-          <FormField
-            control={form.control}
-            name="shipping.name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input {...field} />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="shipping.address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Address</FormLabel>
-                <FormControl>
-                  <Textarea {...field} className="min-h-[100px] resize-none" />
-                </FormControl>
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="shipping.country"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Country</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormField
+              control={form.control}
+              name="billing.address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Country</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a country" />
-                    </SelectTrigger>
+                    <Textarea {...field} className="h-[51px]" />
                   </FormControl>
-                  <SelectContent>
-                    {countries.map((country) => (
-                      <SelectItem key={country} value={country.toLowerCase()}>
-                        {country}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
-          />
+                </FormItem>
+              )}
+            />
 
-          <FormField
-            control={form.control}
-            name="shipping.province"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Province</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormField
+              control={form.control}
+              name="billing.address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Province</FormLabel>
                   <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a province" />
-                    </SelectTrigger>
+                    <Textarea {...field} className="h-[51px]" />
                   </FormControl>
-                  <SelectContent>
-                    {provinces.map((province) => (
-                      <SelectItem key={province} value={province.toLowerCase()}>
-                        {province}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </FormItem>
-            )}
-          />
-        </div>
+                </FormItem>
+              )}
+            />
+          </div>
 
-        <div className="flex justify-end">
-          <Button type="submit" className="bg-[#1C2536] hover:bg-[#1C2536]/90">
-            Submit
-          </Button>
-        </div>
-      </form>
-    </Form>
+          {/* Shipping Section */}
+          <div className="space-y-6">
+            <h2 className="text-[22px] text-gradient font-medium">Shipping</h2>
+
+            <FormField
+              control={form.control}
+              name="shipping.name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Name</FormLabel>
+                  <FormControl>
+                    <Input {...field} className="h-[51px]" />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="shipping.address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Address</FormLabel>
+                  <FormControl>
+                    <Textarea {...field} className="h-[51px]" />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="shipping.name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Adress</FormLabel>
+                  <FormControl>
+                    <Input {...field} className="h-[51px]" />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="shipping.name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-base text-[#444444] font-medium">Province</FormLabel>
+                  <FormControl>
+                    <Input {...field} className="h-[51px]" />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
+
+          <div className="flex justify-end">
+            <Button type="submit" className="bg-primary">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </Form>
     </div>
   )
 }

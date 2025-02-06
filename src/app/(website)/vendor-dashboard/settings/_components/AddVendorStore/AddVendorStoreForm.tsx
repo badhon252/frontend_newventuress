@@ -1,27 +1,16 @@
-"use client";
+"use client"
 
-import * as z from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { ImagePlus } from "lucide-react";
+import * as z from "zod"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
+import Image from "next/image"
+import { useState } from "react"
+import { ImagePlus, X } from "lucide-react"
 
 const formSchema = z.object({
   userName: z.string().min(1, "Store name is required"),
@@ -37,9 +26,9 @@ const formSchema = z.object({
   storeBannerType: z.string(),
   storeBanner: z.any().optional(),
   license: z.string(),
-});
+})
 
-type FormValues = z.infer<typeof formSchema>;
+type FormValues = z.infer<typeof formSchema>
 
 export default function AddVendorStoreForm() {
   const form = useForm<FormValues>({
@@ -48,10 +37,23 @@ export default function AddVendorStoreForm() {
       storeBannerType: "static",
       license: "business",
     },
-  });
+  })
+
+  const [logoPreview, setLogoPreview] = useState<string | null>(null)
+  const [bannerPreview, setBannerPreview] = useState<string | null>(null)
 
   function onSubmit(data: FormValues) {
-    console.log(data);
+    console.log(data)
+  }
+
+  const handleDeleteImage = (field: "storeLogo" | "storeBanner") => {
+    if (field === "storeLogo") {
+      form.setValue("storeLogo", null)
+      setLogoPreview(null)
+    } else {
+      form.setValue("storeBanner", null)
+      setBannerPreview(null)
+    }
   }
 
   return (
@@ -65,55 +67,54 @@ export default function AddVendorStoreForm() {
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-                control={form.control}
-                name="userName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      User Name <span className="text-red-500">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-[51px] border-[#9C9C9C]"/>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Email <span className="text-red-500">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-[51px] border-[#9C9C9C]"/>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      Full Name <span className="text-red-500">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input {...field} className="h-[51px] border-[#9C9C9C]"/>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+          <FormField
+            control={form.control}
+            name="userName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  User Name <span className="text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} className="h-[51px] border-[#9C9C9C]" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  Email <span className="text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} className="h-[51px] border-[#9C9C9C]" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>
+                  Full Name <span className="text-red-500">*</span>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} className="h-[51px] border-[#9C9C9C]" />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* General Settings */}
             <div className="space-y-6">
-              
               <h2 className="text-xl font-medium">General Settings</h2>
 
               <FormField
@@ -125,7 +126,7 @@ export default function AddVendorStoreForm() {
                       Store Name <span className="text-red-500">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} className="h-[51px] border-[#9C9C9C]"/>
+                      <Input {...field} className="h-[51px] border-[#9C9C9C]" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -141,7 +142,7 @@ export default function AddVendorStoreForm() {
                       Store Slug <span className="text-red-500">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input {...field} className="h-[51px] border-[#9C9C9C]"/>
+                      <Input {...field} className="h-[51px] border-[#9C9C9C]" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -157,7 +158,7 @@ export default function AddVendorStoreForm() {
                       Store Email <span className="text-red-500">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input type="email" {...field} className="h-[51px] border-[#9C9C9C]"/>
+                      <Input type="email" {...field} className="h-[51px] border-[#9C9C9C]" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -173,7 +174,7 @@ export default function AddVendorStoreForm() {
                       Store Phone number <span className="text-red-500">*</span>
                     </FormLabel>
                     <FormControl>
-                      <Input type="tel" {...field} className="h-[51px] border-[#9C9C9C]"/>
+                      <Input type="tel" {...field} className="h-[51px] border-[#9C9C9C]" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -210,21 +211,43 @@ export default function AddVendorStoreForm() {
                   <FormItem>
                     <FormLabel>Store Logo</FormLabel>
                     <FormControl>
-                      <div className="border-2 border-dashed rounded-lg p-6 text-center">
-                        <div className="mx-auto w-12 h-12 flex items-center justify-center">
-                          <ImagePlus className="w-8 h-8 text-gray-400" />
-                        </div>
-                        <p className="mt-2 text-sm text-gray-500">
-                          Drop your imager here, or browse
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          Jpeg, png are allowed
-                        </p>
+                      <div className="border-2 border-dashed rounded-lg p-6 text-center relative">
+                        {logoPreview ? (
+                          <div className="relative w-full h-48">
+                            <Image
+                              src={logoPreview || "/placeholder.svg"}
+                              alt="Store Logo Preview"
+                              layout="fill"
+                              objectFit="contain"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteImage("storeLogo")}
+                              className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 transition-colors"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="mx-auto w-12 h-12 flex items-center justify-center">
+                              <ImagePlus className="w-8 h-8 text-gray-400" />
+                            </div>
+                            <p className="mt-2 text-sm text-gray-500">Drop your image here, or browse</p>
+                            <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
+                          </>
+                        )}
                         <input
                           type="file"
-                          className="hidden"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           accept="image/jpeg,image/png"
-                          onChange={(e) => field.onChange(e.target.files?.[0])}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0]
+                            if (file) {
+                              field.onChange(file)
+                              setLogoPreview(URL.createObjectURL(file))
+                            }
+                          }}
                         />
                       </div>
                     </FormControl>
@@ -239,10 +262,7 @@ export default function AddVendorStoreForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Store Banner type</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl className="h-[51px] border-[#9C9C9C]">
                         <SelectTrigger>
                           <SelectValue placeholder="Select banner type" />
@@ -265,21 +285,43 @@ export default function AddVendorStoreForm() {
                   <FormItem>
                     <FormLabel>Store Banner</FormLabel>
                     <FormControl>
-                      <div className="border-2 border-dashed rounded-lg p-6 text-center">
-                        <div className="mx-auto w-12 h-12 flex items-center justify-center">
-                          <ImagePlus className="w-8 h-8 text-gray-400" />
-                        </div>
-                        <p className="mt-2 text-sm text-gray-500">
-                          Drop your imager here, or browse
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          Jpeg, png are allowed
-                        </p>
+                      <div className="border-2 border-dashed rounded-lg p-6 text-center relative">
+                        {bannerPreview ? (
+                          <div className="relative w-full h-48">
+                            <Image
+                              src={bannerPreview || "/placeholder.svg"}
+                              alt="Store Banner Preview"
+                              layout="fill"
+                              objectFit="contain"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => handleDeleteImage("storeBanner")}
+                              className="absolute top-2 right-2 bg-red-500 text-white p-1 rounded-full hover:bg-red-600 transition-colors"
+                            >
+                              <X className="w-4 h-4" />
+                            </button>
+                          </div>
+                        ) : (
+                          <>
+                            <div className="mx-auto w-12 h-12 flex items-center justify-center">
+                              <ImagePlus className="w-8 h-8 text-gray-400" />
+                            </div>
+                            <p className="mt-2 text-sm text-gray-500">Drop your image here, or browse</p>
+                            <p className="text-xs text-gray-400">Jpeg, png are allowed</p>
+                          </>
+                        )}
                         <input
                           type="file"
-                          className="hidden"
+                          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                           accept="image/jpeg,image/png"
-                          onChange={(e) => field.onChange(e.target.files?.[0])}
+                          onChange={(e) => {
+                            const file = e.target.files?.[0]
+                            if (file) {
+                              field.onChange(file)
+                              setBannerPreview(URL.createObjectURL(file))
+                            }
+                          }}
                         />
                       </div>
                     </FormControl>
@@ -294,22 +336,15 @@ export default function AddVendorStoreForm() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Choose License</FormLabel>
-                    <Select
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                    >
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl className="h-[51px] border-[#9C9C9C]">
                         <SelectTrigger>
                           <SelectValue placeholder="Select license type" />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                        <SelectItem value="business">
-                          Business license
-                        </SelectItem>
-                        <SelectItem value="personal">
-                          Personal license
-                        </SelectItem>
+                        <SelectItem value="business">Business license</SelectItem>
+                        <SelectItem value="personal">Personal license</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
@@ -325,5 +360,6 @@ export default function AddVendorStoreForm() {
         </form>
       </Form>
     </div>
-  );
+  )
 }
+

@@ -34,7 +34,7 @@ export function DataTable<TData, TValue>({
       <div
         className={cn(
           titleClass,
-          "mx-[32px] flex h-[78px] items-center rounded-t-lg bg-primary px-4 py-3 text-[32px] text-white",
+          "mx-[32px] flex h-[78px] items-center rounded-t-[24px] bg-primary px-4 py-3 text-[32px] text-white",
         )}
       >
         {title}
@@ -72,7 +72,7 @@ export function DataTable<TData, TValue>({
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="text-center"
+                className="text-center "
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>

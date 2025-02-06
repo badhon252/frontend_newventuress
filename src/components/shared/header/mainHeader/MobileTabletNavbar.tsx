@@ -13,6 +13,7 @@ import HeaderIconMenu from "../headerIconMenu/headerIconMenu";
 import { motion } from "framer-motion";
 import AuctionMobileNav from "./AuctionMobileNav";
 import PagesMobileNav from "./PagesMobileNav";
+import SearchBer from "../../searchBer/searchBer";
 
 const Navicons = [
   {
@@ -72,10 +73,10 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
 
   const pagesMobileLinks = [
     { href: "/about", label: "About Us" },
-    { href: "/faqs", label: "FAQ" },
-    { href: "", label: "Membership Plans" },
-    { href: "", label: "Vendor Store" },
-    { href: "", label: "404 Page" },
+    { href: "/faq", label: "FAQ" },
+    { href: "/plans", label: "Membership Plans" },
+    { href: "/vendor-store", label: "Vendor Store" },
+    { href: "/404", label: "404 Page" },
   ];
 
   const sidebarVariants = {
@@ -100,6 +101,9 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
           </Link>
         </div>
         <div className="flex items-center gap-4">
+          <div className="md:hidden">
+          <SearchBer />
+          </div>
           <HeaderIconMenu icons={mobileNavicons} />
           <button
             type="button"
@@ -190,18 +194,23 @@ function MobileTabletNavbar({ loggedin }: { loggedin: boolean }) {
                 </Link>
               </div>
 
+
               <div className="container pt-6">
                 {!loggedin ? (
                   <div className="grid grid-cols-2 gap-[30px]">
-                    <Button variant="outline" >
-                      Log in
-                    </Button>
-                    <Button type="button" >
-                      Sign up
-                    </Button>
+                    <Link href="/login">
+                      <Button variant="outline" className="w-[170px]">
+                        Log in
+                      </Button>
+                    </Link>
+                    <Link href="/registration">
+                      <Button type="button" className="w-[170px]">
+                        Sign up 
+                      </Button>
+                    </Link>
                   </div>
                 ) : (
-                  <HeaderIconMenu icons={Navicons} />
+                  <HeaderIconMenu icons={Navicons} onClick={closeMobileMenu}/>
                 )}
               </div>
             </div>

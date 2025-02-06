@@ -62,9 +62,9 @@ function onBack ()  {
   return (
 
  <div className="">
-     <div className="min-h-screen  bg-gray-50 ">
+     <div className="  bg-gray-50 ">
 
-      <div className="mx-auto max-w-[1250px] rounded-lg bg-white shadow-sm">
+      <div className="mx-auto w-[1250px] rounded-lg bg-white shadow-sm">
         <div className="relative mb-6 rounded-t-lg bg-gradient-to-r from-[#1e2875] to-[#3c3c8f] p-4">
           <h1 className="text-2xl font-semibold text-white">Add Coupons</h1>
           <Button

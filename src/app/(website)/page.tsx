@@ -14,7 +14,10 @@ import DealOfTheDay from "./_components/deal_of_the_day";
 const Page = async () => {
   const currentUser = await auth();
 
+
   const loggedin = !!currentUser;
+
+  const token = currentUser?.user?.token || null
 
   return (
     <div>
@@ -22,7 +25,7 @@ const Page = async () => {
         <SearchBerCategories />
 
         <Hero />
-        <PopularCategories loggedin={loggedin} />
+        <PopularCategories loggedin={loggedin} token={token} />
         {!loggedin && <DealOfTheDay />}
         {!loggedin && (
           <AboutSection image="https://utfs.io/f/HkyicnKv4pLkKb11IfnzkrEA5LwVvWx2Fbfe7a6P94u0gcjZ" />

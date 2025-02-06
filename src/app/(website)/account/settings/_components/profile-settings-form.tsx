@@ -101,8 +101,8 @@ export default function ProfileSettingsForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="gap-x-[30px] flex flex-col-reverse lg:flex-row justify-between items-center">
-        <div className="max-w-[554px] space-y-[24px] flex-grow">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col-reverse lg:flex-row justify-between items-center">
+        <div className="w-full lg:max-w-[554px] space-y-[24px] flex-grow">
           <FormField
             control={form.control}
             name="fullName"

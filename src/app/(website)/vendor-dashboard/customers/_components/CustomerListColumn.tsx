@@ -108,7 +108,7 @@ export const CustomerListColumn: ColumnDef<DemoTableItemsType>[] = [
               align="end"
               className="h-auto w-[110px] rounded-lg bg-white shadow-[4px_4px_8px_0px_#0000000D,-4px_-4px_8px_0px_#0000000D]"
             >
-              <DropdownMenuItem className="rounded-b-[8px] p-[8px] text-red-600 hover:bg-[#E6EEF6] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0">
+              <DropdownMenuItem className="rounded-b-[8px] p-[8px] text-red-600 hover:bg-[#E6EEF6] focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 cursor-pointer">
                 Delete
               </DropdownMenuItem>
             </DropdownMenuContent>

@@ -87,8 +87,8 @@ export const MediaColumns: ColumnDef<DemoTableItemsType>[] = [
               <MoreHorizontal className="h-4 w-4" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={handleEdit} className="text-blue-500 hover:bg-[#E6EEF6]">Edit</DropdownMenuItem>
-              <DropdownMenuItem onClick={handleDelete} className="text-red-500">Delete</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleEdit} className="text-blue-500 hover:bg-[#E6EEF6] cursor-pointer">Edit</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleDelete} className="text-red-500 cursor-pointer">Delete</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

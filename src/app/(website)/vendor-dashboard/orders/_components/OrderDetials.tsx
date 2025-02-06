@@ -9,6 +9,8 @@ import type { AddressInfo, OrderDetails as OrderDetailsType } from "./types";
 import { DemoTableItemsType } from "./data"; // Import this if not already imported
 import OrderProgress from "@/app/(website)/account/order-history/[id]/_components/OrderProgress";
 import OrderDetailsTable from "@/app/(website)/account/order-history/[id]/_components/OrderDetailsTable";
+import { ScrollArea } from "@/components/ui/scroll-area"
+
 
 interface OrderDetailsProps {
   isOpen: boolean;
@@ -39,45 +41,49 @@ export default function OrderDetails({ isOpen, onClose, rowData }: OrderDetailsP
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()} >
-      <DialogContent 
-        className="max-w-[1250px] max-h-[1043px] p-0"
-        style={{ boxShadow: "0px 0px 22px 8px #C1C9E4" }}
-      >
-        <DialogHeader className=" bg-[#1a237e] text-white p-4 rounded-t-lg">
-          <div className="flex items-center justify-between">
-            <div>
-              <DialogTitle className="text-xl font-semibold">Order Details</DialogTitle>
-            </div>
-            <div className="bg-white rounded-lg">
-              <Button variant="ghost" className="text-gradient w-[146px] h-[40px" onClick={onClose}>
-                Back to List <GoArrowRight className="text-[#121D42]"/>
-              </Button>
-            </div>
-          </div>
-        </DialogHeader>
 
-        <div className="p-6 ">
-          <div className="flex flex-wrap  gap-8 ">
-            <div className="relative flex flex-wrap  shrink items-start bg-white rounded-xl border border-solid border-stone-300">
-              <AddressCard title="Billing Address" info={addressInfo}  className="flex flex-col min-w-[417px]"/>
-              <div className="shrink-0 border-l border-stone-300 h-[295px] hidden md:block" />
-              <div className="">
-                <AddressCard title="Shipping Address" info={addressInfo} className="flex flex-col min-w-[417px] "/>
+    <section>
+      <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()} >
+      
+        <DialogContent
+          className="max-w-[1250px] p-0"
+          style={{ boxShadow: "0px 0px 22px 8px #C1C9E4" }}
+        >
+          <DialogHeader className=" bg-[#1a237e] text-white p-4 rounded-t-lg">
+            <div className="flex items-center justify-between">
+              <div>
+                <DialogTitle className="text-xl font-semibold">Order Details</DialogTitle>
+              </div>
+              <div className="bg-white rounded-lg">
+                <Button variant="ghost" className="text-gradient w-[146px] h-[40px" onClick={onClose}>
+                  Back to List <GoArrowRight className="text-[#121D42]" />
+                </Button>
               </div>
             </div>
+          </DialogHeader>
             
+          <ScrollArea className="p-6  max-h-[750px]    ">
+            <div className="flex flex-wrap  gap-8 ">
+              <div className="relative flex flex-wrap  shrink items-start bg-white rounded-xl border border-solid border-stone-300">
+                <AddressCard title="Billing Address" info={addressInfo} className="flex flex-col min-w-[417px]" />
+                <div className="shrink-0 border-l border-stone-300 h-[295px] hidden md:block" />
+                <div className="">
+                  <AddressCard title="Shipping Address" info={addressInfo} className="flex flex-col min-w-[417px] " />
+                </div>
+              </div>
+
               <OrderSummary orderDetails={orderDetails} />
-          </div>
-          <div className="pt-10 pb-10 ">
-            <OrderProgress  className="max-w-[1024px]"/>
-          </div>
-          <div className="max-w-[1250px]">
-            <OrderDetailsTable  className="max-w-full"/>
-          </div>
-        </div>
-        
-      </DialogContent>
-    </Dialog>
+            </div>
+            <div className="pt-10 pb-10 ">
+              <OrderProgress className="max-w-[1024px]" />
+            </div>
+            <div className="max-w-[1250px]">
+              <OrderDetailsTable className="max-w-full" />
+            </div>
+          </ScrollArea>
+
+        </DialogContent>
+      </Dialog>
+    </section>
   );
 }

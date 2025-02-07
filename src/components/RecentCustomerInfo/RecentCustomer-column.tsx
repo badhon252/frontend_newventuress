@@ -11,7 +11,7 @@ export const MediaColumns: ColumnDef<RecentCustomerType>[] = [
     cell: ({ row }) => {
         return (
           <div className="">
-           <p className="text-base text-[#444444] font-medium ">{row.original.order}</p>
+           <p className="text-base text-[#444444] font-medium  ">{row.original.order}</p>
           </div>
         );
       },

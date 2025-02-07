@@ -109,7 +109,7 @@ export default function GeoChart() {
   return (
     <Card className="w-full max-w-5xl mx-auto col-span-4">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-2xl font-bold">Top User Countries</CardTitle>
+        <CardTitle className="text-[28px] text-[#494949] font-bold">Top User Countries</CardTitle>
         <Select value={year} onValueChange={setYear}>
           <SelectTrigger className="w-[90px] bg-primary text-white focus:ring-0">
             <SelectValue>{year}</SelectValue>
@@ -123,48 +123,51 @@ export default function GeoChart() {
       </CardHeader>
 
       <CardContent>
-        <div className="relative">
-          <div id="geo-chart" className="w-full h-[576px]" />
-          <div className="absolute bottom-4">
-            <Button variant="secondary" size="icon" 
+        <div className="relative ">
+          <div id="geo-chart" className="w-full h-[576px] " />
+          <div className="absolute bottom- ">
+            <Button variant="secondary" size="icon"
               onClick={() => {
                 setZoom((prev) => Math.min(prev + 0.5, 4));
                 setActiveButton("plus");
               }}
               className={activeButton === "plus" ? "bg-primary text-white" : ""}
-              >
+            >
               <Plus className="h-4 w-4" />
             </Button>
-            <Button variant="secondary" size="icon" 
+            <Button variant="secondary" size="icon"
               onClick={() => {
                 setZoom((prev) => Math.max(prev - 0.5, 1));
                 setActiveButton("minus");
               }}
-              className={`ml-4 ${activeButton === "minus" ? "bg-primary text-white" : ""}`} 
-              >
+              className={`ml-4 ${activeButton === "minus" ? "bg-primary text-white" : ""}`}
+            >
               <Minus className="h-4 w-4" />
             </Button>
           </div>
         </div>
 
-        <div className="mt-3 space-y-4">
-          {countryDataByYear[year].map(({ country, percentage, flag }) => (
-            <div key={country} className="flex items-center gap-2">
-              <Image src={flag} alt={`${country} flag`} width={24} height={18} className="w-8 h-auto rounded-sm" />
-              <span className="w-32">{country}</span>
-              <div className="flex-1 h-[18px] bg-gray-100 rounded-full overflow-hidden">
-                <div
-                  className="h-full transition-all duration-500"
-                  style={{
-                    width: `${percentage}%`,
-                    backgroundColor: colorScheme[1],
-                  }}
-                />
-               
+        <div className="pt-[55px]">
+
+          <div className="mt-3 space-y-4 pt-5 border-t-[1px]  ">
+            {countryDataByYear[year].map(({ country, percentage, flag }) => (
+              <div key={country} className="flex items-center gap-2  ">
+                <Image src={flag} alt={`${country} flag`} width={24} height={18} className="w-8 h-auto rounded-sm" />
+                <span className="w-32">{country}</span>
+                <div className="flex-1 h-[18px] bg-gray-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full transition-all duration-500"
+                    style={{
+                      width: `${percentage}%`,
+                      backgroundColor: colorScheme[1],
+                    }}
+                  />
+
+                </div>
+                <span className="w-12 text-right  font-medium z-40">{percentage}%</span>
               </div>
-              <span className="w-12 text-right  font-medium z-40">{percentage}%</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
 

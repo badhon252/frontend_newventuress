@@ -27,6 +27,11 @@ export const Recentcustomer: RecentCustomerType[] = [
         order: "Spam",
         amount: 55,
     },
+    {
+        id: 5,
+        order: "Spam",
+        amount: 55,
+    },
 
 
 ];

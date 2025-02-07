@@ -14,6 +14,7 @@ import Footer from "@/components/shared/footer/mainFooter/footer";
 import NewsletterPage from "@/components/shared/footer/newsletter/newsletter";
 import Navbar from "@/components/shared/header/mainHeader/navbar";
 import { cn } from "@/lib/utils";
+import { ThemeProvider } from "@/provider/theme-provider";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -36,8 +37,9 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <AppProvider>
-        <html lang="en">
-          <body className={cn("antialiased", inter.className)}>
+        <html lang="en" >
+          <body className={cn("antialiased dark:bg-white",  inter.className)}>
+            <ThemeProvider attribute="class" defaultTheme="light" >
             <div>
               <Navbar loggedin={!!session} />
             </div>
@@ -49,6 +51,7 @@ export default async function RootLayout({
             </div>
             <NProgress />
             <Toaster />
+            </ThemeProvider>
           </body>
         </html>
       </AppProvider>

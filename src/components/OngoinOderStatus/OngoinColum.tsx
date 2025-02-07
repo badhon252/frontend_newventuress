@@ -8,7 +8,7 @@ export const OngoinColumns: ColumnDef<CustomerDataType>[] = [
     header: "Customer",
     cell: ({ row }) => (
      <div className="flex justify-center">
-       <div className="flex  items-center gap-1" >
+       <div className="flex  items-center gap-1 " >
         <div >
           <Image
             src={row.original.image}

@@ -38,7 +38,7 @@ export function BusinessInfoForm() {
     };
   }, []);
 
-  const { mutate, isPending } = useMutation({
+  const {  isPending } = useMutation({
     mutationKey: ["registration"],
     mutationFn: (data: authSliceType) =>
       fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/register`, {
@@ -134,8 +134,7 @@ export function BusinessInfoForm() {
   };
 
   const submitForm = () => {
-    console.log(authState);
-    mutate(authState);
+    router.push("/login")
   };
 
   const isNextDisabled = !currentBusinessInfo?.license;

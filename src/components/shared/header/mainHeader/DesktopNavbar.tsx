@@ -67,8 +67,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/"
           className={cn(
-            "text-[20px] font-medium hover:text-gradient",
-            pathName === "/" ? "text-gradient" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
+            pathName === "/" ? "text-primary-blue-main dark:text-primary-pink-main" : "text-black font-normal"
           )}
         >
           Home
@@ -76,8 +76,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/about"
           className={cn(
-            "text-[20px] font-normal hover:text-gradient",
-            pathName === "/about" ? "text-gradient" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
+            pathName === "/about" ? "text-primary-blue-main dark:text-primary-pink-main" : "text-black font-normal"
           )}
         >
           About
@@ -85,9 +85,9 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href=""
           className={cn(
-            "text-[20px] font-normal hover:text-gradient",
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
             pathName === "/products"
-              ? "text-gradient"
+              ? "text-primary-blue-main dark:text-primary-pink-main"
               : "text-black font-normal"
           )}
         >
@@ -96,8 +96,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/blogs"
           className={cn(
-            "text-[20px] font-normal hover:text-gradient",
-            pathName === "/blogs" ? "text-gradient" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
+            pathName === "/blogs" ? "text-primary-blue-main dark:text-primary-pink-main" : "text-black font-normal"
           )}
         >
           Blog
@@ -105,8 +105,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href=""
           className={cn(
-            "text-[20px] font-normal hover:text-gradient",
-            pathName === "" ? "text-gradient" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
+            pathName === "" ? "text-primary-blue-main dark:text-primary-pink-main" : "text-black font-normal"
           )}
         >
           <PagesList />
@@ -114,8 +114,8 @@ function DesktopNavbar({ pathName, loggedin }: DesktopNavbarProps) {
         <Link
           href="/contact"
           className={cn(
-            "text-[20px] font-normal hover:text-gradient",
-            pathName === "/contact" ? "text-gradient" : "text-black font-normal"
+            "text-[20px] font-medium hover:text-primary-blue-main dark:hover:text-primary-pink-main",
+            pathName === "/contact" ? "text-primary-blue-main dark:text-primary-pink-main" : "text-black font-normal"
           )}
         >
           Contact

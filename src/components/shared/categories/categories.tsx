@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 function Categories() {
   const [category, setCategory] = useState("All Categories");
@@ -45,10 +45,10 @@ function Categories() {
     <DropdownMenu
       onOpenChange={(isOpen) => setDropdownOpen(isOpen)} // Tracks dropdown open state
     >
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className="">
         <Button
           variant="outline"
-          className="mb-2 lg:mb-0 w-[178px] h-[44px] text-white hover:text-white justify-between gap-2 bg-primary hover:bg-primary-green focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="mb-2 lg:mb-0 w-fit h-[44px] text-white hover:text-white justify-between gap-2 bg-primary  focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
         >
           {category}
           <ChevronDown className="h-4 w-4" />

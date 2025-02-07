@@ -2,9 +2,32 @@
 
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
+import { ChevronDown } from "lucide-react"
+import { format } from "date-fns"
+import type { DateRange } from "react-day-picker"
+import { useEffect, useState } from "react"
+import DateRangePicker from "./DateRangePicker"
 
 export default function CuponFilter() {
+  const [date, setDate] = useState<DateRange | undefined>()
+  useEffect(() => {
+    if (date) {
+      console.log("Date Range Changed:", {
+        from: date.from ? format(date.from, "yyyy-MM-dd") : undefined,
+        to: date.to ? format(date.to, "yyyy-MM-dd") : undefined,
+      })
+    }
+  }, [date])
+
+  const formatDateRange = (range: DateRange | undefined) => {
+    if (range?.from) {
+      if (range.to) {
+        return `${format(range.from, "LLL dd, y")} - ${format(range.to, "LLL dd, y")}`
+      }
+      return format(range.from, "LLL dd, y")
+    }
+    return "Pick a date range"
+  }
   return (
     <div className="flex items-center bg-white mb-[30px] gap-4 p-4 w-full rounded-[12px]">
       <div className="flex items-center gap-2">
@@ -36,19 +59,24 @@ export default function CuponFilter() {
         </Select>
       </div>
 
-      <Select>
-        <SelectTrigger className="w-[180px] bg-primary text-white border-0  [&>svg]:text-white">
-          <SelectValue placeholder="Chose Date Range" />
-     
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="today">Today</SelectItem>
-          <SelectItem value="yesterday">Yesterday</SelectItem>
-          <SelectItem value="last7days">Last 7 Days</SelectItem>
-          <SelectItem value="last30days">Last 30 Days</SelectItem>
-          <SelectItem value="custom">Custom Range</SelectItem>
-        </SelectContent>
-      </Select>
+      <div className="h-full flex items-center gap-2">
+          <DateRangePicker
+            date={date}
+            onDateChange={(newDate) => {
+              setDate(newDate)
+              console.log("Date Range Selected:", {
+                from: newDate?.from ? format(newDate.from, "yyyy-MM-dd") : undefined,
+                to: newDate?.to ? format(newDate.to, "yyyy-MM-dd") : undefined,
+              })
+            }}
+            trigger={
+              <button className="h-[34px] px-[10px] rounded-[8px] text-nowrap text-base bg-primary flex items-center justify-center gap-2   text-white hover:bg-[#1e2875]/90">
+                {formatDateRange(date)}
+                <ChevronDown  size={18}/>
+              </button>
+            }
+          />
+        </div>
 
       <div className="ml-auto">
         <Button variant="default" className="bg-primary text-white ">

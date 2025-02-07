@@ -26,5 +26,12 @@ export interface CustomerDataType {
       orderId: 'ORD112233',
       date: '2025-01-28',
       status: 'pending'
+    },
+    {
+      name: 'Alice Johnson',
+      image: '/assets/img/ongoin.png',
+      orderId: 'ORD112233',
+      date: '2025-01-28',
+      status: 'pending'
     }
   ];

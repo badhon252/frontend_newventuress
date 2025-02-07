@@ -38,7 +38,7 @@ function AuctionFilter() {
       const [products, setProducts] = useState<string>("All Product Types"); // Default to "auctions"
       const [auctions, setAuctions] = useState<string>("All Auctions"); // Default to "auctions"
   return (
-    <div className="h-[60px] p-[8px] bg-white w-full flex items-center justify-between rounded-[12px]">
+    <div className="  bg-white w-full flex items-center justify-between rounded-[12px] py-[23px]">
       {/* Dropdown for "Show" */}
       <div className="flex gap-x-[28px]">
         <div className="h-full flex items-center gap-x-[9px] w-fit">

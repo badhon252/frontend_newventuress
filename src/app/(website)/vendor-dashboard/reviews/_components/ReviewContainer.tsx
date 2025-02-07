@@ -19,7 +19,11 @@ import Image from "next/image";
 
 export const MediaColumns: ColumnDef<ReviewdemoTableItemsType>[] = [
   {
-    header: "profile ",
+    id: "profile",
+    header: () => <div className=" flex items-center justify-center gap-2 ">
+      <ImagePlus className="w-[16px] h-[16px]" />
+      <span>Profile</span>
+    </div>,
     cell: ({ row }) => {
       return (
         <div className="w-[250px] h-[150px] flex  items-center justify-around">
@@ -46,7 +50,7 @@ export const MediaColumns: ColumnDef<ReviewdemoTableItemsType>[] = [
     header: "products",
     cell: () => {
       return (
-        <div>
+        <div className="text-left">
           <ProductReview
             image={productData.image}
             title={productData.title}
@@ -76,8 +80,9 @@ export const MediaColumns: ColumnDef<ReviewdemoTableItemsType>[] = [
     header: "Comments",
     cell: ({ row }) => {
       return (
-        <div className="w-[518px] text-left " title={row.original.Comments}>
-          {row.original.Comments}
+        <div className="w-[518px] text-left  " title={row.original.Comments}>
+          <p className="text-base text-[#444444] font-normal leading-[19.2px]">{row.original.Comments}</p>
+          
         </div>
       );
     },
@@ -111,6 +116,7 @@ export default ReviewContainer;
 import { DataTable } from "@/components/ui/data-table";
 import { ColumnDef } from "@tanstack/react-table";
 import ProductReview from "./ProductReview";
+import { ImagePlus } from "lucide-react";
 
 const TableContainer = ({
   data,

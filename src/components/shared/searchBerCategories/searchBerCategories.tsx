@@ -1,19 +1,18 @@
-import React from 'react'
-import SearchBer from '../searchBer/searchBer';
 import Categories from '../categories/categories';
+import SearchBer from '../searchBer/searchBer';
+import ThemeSwitcher from './theme-switcher';
 
 
 
 function SearchBerCategories() {
     return (
-        <div className='bg-primary-light pt-[9px] lg:py-[10px]'>
-            <div className='container md:flex flex-1 lg:items-center lg:justify-center gap-8'>
-                <div>
+        <div className='bg-[#E6EEF6] dark:bg-[#482D721A] py-[10px]'>
+            <div className='container  gap-8 flex items-center justify-between'>
+               
                     <Categories />
-                </div>
-                <div className='hidden md:block'>
                     <SearchBer />
-                </div>
+                
+                    <ThemeSwitcher />
             </div>
         </div>
     )

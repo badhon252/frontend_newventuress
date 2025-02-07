@@ -71,7 +71,7 @@ const PacificPagination: React.FC<PaginationProps> = ({
               } else handlePageClick(currentPage - 1);
             }}
             className={cn(
-              "border border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
+              "border  border-[#152764] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
               currentPage === 1 &&
                 "cursor-not-allowed bg-[#E3E3E3] border-0  pointer-events-none"
             )}

@@ -62,7 +62,7 @@ const PopularCategoriesCard = () => {
       {categories.map((category, i) => (
         <Card
           key={category.id}
-          className="overflow-hidden w-full  lg:w-[270px] shadow-none "
+          className="overflow-hidden w-full  lg:w-[270px] shadow-none bg-white border-0"
         >
           <CardContent className=" p-[12px]">
             <motion.div

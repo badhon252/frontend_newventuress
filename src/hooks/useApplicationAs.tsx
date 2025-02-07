@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 interface StoreState {
-  as: string;
+  as: "CBD/HEMP" | "RECREATIONAL";
   setValue: (value: string) => void;
 }
 
@@ -11,7 +11,7 @@ const useStore = create<StoreState>()(
   persist(
     (set) => ({
       as: "CBD/HEMP", // Default value for light theme
-      setValue: (value: string) => set({ as: value }),
+      setValue: (value: string) => set({ as: value as "CBD/HEMP" | "RECREATIONAL" }),
     }),
     {
       name: "theme-store", // The name for the persisted state

@@ -1,12 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 "use client"
+import { Button } from "@/components/ui/button"
 import { addNewBusiness } from "@/redux/features/authentication/AuthSlice"
 import { useAppDispatch, useAppSelector } from "@/redux/store"
 import { VectorMap } from "@react-jvectormap/core"
 import { worldMill } from "@react-jvectormap/world"
 import { AnimatePresence, motion } from "framer-motion"
 import { Loader2 } from "lucide-react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -136,6 +138,13 @@ function TestCountry() {
     `)
   }
 
+  const countriess = selectedCountries.join('_')
+
+  const redirectUrl =
+      selectedCountries.includes("United States")  || selectedCountries.includes("Canada")
+        ? `/registration/country/${countriess}`
+        : `/registration/country/${countriess}/business_information`;
+
   return (
     <motion.div
       exit={{
@@ -216,6 +225,10 @@ function TestCountry() {
         onRegionTipShow={handleRegionTipShow}
         onRegionClick={handleRegionClick}
       />
+      <div className="mt-4 w-full flex justify-end">
+        <Button asChild >
+          <Link href={redirectUrl}>
+          Continue</Link></Button>      </div>
       <div className="mt-4 hidden">
         <h3>Selected Countries:</h3>
         <ul>

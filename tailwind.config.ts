@@ -13,7 +13,6 @@ const config: Config = {
         "green-gra": "linear-gradient(90deg, #1D4C1F 0%, #44B249 100%)",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        gradient: "hsl(var(--gradient))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",

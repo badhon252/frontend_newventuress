@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 
 const ThemeSwitcher = () => {
          const {as} = useApplicationAs()
-  const { theme, setTheme } = useTheme()
+  const {  setTheme } = useTheme()
         
            // Set theme based on selected tab value
   const handleTabChange = (theme: string) => {

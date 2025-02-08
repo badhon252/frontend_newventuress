@@ -43,15 +43,16 @@ function Categories() {
 
   return (
     <DropdownMenu
+    
       onOpenChange={(isOpen) => setDropdownOpen(isOpen)} // Tracks dropdown open state
     >
       <DropdownMenuTrigger asChild className="">
         <Button
           variant="outline"
-          className="mb-2 lg:mb-0 w-fit h-[44px] text-white hover:text-white justify-between gap-2 bg-primary  focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="mb-2  lg:mb-0 w-[178px] lg:w-[178px] text-[14px] lg:text-[16px]   h-[44px] text-1rem text-white hover:text-white gap-2 bg-primary  focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
         >
           {category}
-          <ChevronDown className="h-4 w-4" />
+          <ChevronDown className="h-4 " />
         </Button>
       </DropdownMenuTrigger>
       <AnimatePresence>

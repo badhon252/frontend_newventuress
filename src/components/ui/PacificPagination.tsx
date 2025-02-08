@@ -87,9 +87,9 @@ const PacificPagination: React.FC<PaginationProps> = ({
             <PaginationLink
               onClick={() => handlePageClick(page)}
               className={cn(
-                "border cursor-pointer border-[#4857BD] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
+                "border cursor-pointer border-[#4857BD] dark:border dark:bg-pinkGradient dark:hover:text-gradient-pink dark:border-[#6841A5] hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] hover:text-[#4857BD]",
                 page === currentPage
-                  ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white"
+                  ? "bg-gradient-to-r from-[#121D42] via-[#152764] to-[#4857BD] text-white "
                   : "hover:bg-gradient-to-r hover:from-[#4857BD] hover:via-[#6B87DF] hover:to-[#BCC9FA] text-gradient hover:text-[#4857BD]"
               )}
             >

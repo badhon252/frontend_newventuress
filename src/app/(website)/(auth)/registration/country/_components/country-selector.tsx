@@ -39,6 +39,7 @@ function CountrySelector() {
   const router = useRouter();
 
   const [mapPaths, setMapPaths] = useState(null);
+ 
   const authState = useAppSelector((state) => state.auth);
 
   const businesses = authState.businessInfo;
@@ -105,6 +106,14 @@ function CountrySelector() {
 
     router.push(redirectUrl);
   }
+
+
+
+
+
+  
+  
+  
 
   function handleRegionTipShow(event, label, code) {
     const countryName = countries[code] || "Unknown Country";

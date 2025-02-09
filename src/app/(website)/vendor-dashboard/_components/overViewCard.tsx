@@ -12,7 +12,7 @@ const OverViewCard = ({ title, amount, icon }: MetricCardProps) => {
   return (
   <div className='w-full'>
       <Card className="  p-0   ">
-    <CardContent className="flex items-center gap-5 p-4 ">
+    <CardContent className="flex rounded-[12px] items-center gap-5 p-4 ">
         
         <Image
                 className=""
@@ -23,8 +23,8 @@ const OverViewCard = ({ title, amount, icon }: MetricCardProps) => {
               />
       
       <div className="space-y-1">
-        <p className="text-[16px] font-semibold text-[#444444]">{title}</p>
-        <p className="text-[22px] text-[#1A1A1A] font-semibold">$ {amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
+        <p className="text-[16px] font-semibold text-[#444444] dark:text-gradient-pink">{title}</p>
+        <p className="text-[22px] text-[#1A1A1A] font-semibold dark:text-gradient-pink">$ {amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
       </div>
     </CardContent>
   </Card>

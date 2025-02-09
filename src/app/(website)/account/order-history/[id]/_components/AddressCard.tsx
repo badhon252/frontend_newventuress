@@ -11,7 +11,7 @@ interface AddressCardProps {
 export function AddressCard({ title, info, className }: AddressCardProps) {
   return (
     <div className={cn("flex flex-col min-w-[240px] w-[284px]", className)}>
-      <div className="flex-1 shrink gap-2.5 self-stretch p-3 w-[140%] md:w-full text-2xl font-medium leading-tight text-gradient border-b border-solid border-b-stone-300">
+      <div className="flex-1 shrink gap-2.5 self-stretch p-3 w-[140%] md:w-full text-2xl font-medium leading-tight text-gradient dark:text-gradient-pink border-b border-solid border-b-stone-300">
         {title}
       </div>
       <div className="flex flex-col p-3 w-full text-base">

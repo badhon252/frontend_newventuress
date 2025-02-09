@@ -30,11 +30,11 @@ export function DataTable<TData, TValue>({
   titleClass,
 }: DataTableProps<TData, TValue>) {
   return (
-    <div className="rounded-[24px] border bg-white pt-[32px]">
+    <div className="rounded-[24px] bg-white dark:bg-[482D721A] pt-[32px]">
       <div
         className={cn(
           titleClass,
-          "mx-[32px] flex h-[78px] items-center rounded-t-[24px] bg-primary px-4 py-3 text-[32px] text-white pl-[32px]",
+          "mx-[32px] flex h-[78px] items-center rounded-t-[24px] bg-primary dark:bg-pinkGradient px-4 py-3 text-[32px] text-white pl-[32px]",
         )}
       >
         {title}

@@ -59,7 +59,7 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
               {row.original.name}
             </h3>
             <div className="flex items-center  py-1 rounded">
-              <span className="text-sm text-[#444444] font-normal  border border-[#444444] rounded-xl flex items-center gap-2 px-2 py-1 ">
+              <span className="text-sm text-[#444444] font-normal  border border-[#444444] rounded-3xl flex items-center gap-2 px-2 py-1 ">
                 <Check className="w-3 h-3" />
                 In stock (08)
               </span>
@@ -131,7 +131,7 @@ export const AuctionListingColumns: ColumnDef<AuctionsListingDataType>[] = [
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="h-8 w-8 p-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0  "
+                className="h-8 w-8 p-0 focus:outline-none focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0  dark:hover:bg-[#482D721A]"
               >
                 <MoreHorizontal className="h-4 w-4 dark:text-black" />
               </Button>

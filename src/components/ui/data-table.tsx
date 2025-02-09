@@ -66,13 +66,13 @@ export function DataTable<TData, TValue>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody >
+        <TableBody>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
                 key={row.id}
                 data-state={row.getIsSelected() && "selected"}
-                className="text-center  "
+                className="text-center"
               >
                 {row.getVisibleCells().map((cell) => (
                   <TableCell key={cell.id}>

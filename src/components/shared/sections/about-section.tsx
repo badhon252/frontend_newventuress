@@ -15,7 +15,8 @@ export default function AboutSection({ image }: { image: string }) {
                 <h1 className=" text-[25px] lg:text-[32px] font-semibold text-gradient dark:bg-pinkGradient leading-[30px] lg:leading-[38.4px]">
                   About Pacific Rim Fusion
                 </h1>
-                <h4 className="text-[16px] leading-[19.2px] lg:text-[20px] font-medium lg:leading-[24px] text-gradient dark:text-gradient-pink">
+                <h4 className="text-[16px] leading-[19.2px] lg:text-[20px] font-medium lg:leading-[24px] text-gradient dark:text-gradient-pink
+                ">
                   Cannabis B2B Marketplace
                 </h4>
               </div>

@@ -23,8 +23,8 @@ const OverViewCard = ({ title, amount, icon }: MetricCardProps) => {
               />
       
       <div className="space-y-1">
-        <p className="text-[16px] font-semibold text-[#444444] dark:text-gradient-pink">{title}</p>
-        <p className="text-[22px] text-[#1A1A1A] font-semibold dark:text-gradient-pink">$ {amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
+        <p className="text-[16px] font-semibold text-[#444444]">{title}</p>
+        <p className="text-[22px] text-[#1A1A1A] font-semibold">$ {amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}</p>
       </div>
     </CardContent>
   </Card>

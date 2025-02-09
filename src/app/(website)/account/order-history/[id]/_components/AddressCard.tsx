@@ -19,20 +19,20 @@ export function AddressCard({ title, info, className }: AddressCardProps) {
           {info.name}
         </div>
         <div className="flex flex-col mt-3 w-full">
-          <div className="font-medium leading-tight text-neutral-700">
+          <div className="font-medium leading-tight text-[#444444]">
             Address
           </div>
-          <div className="mt-1 leading-5 text-neutral-400">
+          <div className="mt-1 leading-5 text-[#9C9C9C]">
             {info.address}
           </div>
         </div>
         <div className="flex flex-col mt-3 w-full leading-tight whitespace-nowrap">
-          <div className="font-medium text-neutral-700">Email</div>
-          <div className="mt-1 text-neutral-400">{info.email}</div>
+          <div className="font-medium text-[#444444]">Email</div>
+          <div className="mt-1 text-[#9C9C9C]">{info.email}</div>
         </div>
         <div className="flex flex-col mt-3 w-full leading-tight">
-          <div className="font-medium text-neutral-700">Phone</div>
-          <div className="mt-1 text-neutral-400">{info.phone}</div>
+          <div className="font-medium text-[#444444]">Phone</div>
+          <div className="mt-1 text-[#9C9C9C]">{info.phone}</div>
         </div>
       </div>
     </div>

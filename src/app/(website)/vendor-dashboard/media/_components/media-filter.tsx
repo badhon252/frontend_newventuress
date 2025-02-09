@@ -38,7 +38,7 @@ const MediaFilter = () => {
       <div className="flex gap-x-[12px] pl-4 ">
         {/* Dropdown for "Show" */}
         <div className="h-full flex items-center gap-x-[9px] w-fit">
-          <span className="text-[16px] font-medium leading-[19.2px] text-[#444444] dark:text-gradient-pink">
+          <span className="text-[16px] font-medium leading-[19.2px] text-[#444444]">
             Show
           </span>
           <PacificDropdownSelector
@@ -49,7 +49,7 @@ const MediaFilter = () => {
         </div>
         {/* Dropdown for "Entries" */}
         <div className="h-full flex items-center gap-x-[9px] w-fit">
-          <span className="text-[16px] font-medium leading-[19.2px] text-[#444444] dark:text-gradient-pink">
+          <span className="text-[16px] font-medium leading-[19.2px] text-[#444444]">
             Entries
           </span>
           <PacificDropdownSelector

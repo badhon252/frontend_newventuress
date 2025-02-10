@@ -26,7 +26,7 @@ type MonthKey = "Nov" | "Dec" | "Jan";
 // Month data object with proper typing
 const monthData: Record<MonthKey, DataItem[]> = {
   Nov: [
-    { name: "Sales", value: 65, color: "#8A4BE9" },
+    { name: "Sales", value: 65, color: "rgb(19,34,83)" },
     { name: "Pending", value: 15, color: "#DBB0E4" },
     { name: "Distribute", value: 20, color: "#7ABFFF" },
   ],
@@ -57,10 +57,10 @@ export default function AnalyticsChart() {
           <SelectTrigger className="w-[90px] bg-primary dark:bg-pinkGradient text-white border-none">
             <SelectValue />
           </SelectTrigger>
-          <SelectContent className="  text-[12px] rounded-[8px] bg-[#FFFFFF] border-none">
-            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-pinkGradient" value="Nov">Nov 24</SelectItem>
-            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-pinkGradient" value="Dec">Dec 24</SelectItem>
-            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-pinkGradient" value="Jan">Jan 25</SelectItem>
+          <SelectContent className="w-[90px]  text-[12px] rounded-[8px] bg-[#FFFFFF] border-none">
+            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-[#482D721A]" value="Nov">Nov 24</SelectItem>
+            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-[#482D721A]" value="Dec">Dec 24</SelectItem>
+            <SelectItem className="text-[#000000] hover:bg-[#E6EEF6] dark:hover:bg-[#482D721A]" value="Jan">Jan 25</SelectItem>
           </SelectContent>
         </Select>
       </CardHeader>
@@ -99,7 +99,7 @@ export default function AnalyticsChart() {
                 className="h-3 w-3 rounded-full"
                 style={{ backgroundColor: item.color }}
               />
-              <span className="text-base text-[#000000] dark:text-gradient-pink font-medium ">{item.name}</span>
+              <span className="text-base text-[#000000] font-medium ">{item.name}</span>
             </div>
           ))}
         </div>
